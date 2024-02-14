@@ -1,0 +1,1 @@
+web: gunicorn loveshop.wsgi --log-file -

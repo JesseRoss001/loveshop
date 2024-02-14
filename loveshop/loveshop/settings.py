@@ -1,25 +1,12 @@
-import dj_database_url
 import os
+import dj_database_url
 from pathlib import Path
-
-
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-# Static files configuration
-STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-
-# Add 'whitenoise.middleware.WhiteNoiseMiddleware' to MIDDLEWARE
-
-# Database configuration
-DATABASES = {
-    'default': dj_database_url.config(default='postgres://vqxjheds:1nrdvdG2fkWUbcvRB-bjE_xYyKiMlCh9@trumpet.db.elephantsql.com/vqxjheds')
-}
 # Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
+# See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-nc#^$gs3+t@+s+g1^y8p*+#6@#4y9qjxuc)%-ijb%6!b19q3g^'
@@ -27,8 +14,13 @@ SECRET_KEY = 'django-insecure-nc#^$gs3+t@+s+g1^y8p*+#6@#4y9qjxuc)%-ijb%6!b19q3g^
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['https://loveshop-037a9f640521.herokuapp.com','https://8000-jesseross001-loveshop-l66tcfpckvd.ws-eu108.gitpod.io']
-
+# Add the Gitpod and Heroku hostnames to ALLOWED_HOSTS
+ALLOWED_HOSTS = [
+    '8000-jesseross001-loveshop-l66tcfpckvd.ws-eu108.gitpod.io',
+    'loveshop-037a9f640521.herokuapp.com',
+    'localhost',
+    '127.0.0.1',
+]
 
 # Application definition
 
@@ -43,6 +35,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',  # Add this line for WhiteNoise
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -71,22 +64,12 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'loveshop.wsgi.application'
 
-
-# Database
-# https://docs.djangoproject.com/en/5.0/ref/settings/#databases
-
-
-CLOUDINARY_STORAGE = {
-    'CLOUD_NAME': 'your_cloud_name',
-    'API_KEY': '732142741797832',
-    'API_SECRET': 'a_PIRjoEdLwHcDk5npdrRioP5sE'
+# Database configuration
+DATABASES = {
+    'default': dj_database_url.config(default='postgres://vqxjheds:1nrdvdG2fkWUbcvRB-bjE_xYyKiMlCh9@trumpet.db.elephantsql.com/vqxjheds')
 }
 
-DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
-
 # Password validation
-# https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
-
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
@@ -102,25 +85,29 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
-# https://docs.djangoproject.com/en/5.0/topics/i18n/
-
 LANGUAGE_CODE = 'en-us'
-
 TIME_ZONE = 'UTC'
-
 USE_I18N = True
-
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/5.0/howto/static-files/
+STATIC_URL = '/static/'
+STATIC_ROOT = BASE_DIR / 'staticfiles'
 
-STATIC_URL = 'static/'
+# Additional locations of static files
+STATICFILES_DIRS = [
+    BASE_DIR / "static",
+]
 
 # Default primary key field type
-# https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
-
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Cloudinary settings for static and media management
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': 'dajwxekuz',
+    'API_KEY': '732142741797832',
+    'API_SECRET': 'a_PIRjoEdLwHcDk5npdrRioP5sE'
+}
+
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'

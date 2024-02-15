@@ -24,14 +24,8 @@ SECRET_KEY = 'django-insecure-nc#^$gs3+t@+s+g1^y8p*+#6@#4y9qjxuc)%-ijb%6!b19q3g^
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-# Add the Gitpod and Heroku hostnames to ALLOWED_HOSTS
-ALLOWED_HOSTS = [
-    '8000-jesseross001-loveshop-l66tcfpckvd.ws-eu108.gitpod.io',
-    'loveshop-037a9f640521.herokuapp.com',
-    'https://loveshop-037a9f640521.herokuapp.com/',
-    'localhost',
-    '127.0.0.1',
-]
+# Add the Gitpod and Heroku hostnames to ALLOWED_HOSTS  
+ALLOWED_HOSTS = ['loveshop-037a9f640521.herokuapp.com', 'localhost', '127.0.0.1','8000-jesseross001-loveshop-l66tcfpckvd.ws-eu108.gitpod.io',]
 
 # Application definition
 
@@ -47,8 +41,6 @@ INSTALLED_APPS = [
     'accounts',
     'checkout',
     'contact',
-    
-
 ]
 
 MIDDLEWARE = [

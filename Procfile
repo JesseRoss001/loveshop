@@ -1,1 +1,1 @@
-web: gunicorn loveshop.wsgi:application
+gunicorn loveshop.wsgi:application

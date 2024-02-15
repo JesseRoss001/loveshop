@@ -1,15 +1,20 @@
-from django.shortcuts import render, redirect
-from django.contrib.auth.forms import UserCreationForm
+from django.urls import reverse_lazy
+from django.contrib.auth import login
+from django.shortcuts import redirect, render
+from django.views.generic import CreateView
+from .forms import UserRegisterForm
 
+# Registration view
 def register(request):
     if request.method == 'POST':
-        form = UserCreationForm(request.POST)
+        form = UserRegisterForm(request.POST)
         if form.is_valid():
-            form.save()
-            # Redirect to a success page.
-            return redirect('login')
+            user = form.save()
+            login(request, user)  # Log the user in
+            return redirect('home')  # Redirect to home page after registration
     else:
-        form = UserCreationForm()
+        form = UserRegisterForm()
     return render(request, 'registration/register.html', {'form': form})
 
-# Create your views here.
+# Login and Logout views will use Django's built-in views. 
+# You don't need to add them here if you're not customizing them beyond the template.

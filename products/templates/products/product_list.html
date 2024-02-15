@@ -1,6 +1,68 @@
-{% extends "base.html" %}
+{% extends 'base.html' %}
 
 {% block content %}
-<h2>Product List</h2>
+<div class="container mt-4">
+    <h2>Valentine's Day Gifts</h2>
+    <p>Browse our comprehensive list of Valentine's Day gifts and find the perfect present for your loved one.</p>
 
-{% endblock %}
+    <!-- Search and Filter Form -->
+    <form method="get" action="" class="mb-4">
+        <div class="form-row">
+            <div class="col">
+                <input type="text" name="query" class="form-control" placeholder="Search products..." value="{{ request.GET.query }}">
+            </div>
+            <div class="col">
+                <select name="category" class="form-control">
+                    <option value="">All Categories</option>
+                    {% for category, category_display in CATEGORY_CHOICES %}
+                    <option value="{{ category }}" {% if request.GET.category == category %}selected{% endif %}>{{ category_display }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="col">
+                <select name="sort" class="form-control">
+                    <option value="price_asc" {% if request.GET.sort == 'price_asc' %}selected{% endif %}>Price (Low to High)</option>
+                    <option value="price_desc" {% if request.GET.sort == 'price_desc' %}selected{% endif %}>Price (High to Low)</option>
+                </select>
+            </div>
+            <div class="col">
+                <button type="submit" class="btn btn-primary">Filter</button>
+            </div>
+        </div>
+    </form>
+
+    <!-- Products Grid -->
+    <div class="row">
+        {% for product in products %}
+        <div class="col-md-4 mb-3">
+            <div class="card">
+                <img src="{{ product.image.url }}" class="card-img-top" alt="{{ product.name }}">
+                <div class="card-body">
+                    <h5 class="card-title">{{ product.name }}</h5>
+                    <p class="card-text">${{ product.price }}</p>
+                    <p class="card-text">Rating: {{ product.rating }}/5</p>
+                    <a href="#" class="btn btn-primary">Add to cart</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <!-- Pagination -->
+    {% if products.has_other_pages %}
+    <nav aria-label="Page navigation example">
+        <ul class="pagination">
+            {% if products.has_previous %}
+                <li class="page-item"><a class="page-link" href="?page=1&{% if request.GET.query %}query={{ request.GET.query }}&{% endif %}{% if request.GET.category %}category={{ request.GET.category }}&{% endif %}{% if request.GET.sort %}sort={{ request.GET.sort }}&{% endif %}">First</a></li>
+                <li class="page-item"><a class="page-link" href="?page={{ products.previous_page_number }}&{% if request.GET.query %}query={{ request.GET.query }}&{% endif %}{% if request.GET.category %}category={{ request.GET.category }}&{% endif %}{% if request.GET.sort %}sort={{ request.GET.sort }}&{% endif %}">Previous</a></li>
+            {% endif %}
+            <!-- Page numbers can go here -->
+            {% if products.has_next %}
+                <li class="page-item"><a class="page-link" href="?page={{ products.next_page_number }}&{% if request.GET.query %}query={{ request.GET.query }}&{% endif %}{% if request.GET.category %}category={{ request.GET.category }}&{% endif %}{% if request.GET.sort %}sort={{ request.GET.sort }}&{% endif %}">Next</a></li>
+                <li class="page-item"><a class="page-link" href="?page={{ products.paginator.num_pages }}&{% if request.GET.query %}query={{ request.GET.query }}&{% endif %}{% if request.GET.category %}category={{ request.GET.category }}&{% endif %}{%     endif %}{% if request.GET.sort %}sort={{ request.GET.sort }}&{% endif %}">Last</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+        {% endif %}
+    </div>
+    {% endblock %}

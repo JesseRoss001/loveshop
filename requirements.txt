@@ -4,3 +4,4 @@ whitenoise
 psycopg2-binary
 cloudinary
 dj3-cloudinary-storage
+django-environ

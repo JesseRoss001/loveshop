@@ -1,18 +1,41 @@
 
-# Love Shop
+# LoveShop
 
 </h1>
 
 <img src="logo" alt="BudgetBustersBanner" width="1200"/>
 
 
-# Intro
+# Intro:
+
+### LoveShop - Your Ultimate Destination for Romantic Delights
+Welcome to LoveShop, the enchanting online emporium designed to make every moment of love unforgettable. As we pave the way to celebrate the essence of romance, LoveShop is your go-to destination for exquisite Valentine's gifts that speak volumes of affection.
+
+- About LoveShop
+At LoveShop, we believe in turning ordinary moments into extraordinary memories. Our e-commerce platform is meticulously crafted to curate an extensive collection of romantic gifts, ensuring you find the perfect expression of love for your special someone. From timeless classics to unique, personalized treasures, LoveShop offers an array of options that cater to every taste and style.
+
+- Why LoveShop?
+Curated Selection: Our team of experts handpicks each item to ensure a diverse and thoughtful selection of gifts. From classic roses to innovative and personalized keepsakes, LoveShop has it all.
+
+Ease of Navigation: We understand the importance of a seamless shopping experience. Our user-friendly interface allows you to effortlessly browse through products, making your journey to find the ideal gift enjoyable and stress-free.
+
+Secure Transactions: Your security is our priority. LoveShop employs state-of-the-art encryption and secure payment gateways to ensure that your transactions are protected at every step.
+
+Spread the Love
+Join us in the journey of spreading love and joy. LoveShop is not just a place to buy gifts; it's an experience crafted to enhance your celebrations and create lasting memories. Celebrate love, express emotions, and make every moment count with LoveShop.
+
+Happy shopping!
 
 
 # Table of Contents
 - [Love Shop](#love-shop)
 - [Intro](#intro)
 - [Table of Contents](#table-of-contents)
+- [Project](#project)
+  - [Objective](#objective)
+  - [Site User's Goal](#site-user's-goal)
+  - [Project Management](#project-management)
+    - [Github Project Board](#github-project-board)
   - [Demo](#demo)
     - [A live demo to the website can be found here](#a-live-demo-to-the-website-can-be-found-here)
   - [UX](#ux)
@@ -42,6 +65,24 @@
     - [Content](#content)
     - [Media](#media)
 
+
+# Project
+
+## Objective
+
+The primary objective of LoveShop is to create an immersive and user-friendly e-commerce platform dedicated to offering a diverse range of romantic gifts for the celebration of love, with a particular focus on Valentine's Day. Our goal is to provide users with a curated selection of timeless classics, innovative personalized items, and expressive tokens of affection.
+
+## Site User's Goal
+
+The primary goal for users visiting LoveShop is to discover and acquire the perfect romantic gift to express their love and create memorable moments, particularly for occasions like Valentine's Day. Users aim to explore a thoughtfully curated collection of timeless classics and personalized treasures, effortlessly navigating the site to find unique and meaningful items that resonate with their emotions. LoveShop empowers users to enhance their celebrations by providing a seamless and secure online shopping experience, where they can easily select and purchase the ideal gift to convey their sentiments and make every romantic occasion truly special.
+
+## Project Management
+
+### Github Project Board
+
+The Project Board facilitated a comprehensive overview of the project, breaking down tasks, features, and milestones into manageable cards. This approach allowed us to maintain a structured and organized workflow, ensuring that each component of Love Shop was systematically addressed.
+![Project Board](images/project_board.png)
+
 ## Demo
 
 ![Website look on different devices](INSERT LINK)
@@ -50,10 +91,13 @@
 
 ## UX
 
+In the initial design phase of Love Shop, we utilized Figma to create a comprehensive wireframe, providing a visual blueprint for the e-commerce platform. Figma's collaborative features facilitated real-time teamwork, ensuring a cohesive visualization of the user interface. The wireframe outlines essential elements, including navigation menus and product displays, guiding a seamless and intuitive user experience.
+[Wireframe](https://www.figma.com/file/wKzMN7lJ3J6kuoPx5ZbyCn/Wireframe?type=design&node-id=0-1&mode=design&t=vupIF9MRZJLTBluZ-0)
 
 ## User stories
 
-
+The integration of user stories derived from our wireframe designs on the Project Board has been instrumental. It provided a clear linkage between design concepts and functional requirements, ensuring that the development team was aligned with the envisioned user experience. This connection between design and implementation has been crucial in delivering a product that not only meets technical specifications but also aligns seamlessly with the intended user journey.
+![User stories](images/user_stories.png)
 
 ### Strategy
 

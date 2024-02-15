@@ -28,7 +28,7 @@ DEBUG = True
 ALLOWED_HOSTS = [
     '8000-jesseross001-loveshop-l66tcfpckvd.ws-eu108.gitpod.io',
     'loveshop-037a9f640521.herokuapp.com',
-    'https://loveshop-037a9f640521.herokuapp.com',
+    'https://loveshop-037a9f640521.herokuapp.com/',
     'localhost',
     '127.0.0.1',
 ]

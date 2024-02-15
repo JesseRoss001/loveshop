@@ -1,9 +1,15 @@
 import os
 import dj_database_url
-from pathlib import Path
 import environ
+
+# Initialize environment variables
 env = environ.Env()
-environ.Env.read_env()  # read .env file
+# Assuming the .env file is located at the same level as manage.py
+environ.Env.read_env(os.path.join(os.path.dirname(os.path.dirname(__file__)), '.env'))
+
+from pathlib import Path
+
+
 
 STRIPE_SECRET_KEY = env('STRIPE_SECRET_KEY')
 STRIPE_PUBLISHABLE_KEY = env('STRIPE_PUBLISHABLE_KEY')
@@ -41,7 +47,7 @@ INSTALLED_APPS = [
     'accounts',
     'checkout',
     'contact',
-    'django_environ',
+    
 
 ]
 

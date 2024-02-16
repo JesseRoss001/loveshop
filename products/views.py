@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.http import JsonResponse
 from django.db.models import Q
 from .models import Product, CATEGORY_CHOICES
 from django.core.paginator import Paginator

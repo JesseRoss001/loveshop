@@ -3,14 +3,24 @@
 {% block content %}
 <div class="container">
     <h2>Your Cart</h2>
-    {% for item in cart.items.all %}
-    <div class="cart-item">
-        <h5>{{ item.product.name }}</h5>
-        <p>Quantity: {{ item.quantity }}</p>
-        <p>Price: ${{ item.total_price }}</p>
+    <div id="cart-items">
+        {% for item in cart.items.all %}
+        <div class="cart-item" data-item-id="{{ item.id }}">
+            <h5>{{ item.product.name }}</h5>
+            <p>Quantity: 
+                <button class="btn btn-sm btn-outline-secondary update-cart" data-item-id="{{ item.id }}" data-action="decrease">-</button>
+                <span id="quantity-{{ item.id }}">{{ item.quantity }}</span>
+                <button class="btn btn-sm btn-outline-secondary update-cart" data-item-id="{{ item.id }}" data-action="increase">+</button>
+            </p>
+            <p>Price: ${{ item.product.price }}</p>
+            <p>Total: $<span id="total-{{ item.id }}">{{ item.total_price }}</span></p>
+            <button class="btn btn-danger remove-from-cart" data-item-id="{{ item.id }}">Remove</button>
+        </div>
+        {% empty %}
+        <p>Your cart is empty.</p>
+        {% endfor %}
     </div>
-    {% endfor %}
-    <p>Total: ${{ cart.total_price }}</p>
+    <p>Total: $<span id="cart-total">{{ cart.total_price }}</span></p>
     <!-- Add a form for the user to enter their postcode -->
     <form action="{% url 'checkout' %}" method="post">
         {% csrf_token %}
@@ -19,4 +29,65 @@
         <button type="submit">Checkout</button>
     </form>
 </div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('.update-cart').forEach(function(button) {
+        button.addEventListener('click', function() {
+            var itemId = this.dataset.itemId;
+            var action = this.dataset.action;
+            updateUserOrder(itemId, action);
+        });
+    });
+
+    document.querySelectorAll('.remove-from-cart').forEach(function(button) {
+        button.addEventListener('click', function() {
+            var itemId = this.dataset.itemId;
+            removeItemFromCart(itemId);
+        });
+    });
+
+    function updateUserOrder(itemId, action) {
+        fetch(`{% url 'products:update_cart' %}`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRFToken': '{{ csrf_token }}',
+            },
+            body: JSON.stringify({'itemId': itemId, 'action': action})
+        })
+        .then((response) => response.json())
+        .then((data) => {
+            if (data.status === 'success') {
+                // Update UI with new quantities and totals
+                document.getElementById('quantity-' + itemId).textContent = data.itemQuantity;
+                document.getElementById('total-' + itemId).textContent = data.itemTotal;
+                document.getElementById('cart-total').textContent = data.cartTotal;
+                document.getElementById('cart-icon-count').textContent = data.cartItemsCount;
+            }
+        });
+    }
+
+    function removeItemFromCart(itemId) {
+        fetch(`{% url 'products:remove_from_cart' %}`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRFToken': '{{ csrf_token }}',
+            },
+            body: JSON.stringify({'itemId': itemId})
+        })
+        .then((response) => response.json())
+        .then((data) => {
+            if (data.status === 'success') {
+                // Remove item from UI or update cart
+                var itemDiv = document.querySelector('[data-item-id="' + itemId + '"]');
+                itemDiv.parentNode.removeChild(itemDiv);
+                document.getElementById('cart-total').textContent = data.cartTotal;
+                document.getElementById('cart-icon-count').textContent = data.cartItemsCount;
+            }
+        });
+    }
+});
+</script>
 {% endblock %}

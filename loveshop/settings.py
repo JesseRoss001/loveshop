@@ -31,7 +31,7 @@ CSRF_TRUSTED_ORIGINS = [
     'https://127.0.0.1',
     'https://8000-jesseross001-loveshop-l66tcfpckvd.ws-eu108.gitpod.io',
     'https://loveshop-037a9f640521.herokuapp.com',
-    'https://8000-enrightc-loveshop-1yvrkj5ue7l.ws-eu108.gitpod.io'
+    'https://8000-enrightc-loveshop-1yvrkj5ue7l.ws-eu108.gitpod.io',
 ]
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home'

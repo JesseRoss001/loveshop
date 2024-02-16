@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% load static %}
+{% load crispy_forms_tags %}
 
 {% block extra_title %} | ContactUs{% endblock %}
 
@@ -69,22 +69,7 @@
             <form action="{% url 'contact:index' %}" method="POST">
                 <!-- Contact Form -->
                 {% csrf_token %}
-                <div class="form-group d-flex flex-column justify-content-center align-items-center">
-                    <label for="email">Email Address</label>
-                    <input type="email" id="email" class="form-control " name="message-email"
-                        placeholder="name@example.com" required>
-                </div>
-                <div class="form-group d-flex flex-column justify-content-center align-items-center">
-                    <label for="name">Your Name</label>
-                    <input type="text" id="name" class="form-control" name="message-name" minlength="3"
-                        placeholder="Your Name" required>
-                </div>
-                <div class="form-group d-flex flex-column justify-content-center align-items-center">
-                    <label for="message">Your message</label>
-                    <textarea class="form-control" id="message" name="message" minlength="10" rows="10"
-                        required></textarea>
-                </div>
-                <div class="text-center">
+                {{ form|crispy }}
                     <button type="submit" class="btn btn-lg btn-secondary px-5 mb-3 rounded-pill text-black">Submit</button>
                 </div>
             </form>

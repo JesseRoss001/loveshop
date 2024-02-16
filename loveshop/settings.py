@@ -48,6 +48,9 @@ INSTALLED_APPS = [
     'accounts',
     'checkout',
     'contact',
+
+    # Other Apps
+    'crispy_forms',
 ]
 
 MIDDLEWARE = [
@@ -75,6 +78,10 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
             ],
+            'builtins': [
+                'crispy_forms.templatetags.crispy_forms_tags',
+                'crispy_forms.templatetags.crispy_forms_field'
+            ]
         },
     },
 ]
@@ -130,14 +137,3 @@ CLOUDINARY_STORAGE = {
 
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-
-MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
-
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
-EMAIL_HOST_USER = env('EMAIL_HOST_USER')
-EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASS')
-DEFAULT_FROM_EMAIL = env('EMAIL_HOST_USER')

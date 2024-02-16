@@ -3,6 +3,9 @@
 body {
     font-family: 'Cormoran Garamond', 'sans-serif';
     background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 /* ------------- Header font */
@@ -82,3 +85,10 @@ body {
 .lottie {
     height: 500px;
 }
+
+/* ----------------- Footer */
+
+.ls-colour {
+    color: #d51857;
+}
+

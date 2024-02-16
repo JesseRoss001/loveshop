@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Parisienne&display=swap');
+
+body {
+    font-family: 'Cormoran Garamond', 'sans-serif';
+    background-color: #fff;
+}
+
+/* ------------- Header font */
+
+.head-font {
+    font-family: 'Parisienne', 'sans-serif';
+}
+
+/* -------------- Home page image */
+.hero {
+    height: 430px;
+    background: url('/media/hero.webp') no-repeat center center;
+    background-size: cover;
+}
+
+/* -------------- loveshop button */
+.ls-btn {
+    background: #d51857;
+    color: #fff;
+    letter-spacing: 1px;
+}
+
+.ls-btn:hover,
+.ls-btn:active {
+    border: 2px solid #d51857!important;
+    background: transparent;
+    color: #000;
+}
+
+.link-hov:hover {
+    color: #d51857;
+}
+
+/* ------------------ Banner animation */
+.baner-anim {
+    position: relative;
+    height: 40px;
+}
+
+
+.baner-anim .anim {
+    width: 100%;
+    visibility: hidden;
+    position: absolute;
+    top: 0;
+    animation: 4s autoplay infinite;
+}
+
+
+.baner-anim .anim:nth-child(1) {
+    animation-delay: 0s;
+}
+
+
+.baner-anim .anim:nth-child(2) {
+    animation-delay: 2s;
+}
+
+.pink-bg {
+    background-color: #d51857;
+}
+
+
+
+/* ------------------- Keyframes for banner animation */
+@keyframes autoplay {
+    0% {
+        visibility: visible
+    }
+    50% {
+        visibility: hidden
+    }
+  }

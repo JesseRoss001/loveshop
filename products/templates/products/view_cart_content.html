@@ -1,4 +1,3 @@
-{% extends 'base.html' %}
 
 {% block content %}
 <div class="container">
@@ -7,8 +6,8 @@
         {% for item in cart.items.all %}
         <div class="cart-item" data-item-id="{{ item.id }}">
             <h5>{{ item.product.name }}</h5>
-            <p>Quantity: 
-                <button class="btn btn-sm btn-outline-secondary update-cart" data-item-id="{{ item.id }}" data-action="decrease">-</button>
+            <p>Quantity:
+                <button class="btn btn-sm btn-outline-secondary update-cart" data-item-id="{{ item.id }}" data-action="decrease" >-</button>
                 <span id="quantity-{{ item.id }}">{{ item.quantity }}</span>
                 <button class="btn btn-sm btn-outline-secondary update-cart" data-item-id="{{ item.id }}" data-action="increase">+</button>
             </p>
@@ -21,14 +20,9 @@
         {% endfor %}
     </div>
     <p>Total: $<span id="cart-total">{{ cart.total_price }}</span></p>
-    <!-- Add a form for the user to enter their postcode -->
-    <form action="{% url 'checkout' %}" method="post">
-        {% csrf_token %}
-        <label for="postcode">Enter your postcode:</label>
-        <input type="text" id="postcode" name="postcode">
-        <button type="submit">Checkout</button>
-    </form>
+    <!-- Add any additional content here -->
 </div>
+
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
@@ -68,26 +62,42 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    function removeItemFromCart(itemId) {
-        fetch(`{% url 'products:remove_from_cart' %}`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'X-CSRFToken': '{{ csrf_token }}',
-            },
-            body: JSON.stringify({'itemId': itemId})
-        })
-        .then((response) => response.json())
-        .then((data) => {
-            if (data.status === 'success') {
-                // Remove item from UI or update cart
-                var itemDiv = document.querySelector('[data-item-id="' + itemId + '"]');
-                itemDiv.parentNode.removeChild(itemDiv);
-                document.getElementById('cart-total').textContent = data.cartTotal;
-                document.getElementById('cart-icon-count').textContent = data.cartItemsCount;
-            }
-        });
+    function updateUserOrder(itemId, action) {
+    if(action == "decrease") {
+        var currentQuantity = parseInt(document.getElementById('quantity-' + itemId).textContent);
+        if(currentQuantity == 1) {
+            removeItemFromCart(itemId);
+            return;
+        }
     }
-});
+
+    // Existing fetch call to update the cart
+    fetch(`{% url 'products:update_cart' %}`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRFToken': '{{ csrf_token }}',
+        },
+        body: JSON.stringify({'itemId': itemId, 'action': action})
+    })
+    .then((response) => response.json())
+    .then((data) => {
+        if (data.status === 'success') {
+            // Update UI with new quantities and totals
+            document.getElementById('quantity-' + itemId).textContent = data.itemQuantity;
+            document.getElementById('total-' + itemId).textContent = data.itemTotal;
+            document.getElementById('cart-total').textContent = data.cartTotal;
+            document.getElementById('cart-icon-count').textContent = data.cartItemsCount;
+
+            // If quantity update results in zero, remove the item element
+            if(data.itemQuantity == 0) {
+                var itemDiv = document.querySelector('[data-item-id="' + itemId + '"]');
+                if(itemDiv) {
+                    itemDiv.remove(); // Remove the item element from the DOM
+                }
+            }
+        }
+    });
+
 </script>
 {% endblock %}

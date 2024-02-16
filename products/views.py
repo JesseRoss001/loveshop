@@ -61,53 +61,63 @@ def view_cart(request):
 def cart_items(request):
     cart = Cart.objects.get(user=request.user)
     return render(request, 'products/cart_items.html', {'cart': cart})
-
 @login_required
 @require_POST
 def remove_from_cart(request):
     data = json.loads(request.body)
-    productId = data['productId']
-    cart = Cart.objects.get(user=request.user)
-    product = get_object_or_404(Product, id=productId)
-    cart_item = get_object_or_404(CartItem, cart=cart, product=product)
+    item_id = data.get('itemId')
+    cart_item = get_object_or_404(CartItem, id=item_id, cart__user=request.user)
+    
+    cart_item.product.quantity_remaining += cart_item.quantity
+    cart_item.product.save()
     cart_item.delete()
-    return JsonResponse({'status': 'Item removed'})
+
+    cart = Cart.objects.get(user=request.user)
+    return JsonResponse({
+        'status': 'success',
+        'cartTotal': cart.total_price,
+        'cartItemsCount': cart.items.count()
+    })
 
 @login_required
 @require_POST
 def update_cart(request):
     data = json.loads(request.body)
-    productId = data['productId']
-    action = data['action']
-    cart = Cart.objects.get(user=request.user)
-    product = get_object_or_404(Product, id=productId)
-    cart_item, created = CartItem.objects.get_or_create(cart=cart, product=product)
+    item_id = data.get('itemId')
+    action = data.get('action')
+    cart_item = get_object_or_404(CartItem, id=item_id, cart__user=request.user)
+    product = cart_item.product
 
     if action == "increase":
         if product.quantity_remaining > 0:
             cart_item.quantity += 1
             product.quantity_remaining -= 1
-            product.save()
-            cart_item.save()
         else:
-            return JsonResponse({'status': 'No more stock available'})
+            return JsonResponse({'status': 'no_stock'})
+
     elif action == "decrease":
         if cart_item.quantity > 1:
             cart_item.quantity -= 1
             product.quantity_remaining += 1
-            product.save()
-            cart_item.save()
         else:
-            cart_item.delete()
-    elif action == "remove":
-        product.quantity_remaining += cart_item.quantity
-        product.save()
-        cart_item.delete()
+            cart_item.delete()  # If quantity is 1, remove the item
 
-    cart_items_total_quantity = sum(item.quantity for item in cart.items.all())
-    cart_total_price = cart.total_price
+    product.save()
+    cart_item.save()
+
+    cart = Cart.objects.get(user=request.user)
     return JsonResponse({
-        'cartItemsCount': cart_items_total_quantity,
-        'cartTotalPrice': cart_total_price,
-        'status': 'success'
+        'status': 'success',
+        'itemQuantity': cart_item.quantity,
+        'itemTotal': cart_item.total_price,
+        'cartTotal': cart.total_price,
+        'cartItemsCount': cart.items.count()
     })
+@login_required
+def load_view_cart(request):
+    cart = Cart.objects.get(user=request.user)
+    return render(request, 'products/view_cart_content.html', {'cart': cart})
+
+def checkout(request):
+    # Your checkout logic here
+    return render(request, 'checkout.html')

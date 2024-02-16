@@ -32,7 +32,7 @@ CSRF_TRUSTED_ORIGINS = [
     'https://8000-jesseross001-loveshop-l66tcfpckvd.ws-eu108.gitpod.io',
     'https://loveshop-037a9f640521.herokuapp.com'
 ]
-
+LOGOUT_REDIRECT_URL = 'home'
 # Application definition
 
 INSTALLED_APPS = [

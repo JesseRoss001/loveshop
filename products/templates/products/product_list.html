@@ -9,23 +9,24 @@
     <div id="success-message" style="display: none;"></div>
     <p>Browse our comprehensive list of Valentine's Day gifts and find the perfect present for your loved one.</p>
     <!-- Cart Modal -->
-    <div class="modal fade" id="cartModal" tabindex="-1" aria-labelledby="cartModalLabel" aria-hidden="true">
-      <div class="modal-dialog">
-          <div class="modal-content">
-              <div class="modal-header">
-                  <h5 class="modal-title" id="cartModalLabel">Your Cart</h5>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="modal-body">
-                  <!-- Cart Items will be loaded here using AJAX -->
-              </div>
-              <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Continue Shopping</button>
-                  <a href="{% url 'products:view_cart' %}" class="btn btn-primary">Go to Checkout</a>
-              </div>
-          </div>
-      </div>
-  </div>
+<!-- Cart Modal -->
+<div class="modal fade" id="cartModal" tabindex="-1" aria-labelledby="cartModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="cartModalLabel">Your Cart</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <!-- The view_cart content will be loaded here -->
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Continue Shopping</button>
+                <a href="{% url 'products:view_cart' %}" class="btn btn-primary">Go to Checkout</a>
+            </div>
+        </div>
+    </div>
+</div>
     <!-- Search and Filter Form -->
     <form method="get" action="" class="mb-4">
         <div class="form-row">
@@ -91,7 +92,82 @@
   
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Use event delegation to ensure dynamically added elements handle the click event
+            // Event listener for modal show action
+            var cartModal = document.getElementById('cartModal');
+            cartModal.addEventListener('show.bs.modal', function(e) {
+                fetch('{% url 'products:load_view_cart' %}')
+                .then(response => response.text())
+                .then(html => {
+                    cartModal.querySelector('.modal-body').innerHTML = html;
+                    rebindCartEventHandlers();
+                });
+            });
+        
+            // Function to rebind event handlers after new content is loaded into the modal
+            function rebindCartEventHandlers() {
+                // Bind event handlers for updating cart item quantities
+                document.querySelectorAll('.update-cart').forEach(function(button) {
+                    button.addEventListener('click', function() {
+                        var itemId = this.dataset.itemId;
+                        var action = this.dataset.action;
+                        updateUserOrder(itemId, action);
+                    });
+                });
+        
+                // Bind event handlers for removing items from the cart
+                document.querySelectorAll('.remove-from-cart').forEach(function(button) {
+                    button.addEventListener('click', function() {
+                        var itemId = this.dataset.itemId;
+                        removeItemFromCart(itemId);
+                    });
+                });
+            }
+        
+            // Function to update the user's cart
+            function updateUserOrder(itemId, action) {
+                fetch(`{% url 'products:update_cart' %}`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRFToken': document.querySelector('input[name="csrfmiddlewaretoken"]').value,
+                    },
+                    body: JSON.stringify({'itemId': itemId, 'action': action})
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.status === 'success') {
+                        document.getElementById('quantity-' + itemId).textContent = data.itemQuantity;
+                        document.getElementById('total-' + itemId).textContent = data.itemTotal;
+                        document.getElementById('cart-total').textContent = data.cartTotal;
+                        document.getElementById('cart-icon-count').textContent = data.cartItemsCount;
+                    }
+                });
+            }
+        
+            // Function to remove an item from the user's cart
+            function removeItemFromCart(itemId) {
+                fetch(`{% url 'products:remove_from_cart' %}`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRFToken': document.querySelector('input[name="csrfmiddlewaretoken"]').value,
+                    },
+                    body: JSON.stringify({'itemId': itemId})
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.status === 'success') {
+                        var itemDiv = document.querySelector('[data-item-id="' + itemId + '"]');
+                        if(itemDiv) {
+                            itemDiv.remove(); // Remove the item element from the DOM
+                        }
+                        document.getElementById('cart-total').textContent = data.cartTotal;
+                        document.getElementById('cart-icon-count').textContent = data.cartItemsCount;
+                    }
+                });
+            }
+        
+            // Event listener for add-to-cart buttons
             document.addEventListener('click', function(e) {
                 if (e.target && e.target.matches('.add-to-cart')) {
                     e.preventDefault();
@@ -117,16 +193,6 @@
                     });
                 }
             });
-    
-            // AJAX call to load cart items
-            var cartModal = document.getElementById('cartModal');
-            cartModal.addEventListener('show.bs.modal', function(e) {
-                fetch('{% url 'products:cart_items' %}')
-                .then(response => response.text())
-                .then(html => {
-                    cartModal.querySelector('.modal-body').innerHTML = html;
-                });
-            });
         });
-    </script>
+        </script>
     {% endblock %}

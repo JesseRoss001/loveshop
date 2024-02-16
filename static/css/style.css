@@ -20,10 +20,12 @@ body {
 .ls-btn {
     background: #d51857;
     color: #fff;
+    letter-spacing: 1px;
 }
 
-.ls-btn:hover {
-    border: 2px solid #d51857;
+.ls-btn:hover,
+.ls-btn:active {
+    border: 2px solid #d51857!important;
     background: transparent;
     color: #000;
 }

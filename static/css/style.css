@@ -11,3 +11,19 @@ body {
     font-family: 'Parisienne', 'sans-serif';
 }
 
+.hero {
+    height: 430px;
+    background: url('/media/hero.webp') no-repeat center center;
+    background-size: cover;
+}
+
+.ls-btn {
+    background: #d51857;
+    color: #fff;
+}
+
+.ls-btn:hover {
+    border: 2px solid #d51857;
+    background: transparent;
+    color: #000;
+}

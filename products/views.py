@@ -39,9 +39,18 @@ def add_to_cart(request, product_id):
     if not created:
         cart_item.quantity += 1
     cart_item.save()
-    return redirect('product_list')
+    
+    # Assuming cart.items.all() gives you all cart items for the user
+    cart_items_count = cart.items.count()
+    return JsonResponse({'cartItemsCount': cart_items_count})
 
 @login_required
 def view_cart(request):
     cart, created = Cart.objects.get_or_create(user=request.user)
     return render(request, 'cart/view_cart.html', {'cart': cart})
+
+# views.py
+@login_required
+def cart_items(request):
+    cart = Cart.objects.get(user=request.user)
+    return render(request, 'products/cart_items.html', {'cart': cart})

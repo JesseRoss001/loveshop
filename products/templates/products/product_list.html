@@ -3,8 +3,29 @@
 {% block content %}
 <div class="container mt-4">
     <h2>Valentine's Day Gifts</h2>
+    <a href="#" data-bs-toggle="modal" data-bs-target="#cartModal">
+        <i class="fas fa-shopping-cart"></i> Cart <span id="cart-icon-count">0</span>
+    </a>
+    <div id="success-message" style="display: none;"></div>
     <p>Browse our comprehensive list of Valentine's Day gifts and find the perfect present for your loved one.</p>
-
+<!-- Cart Modal -->
+<div class="modal fade" id="cartModal" tabindex="-1" aria-labelledby="cartModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="cartModalLabel">Your Cart</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <!-- Cart Items will be loaded here using AJAX -->
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Continue Shopping</button>
+          <a href="{% url 'products:view_cart' %}" class="btn btn-primary">Go to Checkout</a>
+        </div>
+      </div>
+    </div>
+  </div>
     <!-- Search and Filter Form -->
     <form method="get" action="" class="mb-4">
         <div class="form-row">
@@ -41,7 +62,7 @@
                     <h5 class="card-title">{{ product.name }}</h5>
                     <p class="card-text">${{ product.price }}</p>
                     <p class="card-text">Rating: {{ product.rating }}/5</p>
-                    <a href="#" class="btn btn-primary">Add to cart</a>
+                    <a href="{% url 'products:add_to_cart' product.id %}" class="btn btn-primary add-to-cart" data-product-id="{{ product.id }}">Add to cart</a>
                 </div>
             </div>
         </div>
@@ -66,4 +87,38 @@
 </nav>
 {% endif %}
     </div>
+    <script>// JavaScript to load cart items using AJAX
+        $(document).ready(function(){
+          $('#cartModal').on('show.bs.modal', function (e) {
+            $.ajax({
+              url: "{% url 'products:cart_items' %}", // You need to create this view & URL
+              success: function (data) {
+                $('#cartModal .modal-body').html(data);
+              }
+            });
+          });
+        });
+</script>
+<script>
+    $(document).ready(function(){
+      $('.add-to-cart').click(function(e){
+        e.preventDefault();
+        var productId = $(this).data('product-id');
+        $.ajax({
+          url: "{% url 'products:add_to_cart' 0 %}".replace('0', productId),
+          type: 'post',
+          data: {
+            csrfmiddlewaretoken: $('input[name="csrfmiddlewaretoken"]').val(),
+            product_id: productId
+          },
+          success: function (response) {
+            // Update cart icon count or show a success message
+            $('#cart-icon-count').text(response.cartItemsCount); // Assuming you have an element for showing the count
+            // Optionally, show a success message
+            $('#success-message').text('Item added to cart successfully').show().fadeOut(3000); // Assuming you have an element for showing success messages
+          }
+        });
+      });
+    });
+    </script>
     {% endblock %}

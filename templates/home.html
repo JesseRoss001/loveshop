@@ -4,9 +4,13 @@
 {% block content %}
 <div class="container">
     <div class="row">
-        <div class="col-12 col-md-6 my-3 d-flex flex-column justify-content-end">
+        <div class="col-12 col-md-6 d-flex flex-column justify-content-end p-0 my-3">
             <h1 class="head-font my-3">Find the perfect Valentine's Day gifts</h1>
-            <h4 class="my-3">Celebrate love with our curated collection of gifts and enjoy great deals
+            <h4 class="my-3 fst-italic ls-border">Welcome to "Be Mine Boutique," where love finds its perfect expression! Dive into a world of
+                romance with our curated Valentine's Day collection. From exquisite bouquets to elegant jewelry, find
+                the perfect token of affection for your special someone. Explore personalized options, heartwarming
+                cards, and delightful treats to make every moment memorable. Be Mine Boutique — celebrate love effortlessly! Shop
+                now and let us be your cupid in creating extraordinary moments.
             </h4>
             <h4>
                 <a href="{% url 'products:index' %}" class="btn ls-btn rounded text-uppercase my-3 p-3">Shop
@@ -15,7 +19,7 @@
         </div>
         <div class="col-12 col-md-6 hero">
             <!-- Container for the animation -->
-            <div id="lottie-container" style="height: 500px;"></div>
+            <div id="lottie-container" class="lottie"></div>
         </div>
     </div>
 </div>

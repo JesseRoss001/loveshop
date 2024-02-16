@@ -11,12 +11,14 @@ body {
     font-family: 'Parisienne', 'sans-serif';
 }
 
+/* -------------- Home page image */
 .hero {
     height: 430px;
     background: url('/media/hero.webp') no-repeat center center;
     background-size: cover;
 }
 
+/* -------------- loveshop button */
 .ls-btn {
     background: #d51857;
     color: #fff;
@@ -29,3 +31,48 @@ body {
     background: transparent;
     color: #000;
 }
+
+.link-hov:hover {
+    color: #d51857;
+}
+
+/* ------------------ Banner animation */
+.baner-anim {
+    position: relative;
+    height: 40px;
+}
+
+
+.baner-anim .anim {
+    width: 100%;
+    visibility: hidden;
+    position: absolute;
+    top: 0;
+    animation: 4s autoplay infinite;
+}
+
+
+.baner-anim .anim:nth-child(1) {
+    animation-delay: 0s;
+}
+
+
+.baner-anim .anim:nth-child(2) {
+    animation-delay: 2s;
+}
+
+.pink-bg {
+    background-color: #d51857;
+}
+
+
+
+/* ------------------- Keyframes for banner animation */
+@keyframes autoplay {
+    0% {
+        visibility: visible
+    }
+    50% {
+        visibility: hidden
+    }
+  }

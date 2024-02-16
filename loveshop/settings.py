@@ -114,9 +114,9 @@ STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 # Additional locations of static files
 # Comment out or remove this if you're not using local static directories
-# STATICFILES_DIRS = [
-#     BASE_DIR / "static",
-# ]
+STATICFILES_DIRS = [
+    BASE_DIR / "static",
+]
 
 # Default primary key field type
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'

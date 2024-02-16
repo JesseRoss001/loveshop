@@ -8,23 +8,23 @@
     </a>
     <div id="success-message" style="display: none;"></div>
     <p>Browse our comprehensive list of Valentine's Day gifts and find the perfect present for your loved one.</p>
-<!-- Cart Modal -->
-<div class="modal fade" id="cartModal" tabindex="-1" aria-labelledby="cartModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="cartModalLabel">Your Cart</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <!-- Cart Items will be loaded here using AJAX -->
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Continue Shopping</button>
-          <a href="{% url 'products:view_cart' %}" class="btn btn-primary">Go to Checkout</a>
-        </div>
+    <!-- Cart Modal -->
+    <div class="modal fade" id="cartModal" tabindex="-1" aria-labelledby="cartModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <h5 class="modal-title" id="cartModalLabel">Your Cart</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                  <!-- Cart Items will be loaded here using AJAX -->
+              </div>
+              <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Continue Shopping</button>
+                  <a href="{% url 'products:view_cart' %}" class="btn btn-primary">Go to Checkout</a>
+              </div>
+          </div>
       </div>
-    </div>
   </div>
     <!-- Search and Filter Form -->
     <form method="get" action="" class="mb-4">
@@ -87,38 +87,46 @@
 </nav>
 {% endif %}
     </div>
-    <script>// JavaScript to load cart items using AJAX
-        $(document).ready(function(){
-          $('#cartModal').on('show.bs.modal', function (e) {
-            $.ajax({
-              url: "{% url 'products:cart_items' %}", // You need to create this view & URL
-              success: function (data) {
-                $('#cartModal .modal-body').html(data);
-              }
+
+  
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Use event delegation to ensure dynamically added elements handle the click event
+            document.addEventListener('click', function(e) {
+                if (e.target && e.target.matches('.add-to-cart')) {
+                    e.preventDefault();
+                    var productId = e.target.dataset.productId;
+                    fetch(`{% url 'products:add_to_cart' 0 %}`.replace('0', productId), {
+                        method: 'POST',
+                        headers: {
+                            'X-CSRFToken': document.querySelector('input[name="csrfmiddlewaretoken"]').value,
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({ product_id: productId })
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        document.getElementById('cart-icon-count').textContent = data.cartItemsCount;
+                        var successMessage = document.getElementById('success-message');
+                        successMessage.textContent = 'Item added to cart successfully';
+                        successMessage.style.display = 'block';
+                        setTimeout(function() { successMessage.style.display = 'none'; }, 3000);
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                    });
+                }
             });
-          });
+    
+            // AJAX call to load cart items
+            var cartModal = document.getElementById('cartModal');
+            cartModal.addEventListener('show.bs.modal', function(e) {
+                fetch('{% url 'products:cart_items' %}')
+                .then(response => response.text())
+                .then(html => {
+                    cartModal.querySelector('.modal-body').innerHTML = html;
+                });
+            });
         });
-</script>
-<script>
-    $(document).ready(function(){
-      $('.add-to-cart').click(function(e){
-        e.preventDefault();
-        var productId = $(this).data('product-id');
-        $.ajax({
-          url: "{% url 'products:add_to_cart' 0 %}".replace('0', productId),
-          type: 'post',
-          data: {
-            csrfmiddlewaretoken: $('input[name="csrfmiddlewaretoken"]').val(),
-            product_id: productId
-          },
-          success: function (response) {
-            // Update cart icon count or show a success message
-            $('#cart-icon-count').text(response.cartItemsCount); // Assuming you have an element for showing the count
-            // Optionally, show a success message
-            $('#success-message').text('Item added to cart successfully').show().fadeOut(3000); // Assuming you have an element for showing success messages
-          }
-        });
-      });
-    });
     </script>
     {% endblock %}

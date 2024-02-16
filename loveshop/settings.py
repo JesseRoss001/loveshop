@@ -25,12 +25,19 @@ SECRET_KEY = 'django-insecure-nc#^$gs3+t@+s+g1^y8p*+#6@#4y9qjxuc)%-ijb%6!b19q3g^
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 # Add the Gitpod and Heroku hostnames to ALLOWED_HOSTS  
-ALLOWED_HOSTS = ['loveshop-037a9f640521.herokuapp.com', 'localhost', '127.0.0.1','8000-jesseross001-loveshop-l66tcfpckvd.ws-eu108.gitpod.io','8000-jesseross001-loveshop-x4466lrm8sk.ws-eu108.gitpod.io']
+
+
+ALLOWED_HOSTS = ['loveshop-037a9f640521.herokuapp.com', 'localhost', '127.0.0.1', '8000-jesseross001-loveshop-l66tcfpckvd.ws-eu108.gitpod.io', '8000-enrightc-loveshop-1yvrkj5ue7l.ws-eu108.gitpod.io', '8000-jesseross001-loveshop-ge9dv0dwqbc.ws-eu108.gitpod.io','8000-jesseross001-loveshop-rb2o8pkonni.ws-eu108.gitpod.io']
+
+
 CSRF_TRUSTED_ORIGINS = [
     'https://localhost',
     'https://127.0.0.1',
     'https://8000-jesseross001-loveshop-l66tcfpckvd.ws-eu108.gitpod.io',
-    'https://loveshop-037a9f640521.herokuapp.com'
+
+    'https://8000-jesseross001-loveshop-rb2o8pkonni.ws-eu108.gitpod.io',
+    'https://loveshop-037a9f640521.herokuapp.com',
+    'https://8000-jesseross001-loveshop-ge9dv0dwqbc.ws-eu108.gitpod.io',
 ]
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home'
@@ -48,6 +55,9 @@ INSTALLED_APPS = [
     'accounts',
     'checkout',
     'contact',
+
+    # Other Apps
+    'crispy_forms',
 ]
 
 MIDDLEWARE = [
@@ -75,6 +85,10 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
             ],
+            'builtins': [
+                'crispy_forms.templatetags.crispy_forms_tags',
+                'crispy_forms.templatetags.crispy_forms_field'
+            ]
         },
     },
 ]
@@ -129,3 +143,4 @@ CLOUDINARY_STORAGE = {
 }
 
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+

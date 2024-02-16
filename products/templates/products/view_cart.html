@@ -6,9 +6,16 @@
     {% for item in cart.items.all %}
     <div class="cart-item">
         <h5>{{ item.product.name }}</h5>
-        <p>Quantity: {{ item.quantity }}</p>
+        <p>Quantity: 
+            <button class="btn btn-sm btn-outline-secondary update-cart" data-product-id="{{ item.product.id }}" data-action="decrease">-</button>
+            {{ item.quantity }}
+            <button class="btn btn-sm btn-outline-secondary update-cart" data-product-id="{{ item.product.id }}" data-action="increase">+</button>
+        </p>
         <p>Price: ${{ item.total_price }}</p>
+        <button class="btn btn-danger remove-from-cart" data-product-id="{{ item.product.id }}">Remove</button>
     </div>
+    {% empty %}
+    <p>Your cart is empty.</p>
     {% endfor %}
     <p>Total: ${{ cart.total_price }}</p>
     <!-- Add a form for the user to enter their postcode -->
@@ -19,4 +26,55 @@
         <button type="submit">Checkout</button>
     </form>
 </div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    var updateBtns = document.getElementsByClassName('update-cart');
+    for (var i = 0; i < updateBtns.length; i++) {
+        updateBtns[i].addEventListener('click', function() {
+            var productId = this.dataset.productId;
+            var action = this.dataset.action;
+            updateUserOrder(productId, action);
+        });
+    }
+
+    var removeBtns = document.getElementsByClassName('remove-from-cart');
+    for (var i = 0; i < removeBtns.length; i++) {
+        removeBtns[i].addEventListener('click', function() {
+            var productId = this.dataset.productId;
+            removeItemFromCart(productId);
+        });
+    }
+
+    function updateUserOrder(productId, action) {
+        fetch(`{% url 'products:update_cart' %}`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRFToken': '{{ csrf_token }}',
+            },
+            body: JSON.stringify({'productId': productId, 'action': action})
+        })
+        .then((response) => response.json())
+        .then((data) => {
+            location.reload();
+        });
+    }
+
+    function removeItemFromCart(productId) {
+        fetch(`{% url 'products:remove_from_cart' %}`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRFToken': '{{ csrf_token }}',
+            },
+            body: JSON.stringify({'productId': productId})
+        })
+        .then((response) => response.json())
+        .then((data) => {
+            location.reload();
+        });
+    }
+});
+</script>
 {% endblock %}

@@ -9,4 +9,7 @@ urlpatterns = [
     path('cart/', view_cart, name='view_cart'),
 # urls.py
     path('cart/items/', views.cart_items, name='cart_items'),
+    path('remove-from-cart/', views.remove_from_cart, name='remove_from_cart'),
+    path('update-cart/', views.update_cart, name='update_cart'),
+    # ... your other URL patterns ...
 ]

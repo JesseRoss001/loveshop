@@ -1,8 +1,26 @@
 {% extends "base.html" %}
+{% load static %}
+{% block extra_css %}
+<link href="{% static 'checkout/css/style.css' %}" rel="stylesheet">
+{% endblock extra_css %}
+
 
 {% block content %}
 <div class="container">
-    <h2>Payment Successful</h2>
-    <p>Thank you for your purchase!</p>
+    <div class="row text-center">
+        <div class="col-12">
+            <h2 class="my-3">Payment Successful</h2>
+            <h4>Thank you for your purchase!</h4>
+        </div>
+        <div class="col-12">
+            <!-- Container for the animation -->
+            <div id="lottie-container" class="lottie"></div>
+        </div>
+    </div>
 </div>
+{% endblock %}
+
+{% block postloadjs %}
+<!-- Home page animations -->
+<script src="{% static 'js/paymentsuccessful.js' %}"></script>
 {% endblock %}

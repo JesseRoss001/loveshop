@@ -26,16 +26,16 @@
 
     .navbar-nav .nav-link.active,
     .navbar-nav .nav-link:hover {
-      background-color: #f06;
-      color: #fff;
+      border: 2px solid #f06;
+      color: #000;
       border-radius: 4px;
       transition: background-color 0.3s;
     }
 
     /* Ensure the active class has a background color */
     .navbar .nav-link.active {
-      background-color: #f06;
-      color: #fff;
+      border: 2px solid #f06;
+      color: #000;
     }
 
     .navbar-nav .nav-link {
@@ -57,8 +57,8 @@
     }
 
     .navbar-nav .nav-link.active {
-      background-color: #f06;
-      color: #fff;
+      border: 2px solid #f06;
+      color: #000;
       border-radius: 4px;
     }
 
@@ -67,13 +67,11 @@
     }
 
     .navbar-nav .nav-link:hover {
-      color: #fff;
-      background-color: #f06;
+      color: #000;
+      border: 2px solid #f06;
     }
 
-    .nav-link:hover .icon {
-      color: #fff;
-    }
+
 
     /* Cart icon styles */
   </style>
@@ -84,16 +82,6 @@
 <body>
 
   <header>
-    <!-- Banner -->
-    <div class="row text-center baner-anim pink-bg text-white">
-      <div class="anim">
-        <p class="text-uppercase my-2 ms-0">Order by 4PM for next day delivery</p>
-      </div>
-      <div class="anim">
-        <p class="text-uppercase my-2">Free delivery on orders over $100!</p>
-      </div>
-    </div>
-
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="container-fluid justify-content-center">
@@ -112,15 +100,19 @@
               style="height: 60px; margin-right: 2rem;">
             <a class="nav-link {% if request.resolver_match.url_name == 'home' %}active{% endif %}"
               href="{% url 'home' %}">
-              <i class="fas fa-home ls-colour icon"></i> Home
+              <i class="fas fa-home ls-colour"></i> Home
             </a>
             <a class="nav-link {% if request.resolver_match.url_name == 'products:index' %}active{% endif %}"
               href="{% url 'products:index' %}">
-              <i class="fas fa-box-open ls-colour icon"></i> Products
+              <i class="fas fa-box-open ls-colour"></i> Products
             </a>
             <a class="nav-link {% if request.resolver_match.url_name == 'contact:index' %}active{% endif %}"
               href="{% url 'contact:index' %}">
-              <i class="fas fa-envelope ls-colour icon"></i> Contact
+              <i class="fas fa-envelope ls-colour"></i> Contact
+            </a>
+            <a class="nav-link {% if request.resolver_match.url_name == 'about' %}active{% endif %}"
+              href="{% url 'about' %}">
+              <i class="fas fa-book ls-colour"></i> About Us
             </a>
             <a class="nav-link {% if request.resolver_match.url_name == 'about' %}active{% endif %}"
             href="{% url 'about' %}">
@@ -154,10 +146,17 @@
             {% endif %}
           </div>
         </div>
-
       </div>
-
     </nav>
+    <!-- Banner -->
+      <div class="row text-center baner-anim pink-bg text-white">
+        <div class="anim">
+          <p class="text-uppercase my-2 ms-0">Order by 4PM for next day delivery</p>
+        </div>
+        <div class="anim">
+          <p class="text-uppercase my-2">Free UK only delivery</p>
+        </div>
+      </div>
   </header>
 
   <main class="container mt-4">

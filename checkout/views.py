@@ -67,7 +67,8 @@ def create_checkout_session(request):
     except Cart.DoesNotExist:
         return HttpResponse("You do not have a cart.", status=404)
     except Exception as e:
-        return JsonResponse({'error': str(e)})
+        logger.error(f"Error creating checkout session: {e}", exc_info=True)
+        return JsonResponse({'error': "An unexpected error occurred. Please try again later."})
 
 @login_required
 def payment_success(request):

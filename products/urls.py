@@ -1,4 +1,4 @@
-from django.urls import path
+from django.urls import path,include
 from . import views
 from .views import add_to_cart, view_cart, product_list
 from .views import load_view_cart
@@ -13,7 +13,8 @@ urlpatterns = [
     path('cart/remove-from-cart/', views.remove_from_cart, name='remove_from_cart'),
     path('cart/update-cart/', views.update_cart, name='update_cart'),
     path('load-view-cart/', load_view_cart, name='load_view_cart'),
-  
+      # Adjust the path as needed
+]
     
     # ... your other URL patterns ...
-]
+

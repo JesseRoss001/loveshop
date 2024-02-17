@@ -29,6 +29,23 @@ h2 {
     color: #fff;
 }
 
+/* Shopping cart button */
+.btn-border {
+    border: 2px solid #d51857!important;
+    background: transparent;
+    color: #000;
+}
+
+.btn-border:hover {
+    background: #d51857;
+    color: #fff;
+    letter-spacing: 1px;
+}
+
+.ls-bg {
+    background-color: #d51857;
+}
+
 /* Link and Icon Adjustment */
 a {
     color: #d51857;

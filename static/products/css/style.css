@@ -128,3 +128,41 @@ a:hover {
   .out-of-stock .add-to-cart {
     display: none;
   }
+
+  .carousel-item {
+    text-align: center; /* Center text for smaller images */
+}
+
+.carousel-caption h5,
+.carousel-caption .card-text {
+    background-color: rgba(255, 255, 255, 0.75); /* Semi-transparent background */
+    display: inline-block; /* Keep background tight to the text */
+    margin: 0.5em;
+    padding: 0.5em;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: #d51857; /* Make the controls stand out */
+    border-radius: 50%; /* Circular background */
+    padding: 10px; /* Padding around the arrow icons */
+}
+
+/* Ensure carousel images have the same height as cards */
+.carousel-item .card-img-top {
+    height: 325px; /* Adjust height as needed */
+}
+
+/* Adjust the size of the carousel to match the card layout */
+@media (min-width: 768px) {
+    .carousel-inner .carousel-item {
+        flex: 0 0 33.333%; /* Show 3 items at a time for larger screens */
+        max-width: 33.333%;
+    }
+}
+
+/* Adjust carousel controls to be more visible */
+.carousel-control-prev,
+.carousel-control-next {
+    filter: drop-shadow(0 0 2px #000); /* Shadow effect for better visibility */
+}

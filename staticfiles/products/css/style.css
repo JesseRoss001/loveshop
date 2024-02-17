@@ -1,10 +1,48 @@
-/* Add this to the top of your products/css/style.css file */
-/* Existing styles */
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Parisienne&display=swap');
+
+/* General Styles */
+body, h2, .card-title, .card-text, .btn {
+    font-family: 'Cormorant Garamond', serif;
+}
+
+/* Header Styles */
+h2 {
+    color: #d51857;
+    font-weight: bold;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+/* Button Styles */
+.ls-btn, .add-to-cart, .btn-info {
+    background-color: #d51857;
+    border: none;
+    color: #fff;
+    font-size: 1rem;
+    padding: .375rem .75rem;
+    text-transform: uppercase;
+    transition: background-color .3s ease;
+}
+
+.ls-btn:hover, .add-to-cart:hover, .btn-info:hover {
+    background-color: #bb164d;
+    color: #fff;
+}
+
+/* Link and Icon Adjustment */
+a {
+    color: #d51857;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #bb164d;
+}
+
+/* Card Styles */
 .card {
-    background-color: rgba(255, 255, 255, 0.8);
+    background-color: rgba(255, 255, 255, 0.9);
     backdrop-filter: blur(10px);
-    border: 1px solid rgba(0,0,0,0.1);
     border-radius: 15px;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -19,55 +57,24 @@
     width: 100%;
     height: 200px;
     object-fit: cover;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
 }
 
-.card-body {
-    padding: 1rem;
+/* Pagination Styles */
+.pagination .page-link {
+    color: #d51857;
+    transition: background-color .3s;
 }
 
-.card-title {
-    font-size: 1.25rem;
-    font-family: 'Cormorant Garamond', serif;
-}
-
-.card-text {
-    font-family: 'Cormorant Garamond', serif;
-}
-
-.add-to-cart,
-.btn-info {
-    font-family: 'Cormorant Garamond', serif;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-.add-to-cart {
+.pagination .page-link:hover {
     background-color: #d51857;
     color: #fff;
 }
-
-.add-to-cart:hover {
-    background-color: #bb164d;
-}
-
-.btn-info {
-    background-color: #17a2b8;
-    color: #fff;
-}
-
-.btn-info:hover {
-    background-color: #138496;
-}
-
-/* Icon adjustments */
-.add-to-cart i,
-.btn-info i {
-    margin-right: 0.5rem;
-}
-
-/* Pagination adjustments */
-.pagination {
-    justify-content: center;
+.card-img-top {
+    width: 100%;
+    height: 325px;
+    object-fit: cover;
 }
 
 /* Responsive image grid */
@@ -76,3 +83,48 @@
         height: 150px;
     }
 }
+.falling-heart {
+    position: fixed;
+    top: -50px;
+    font-size: 24px; // Adjust the size as needed
+    color: red;
+    pointer-events: none;
+    animation: fall linear forwards;
+}
+
+@keyframes fall {
+    0% {
+        top: -50px;
+        opacity: 0;
+    }
+    20% {
+        opacity: 1;
+    }
+    80% {
+        opacity: 1;
+    }
+    100% {
+        top: 100vh;
+        opacity: 0;
+    }
+}
+
+
+.carousel-caption .original-price {
+    text-decoration: line-through;
+    color: grey;
+  }
+  
+  .carousel-caption .discounted-price {
+    color: red;
+    font-weight: bold;
+  }
+  
+  /* New styles for out-of-stock products */
+  .out-of-stock {
+    opacity: 0.5;
+  }
+  
+  .out-of-stock .add-to-cart {
+    display: none;
+  }

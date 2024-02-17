@@ -4,7 +4,7 @@ from .models import Product, Cart, CartItem
 # Existing ProductAdmin
 @admin.register(Product)
 class ProductAdmin(admin.ModelAdmin):
-    list_display = ['name', 'category', 'price', 'quantity_remaining', 'rating']
+    list_display = ['name', 'category', 'price', 'quantity_remaining', 'rating','is_valentines_special']
     list_filter = ['category', 'rating']
     search_fields = ['name', 'description']
 

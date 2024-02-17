@@ -74,41 +74,44 @@
     </div>
 </div>
 <!-- Valentine's Specials Carousel -->
+{% if valentine_specials %}
 <div id="valentinesCarousel" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-inner">
       {% for product in valentine_specials %}
       <div class="carousel-item {% if forloop.first %}active{% endif %}">
-        <img src="{{ product.image.url }}" class="d-block w-100" alt="{{ product.name }}">
-        <div class="carousel-caption">
-          <h5>{{ product.name }}</h5>
-          <p>
-            <s>£{{ product.price }}</s> £{{ product.discounted_price }}
-          </p>
-          <p class="card-text">Rating: {{ product.rating }}/5</p>
-          {% if product.quantity_remaining > 0 %}
-          <a href="{% url 'products:add_to_cart' product.id %}" class="btn btn-primary add-to-cart" data-product-id="{{ product.id }}">
-              <i class="fas fa-cart-plus"></i> Add to cart
-          </a>
-          {% else %}
-          <button class="btn btn-secondary" disabled>Sold Out</button>
-          {% endif %}
-          <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#productInfoModal" data-product-id="{{ product.id }}">
-              <i class="fas fa-info-circle"></i> Info
-          </button>
+        <div class="card h-100">
+          <img src="{{ product.image.url }}" class="card-img-top" alt="{{ product.name }}">
+          <div class="card-body">
+            <h5 class="card-title">{{ product.name }}</h5>
+            <p class="card-text">
+              <s>£{{ product.price }}</s> £{{ product.discounted_price }}
+            </p>
+            <p class="card-text">Rating: {{ product.rating }}/5</p>
+            {% if product.quantity_remaining > 0 %}
+            <a href="{% url 'products:add_to_cart' product.id %}" class="btn btn-primary add-to-cart" data-product-id="{{ product.id }}">
+                <i class="fas fa-cart-plus"></i> Add to Cart
+            </a>
+            {% else %}
+            <button class="btn btn-secondary" disabled>Sold Out</button>
+            {% endif %}
+            <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#productInfoModal" data-product-id="{{ product.id }}">
+                <i class="fas fa-info-circle"></i> Info
+            </button>
+          </div>
+        </div>
       </div>
-    
-
-{% endfor %}
+      {% endfor %}
+    </div>
+    <a class="carousel-control-prev" href="#valentinesCarousel" role="button" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#valentinesCarousel" role="button" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </a>
 </div>
-<a class="carousel-control-prev" href="#valentinesCarousel" role="button" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-</a>
-<a class="carousel-control-next" href="#valentinesCarousel" role="button" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-</a>
-</div>
+{% endif %}
 
     <!-- Products Grid -->
     <div class="row row-cols-1 row-cols-md-3 g-4"> 

@@ -21,6 +21,8 @@ class Product(models.Model):
     quantity_remaining = models.IntegerField(validators=[MinValueValidator(0)])
     image = models.ImageField(upload_to='product_images/')  # Assuming you have media set up
     rating = models.DecimalField(max_digits=3, decimal_places=2, null=True, blank=True, validators=[MinValueValidator(1), MaxValueValidator(5)])
+    is_valentines_special = models.BooleanField(default=False)
+    discounted_price = models.DecimalField(max_digits=10, decimal_places=2, null=True, blank=True)
 
     def __str__(self):
         return self.name

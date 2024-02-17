@@ -108,3 +108,23 @@ a:hover {
         opacity: 0;
     }
 }
+
+
+.carousel-caption .original-price {
+    text-decoration: line-through;
+    color: grey;
+  }
+  
+  .carousel-caption .discounted-price {
+    color: red;
+    font-weight: bold;
+  }
+  
+  /* New styles for out-of-stock products */
+  .out-of-stock {
+    opacity: 0.5;
+  }
+  
+  .out-of-stock .add-to-cart {
+    display: none;
+  }

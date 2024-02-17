@@ -1,5 +1,7 @@
 # checkout/views.py
+from django.conf import settings  # Add this line at the top of your file
 import stripe
+
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from .forms import AddressForm
@@ -61,4 +63,12 @@ def create_checkout_session(request):
         return HttpResponse("You do not have a cart.", status=404)
     except Exception as e:
         return JsonResponse({'error': str(e)})
+@login_required
+def payment_success(request):
+    # Handle successful payment (e.g., thank the user and confirm the order)
+    return render(request, 'checkout/payment_success.html')
 
+@login_required
+def payment_cancel(request):
+    # Handle payment cancellation or failure (e.g., notify the user and offer retry)
+    return render(request, 'checkout/payment_cancel.html')

@@ -27,7 +27,7 @@ DEBUG = True
 # Add the Gitpod and Heroku hostnames to ALLOWED_HOSTS  
 
 
-ALLOWED_HOSTS = ['loveshop-037a9f640521.herokuapp.com', 'localhost', '127.0.0.1', '8000-jesseross001-loveshop-l66tcfpckvd.ws-eu108.gitpod.io', '8000-enrightc-loveshop-1yvrkj5ue7l.ws-eu108.gitpod.io', '8000-jesseross001-loveshop-ge9dv0dwqbc.ws-eu108.gitpod.io','8000-jesseross001-loveshop-x4466lrm8sk.ws-eu108.gitpod.io']
+ALLOWED_HOSTS = ['loveshop-037a9f640521.herokuapp.com', 'localhost', '127.0.0.1', '8000-jesseross001-loveshop-l66tcfpckvd.ws-eu108.gitpod.io', '8000-enrightc-loveshop-1yvrkj5ue7l.ws-eu108.gitpod.io', '8000-jesseross001-loveshop-ge9dv0dwqbc.ws-eu108.gitpod.io','8000-jesseross001-loveshop-x4466lrm8sk.ws-eu108.gitpod.io', '8000-jesseross001-loveshop-vlxgoz8ar2u.ws-eu108.gitpod.io',  '8000-jesseross001-loveshop-vlxgoz8ar2u.ws-eu108.gitpod.io']
 
 
 CSRF_TRUSTED_ORIGINS = [
@@ -60,13 +60,14 @@ INSTALLED_APPS = [
     'crispy_forms',
 ]
 
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',  # Add this line for WhiteNoise
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
+    #'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',

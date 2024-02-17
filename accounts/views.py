@@ -3,9 +3,8 @@ from django.contrib.auth import login
 from django.shortcuts import redirect, render
 from django.views.generic import CreateView
 from .forms import UserRegisterForm
-from ratelimit.decorators import ratelimit
+
 # Registration view
-@ratelimit(key='ip', rate='5/h', method='POST', block=True)
 def register(request):
     if request.method == 'POST':
         form = UserRegisterForm(request.POST)

@@ -158,7 +158,6 @@
 {% endif %}
     </div>
 
-  
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             // Event listener for modal show action
@@ -171,7 +170,7 @@
                     rebindCartEventHandlers();
                 });
             });
-        
+    
             // Function to rebind event handlers after new content is loaded into the modal
             function rebindCartEventHandlers() {
                 // Bind event handlers for updating cart item quantities
@@ -182,7 +181,7 @@
                         updateUserOrder(itemId, action);
                     });
                 });
-        
+    
                 // Bind event handlers for removing items from the cart
                 document.querySelectorAll('.remove-from-cart').forEach(function(button) {
                     button.addEventListener('click', function() {
@@ -191,7 +190,7 @@
                     });
                 });
             }
-        
+    
             // Function to update the user's cart
             function updateUserOrder(itemId, action) {
                 fetch(`{% url 'products:update_cart' %}`, {
@@ -212,7 +211,7 @@
                     }
                 });
             }
-        
+    
             // Function to remove an item from the user's cart
             function removeItemFromCart(itemId) {
                 fetch(`{% url 'products:remove_from_cart' %}`, {
@@ -235,9 +234,9 @@
                     }
                 });
             }
-        
-            // Event listener for add-to-cart buttons
-            document.addEventListener('click', function(e) {
+    
+            // Delegate event for 'Add to Cart' button clicks from the container
+            document.querySelector('.container').addEventListener('click', function(e) {
                 if (e.target && e.target.matches('.add-to-cart')) {
                     e.preventDefault();
                     var productId = e.target.dataset.productId;
@@ -263,28 +262,29 @@
                 }
             });
         });
-        </script>
-        <script>
-            document.addEventListener('DOMContentLoaded', function() {
-                var productInfoModal = document.getElementById('productInfoModal');
-            
-                document.querySelectorAll('.btn-info').forEach(function(button) {
-                    button.addEventListener('click', function() {
-                        var productId = button.getAttribute('data-product-id');
-            
-                        fetch(`{% url 'products:product_detail' 0 %}`.replace('0', productId))
-                        .then(response => response.json())
-                        .then(data => {
-                            productInfoModal.querySelector('.modal-title').textContent = data.name;
-                            productInfoModal.querySelector('.modal-body').innerHTML = `
-                                <p>Price: £${data.price}</p>
-                                <p>Description: ${data.description}</p>
-                                <p>Rating: ${data.rating}</p>
-                                <!-- Add more details as needed -->
-                            `;
-                        });
-                    });
+    </script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var productInfoModal = document.getElementById('productInfoModal');
+
+        document.querySelectorAll('.btn-info').forEach(function(button) {
+            button.addEventListener('click', function() {
+                var productId = button.getAttribute('data-product-id');
+
+                fetch(`{% url 'products:product_detail' 0 %}`.replace('0', productId))
+                .then(response => response.json())
+                .then(data => {
+                    productInfoModal.querySelector('.modal-title').textContent = data.name;
+                    productInfoModal.querySelector('.modal-body').innerHTML = `
+                        <p>Price: £${data.price}</p>
+                            
+<p>Description: ${data.description}</p>
+                        <p>Rating: ${data.rating}</p>
+                        <!-- Add more details as needed -->
+                    `;
                 });
             });
-            </script>
+        });
+    });
+</script>
     {% endblock %}

@@ -1,5 +1,9 @@
-{% extends 'base.html' %}
 
+{% extends 'base.html' %}
+{% load static %}
+{% block extra_css %}
+<link href="{% static 'products/css/style.css' %}" rel="stylesheet">
+{% endblock extra_css %}
 {% block content %}
 <div class="container mt-4">
     <h2>Valentine's Day Gifts</h2>
@@ -70,17 +74,21 @@
     </form>
 
     <!-- Products Grid -->
-    <div class="row">
+    <div class="row row-cols-1 row-cols-md-3 g-4"> 
         {% for product in products %}
-        <div class="col-6 col-md-4 col-lg-3 mb-3 {% if forloop.counter > 10 %}d-none d-sm-block{% endif %} {% if forloop.counter > 12 %}d-md-none{% endif %} {% if forloop.counter > 16 %}d-lg-none{% endif %}">
-            <div class="card">
-                <img src="{{ product.image.url }}" class="card-img-top" alt="{{ product.name }}">
+        <div class="col mb-3 {% if forloop.counter > 10 %}d-none d-sm-block{% endif %} {% if forloop.counter > 12 %}d-md-none{% endif %} {% if forloop.counter > 16 %}d-lg-none{% endif %}">
+            <div class="card h-100">
+                <img src="{{ product.image.url }}" class="card-img-top w-100 " alt="{{ product.name }}">
                 <div class="card-body">
                     <h5 class="card-title">{{ product.name }}</h5>
                     <p class="card-text">£{{ product.price }}</p>
                     <p class="card-text">Rating: {{ product.rating }}/5</p>
-                    <a href="{% url 'products:add_to_cart' product.id %}" class="btn btn-primary add-to-cart" data-product-id="{{ product.id }}">Add to cart</a>
-                    <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#productInfoModal" data-product-id="{{ product.id }}">Info</button>
+                    <a href="{% url 'products:add_to_cart' product.id %}" class="btn btn-primary add-to-cart" data-product-id="{{ product.id }}">
+                        <i class="fas fa-cart-plus"></i> Add to cart
+                    </a>
+                    <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#productInfoModal" data-product-id="{{ product.id }}">
+                        <i class="fas fa-info-circle"></i> Info
+                    </button>
                 </div>
             </div>
         </div>

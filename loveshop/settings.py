@@ -6,7 +6,7 @@ import environ
 env = environ.Env()
 # Assuming the .env file is located at the same level as manage.py
 environ.Env.read_env(os.path.join(os.path.dirname(os.path.dirname(__file__)), '.env'))
-
+EMAIL_VALIDATION_API_KEY = os.environ.get('EMAIL_VALIDATION_API_KEY', '')
 from pathlib import Path
 
 

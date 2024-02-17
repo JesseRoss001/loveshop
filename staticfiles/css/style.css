@@ -3,6 +3,9 @@
 body {
     font-family: 'Cormoran Garamond', 'sans-serif';
     background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 /* ------------- Header font */
@@ -11,14 +14,14 @@ body {
     font-family: 'Parisienne', 'sans-serif';
 }
 
-/* -------------- Home page image */
-.hero {
-    height: 430px;
-    background: url('/media/hero.webp') no-repeat center center;
-    background-size: cover;
+/* ------------- Border */
+.ls-border {
+    border: 2px solid #d51857;
+    padding: 30px 38px 35px;
 }
 
-/* -------------- loveshop button */
+
+/* -------------- Loveshop button */
 .ls-btn {
     background: #d51857;
     color: #fff;
@@ -76,3 +79,15 @@ body {
         visibility: hidden
     }
   }
+
+/* ----------------- Home Page animation */
+.lottie {
+    height: 500px;
+}
+
+/* ----------------- Footer */
+
+.ls-colour {
+    color: #d51857;
+}
+

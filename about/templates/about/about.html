@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+{% load static %}
+
+<!-- About Page -->
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'about/css/about.css' %}">
+{% endblock %}
+
+{% block extra_title %} - About Us{% endblock %}
+
+{% block content %}
+    <!-- ABOUT SECTION -->
+    <section id="about">
+        <div class="container-fluid">
+            <div class="col d-flex flex-column align-items-center mt-5">
+                <h2 class="title-font text-black my-3 fst-italic">About Us</h2>
+                <hr class="w-50 text-center mb-1">
+        
+            </div>
+        <div class="container mt-5">
+            <div class="row">
+                <div class="col-12 col-md-6 hero">
+                    <!-- Container for the animation -->
+                    <div id="lottie-container-about" class="lottie"></div>
+                </div>
+            
+                <div class="col-12 col-md-6 hero">
+                    <h3 class="title-font text-black my-3 fst-italic">Welcome to LoveShop!.</h3>
+                    <p class="my-3 fst-italic">
+                      Since our doors opened, LoveShop has been the go-to destination for all things love and romance. 
+                      Born from a passion for celebrating love in all its forms, our shop in the heart of downtown has become a sanctuary for romantics seeking the perfect gifts and experiences for their loved ones.
+                      At LoveShop, our mission is to make every Valentine's Day unforgettable by offering an unparalleled selection of heartfelt gifts, personalized experiences, and joyous celebrations of love.!</p>
+                    <hr>
+                    <h3 class="title-font text-black my-3 fst-italic">What We Do</h3>
+                    <p class="my-3 fst-italic">
+                        LoveShop specializes in a wide array of Valentine's Day gifts, from classic roses and chocolates to unique, customizable presents that speak volumes of love. 
+                        <br>
+                        Our shop features:<br><br>
+
+                        <i class="fas fa-heart ls-colour icon"></i>Handpicked Floral Arrangements: Each bouquet is thoughtfully arranged to symbolize love and affection.<br>
+                        <i class="fas fa-heart ls-colour icon"></i>Customizable Gift Baskets: Tailor-made to suit the tastes and preferences of your beloved, filled with gourmet chocolates, fine wines, and artisanal cheeses.<br>
+                        <i class="fas fa-heart ls-colour icon"></i>Exclusive Jewelry Collection: A selection of elegant jewelry pieces designed to make your loved one's heart flutter.
+                    </p>
+                    <hr>
+                    <h3 class="title-font text-black my-3 fst-italic">Our Values</h3>
+                    <p class="my-3 fst-italic">
+                        <strong>Love in Every Form: </strong> 
+                      - We believe love transcends all boundaries and should be celebrated in all its forms, shapes, and sizes.
+                    </p>
+                    <p class="my-3 fst-italic">
+                      <strong>Quality & Thoughtfulness: </strong> 
+                      -  Every gift in our shop is chosen for its ability to convey deep feelings and create lasting memories.
+                    </p>
+                    <p class="my-3 fst-italic">
+                      <strong>Community & Connection:</strong> 
+                      - We strive to create a welcoming space where everyone can celebrate love and connect with others on a meaningful level.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- END ABOUT SECTION -->
+
+
+
+{% endblock content %}
+
+{% block postloadjs %}
+<!-- Home page animations -->
+<script src="{% static 'js/about.js' %}"></script>
+{% endblock %}

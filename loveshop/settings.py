@@ -27,7 +27,7 @@ DEBUG = True
 # Add the Gitpod and Heroku hostnames to ALLOWED_HOSTS  
 
 
-ALLOWED_HOSTS = ['loveshop-037a9f640521.herokuapp.com', 'localhost', '127.0.0.1', '8000-jesseross001-loveshop-l66tcfpckvd.ws-eu108.gitpod.io', '8000-enrightc-loveshop-1yvrkj5ue7l.ws-eu108.gitpod.io', '8000-jesseross001-loveshop-ge9dv0dwqbc.ws-eu108.gitpod.io','8000-jesseross001-loveshop-x4466lrm8sk.ws-eu108.gitpod.io']
+ALLOWED_HOSTS = ['loveshop-037a9f640521.herokuapp.com', 'localhost', '127.0.0.1', '8000-jesseross001-loveshop-l66tcfpckvd.ws-eu108.gitpod.io', '8000-enrightc-loveshop-1yvrkj5ue7l.ws-eu108.gitpod.io', '8000-jesseross001-loveshop-ge9dv0dwqbc.ws-eu108.gitpod.io','8000-jesseross001-loveshop-x4466lrm8sk.ws-eu108.gitpod.io', '8000-jesseross001-loveshop-vlxgoz8ar2u.ws-eu108.gitpod.io',  '8000-jesseross001-loveshop-vlxgoz8ar2u.ws-eu108.gitpod.io', '8000-jesseross001-loveshop-nf87aulamh1.ws-eu108.gitpod.io', '8000-jesseross001-loveshop-nf87aulamh1.ws-eu108.gitpod.io', '8000-jesseross001-loveshop-iw1cu87l27t.ws-eu108.gitpod.io' ]
 
 
 CSRF_TRUSTED_ORIGINS = [
@@ -37,7 +37,7 @@ CSRF_TRUSTED_ORIGINS = [
 
     'https://8000-jesseross001-loveshop-rb2o8pkonni.ws-eu108.gitpod.io',
     'https://loveshop-037a9f640521.herokuapp.com',
-    'https://8000-jesseross001-loveshop-ge9dv0dwqbc.ws-eu108.gitpod.io',
+    'https://8000-jesseross001-loveshop-x4466lrm8sk.ws-eu108.gitpod.io',
 ]
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home'
@@ -55,11 +55,13 @@ INSTALLED_APPS = [
     'accounts',
     'checkout',
     'contact',
+    'about',
 
     # Other Apps
     'crispy_forms',
 ]
 
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

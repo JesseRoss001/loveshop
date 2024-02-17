@@ -24,71 +24,71 @@
       transform: translateY(0);
     }
 
-    .navbar-nav .nav-link.active, .navbar-nav .nav-link:hover {
-      background-color: #f06;
-      color: #fff;
+    .navbar-nav .nav-link.active,
+    .navbar-nav .nav-link:hover {
+      border: 2px solid #f06;
+      color: #000;
       border-radius: 4px;
       transition: background-color 0.3s;
     }
 
-        /* Ensure the active class has a background color */
-        .navbar .nav-link.active {
-      background-color: #f06;
-      color: #fff;
+    /* Ensure the active class has a background color */
+    .navbar .nav-link.active {
+      border: 2px solid #f06;
+      color: #000;
     }
 
     .navbar-nav .nav-link {
       /* Non-active page styles */
       display: flex;
       align-items: center;
-      gap: 0.5rem; /* Adjust gap size as needed */
+      gap: 0.5rem;
+      /* Adjust gap size as needed */
     }
+
     .navbar {
       padding: 0.5rem 1rem;
     }
+
     .navbar-brand svg {
-      height: 40px; /* Adjust size as needed */
+      height: 40px;
+      /* Adjust size as needed */
       margin-right: 0.5rem;
     }
+
     .navbar-nav .nav-link.active {
-      background-color: #f06;
-      color: #fff;
+      border: 2px solid #f06;
+      color: #000;
       border-radius: 4px;
     }
+
     .navbar-nav .nav-link {
       transition: color 0.3s, background-color 0.3s;
     }
-    .navbar-nav .nav-link:hover {
-      color: #fff;
-      background-color: #f06;
-    }
-    /* Cart icon styles */
 
+    .navbar-nav .nav-link:hover {
+      color: #000;
+      border: 2px solid #f06;
+    }
+
+
+
+    /* Cart icon styles */
   </style>
-    {% block extra_css %}
+  {% block extra_css %}
   {% endblock extra_css %}
 </head>
 
 <body>
 
   <header>
-    <!-- Banner -->
-    <div class="row text-center baner-anim pink-bg text-white">
-      <div class="anim">
-        <p class="text-uppercase my-2 ms-0">Order by 4PM for next day delivery</p>
-      </div>
-      <div class="anim">
-        <p class="text-uppercase my-2">Free delivery on orders over $100!</p>
-      </div>
-    </div>
-
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="container-fluid justify-content-center">
         <a class="navbar-brand d-flex d-lg-none align-items-center" href="{% url 'home' %}">
           <!-- SVG logo added here -->
           <img src="{% static 'images/logo2.svg' %}" alt="LoveShop Logo" style="height: 40px; margin-right: 8px;">
-          
+
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
           aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -96,25 +96,33 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div class="navbar-nav text-uppercase mx-auto">
-            <img src="{% static 'images/logo2.svg' %}" class="d-none d-lg-flex" alt="LoveShop Logo" style="height: 60px; margin-right: 2rem;">
-            <a class="nav-link {% if request.resolver_match.url_name == 'home' %}active{% endif %}" href="{% url 'home' %}">
-              <i class="fas fa-home"></i> Home
+            <img src="{% static 'images/logo2.svg' %}" class="d-none d-lg-flex" alt="LoveShop Logo"
+              style="height: 60px; margin-right: 2rem;">
+            <a class="nav-link {% if request.resolver_match.url_name == 'home' %}active{% endif %}"
+              href="{% url 'home' %}">
+              <i class="fas fa-home ls-colour"></i> Home
             </a>
-            <a class="nav-link {% if request.resolver_match.url_name == 'products:index' %}active{% endif %}" href="{% url 'products:index' %}">
-              <i class="fas fa-box-open"></i> Products
+            <a class="nav-link {% if request.resolver_match.url_name == 'products:index' %}active{% endif %}"
+              href="{% url 'products:index' %}">
+              <i class="fas fa-box-open ls-colour"></i> Products
             </a>
-            <a class="nav-link {% if request.resolver_match.url_name == 'contact:index' %}active{% endif %}" href="{% url 'contact:index' %}">
-              <i class="fas fa-envelope"></i> Contact
+            <a class="nav-link {% if request.resolver_match.url_name == 'contact:index' %}active{% endif %}"
+              href="{% url 'contact:index' %}">
+              <i class="fas fa-envelope ls-colour"></i> Contact
+            </a>
+            <a class="nav-link {% if request.resolver_match.url_name == 'about' %}active{% endif %}"
+              href="{% url 'about' %}">
+              <i class="fas fa-book ls-colour"></i> About Us
             </a>
 
- <!-- Cart icon, to be shown only on the products page -->
- {% if request.resolver_match.url_name == 'products:index' %}
- <div class="cart-icon-container">
-   <a class="nav-link cart-icon active" href="#" data-bs-toggle="modal" data-bs-target="#cartModal">
-     <i class="fa fa-shopping-cart nav-icon"></i> Cart <span id="cart-icon-count">0</span>
-   </a>
- </div>
- {% endif %}
+            <!-- Cart icon, to be shown only on the products page -->
+            {% if request.resolver_match.url_name == 'products:index' %}
+            <div class="cart-icon-container">
+              <a class="nav-link cart-icon active" href="#" data-bs-toggle="modal" data-bs-target="#cartModal">
+                <i class="fa fa-shopping-cart nav-icon"></i> Cart <span id="cart-icon-count">0</span>
+              </a>
+            </div>
+            {% endif %}
 
 
 
@@ -125,24 +133,33 @@
             </form>
             <a class="nav-link" href="#" onclick="document.getElementById('logout-form').submit();">Logout</a>
 
-         
+
             {% else %}
-            <a class="nav-link" href="{% url 'accounts:login' %}">Login</a>
-            <a class="nav-link" href="{% url 'accounts:register' %}">Register</a>
-          {% endif %}
+            <a class="nav-link" href="{% url 'accounts:login' %}"> <i class="fa-solid fa-user ls-colour icon"></i>
+              Login</a>
+            <a class="nav-link" href="{% url 'accounts:register' %}"> <i
+                class="fa-solid fa-user-plus ls-colour icon"></i> Register</a>
+            {% endif %}
+          </div>
         </div>
       </div>
-
-          </div>
-      
     </nav>
+    <!-- Banner -->
+      <div class="row text-center baner-anim pink-bg text-white">
+        <div class="anim">
+          <p class="text-uppercase my-2 ms-0">Order by 4PM for next day delivery</p>
+        </div>
+        <div class="anim">
+          <p class="text-uppercase my-2">Free UK only delivery</p>
+        </div>
+      </div>
   </header>
 
   <main class="container mt-4">
     {% block content %}
     {% endblock %}
   </main>
- 
+
   <!-- Footer -->
   <footer class="container text-black pt-4 pb-2 mt-auto">
     <hr class="container border-2 opacity-75 ls-colour">
@@ -163,10 +180,11 @@
         </a>
         <!-- Clickable links for telephone number and email address -->
         <ul class="list-unstyled">
-          <li class="mb-2">Phone: <a class="text-black text-decoration-none" href="tel:01756254754">0123456789</a></li>
-          <li class="mb-2">Email: <a class="text-black text-decoration-none"
+          <li class="mb-2"> <i class="fa-solid fa-phone ls-colour"></i> <a class="text-black text-decoration-none"
+              href="tel:01756254754">0123456789</a></li>
+          <li class="mb-2"> <i class="fa-solid fa-at ls-colour"></i> <a class="text-black text-decoration-none"
               href="mailto:contact@loveshop.com">contact@loveshop.com</a></li>
-          <li>Address: 14 Love Avenue, Loveland, IE</li>
+          <li> <i class="fa-solid fa-location-dot ls-colour"></i> 14 Love Avenue, Loveland, IE</li>
         </ul>
       </div>
       <!-- Social media links -->
@@ -174,17 +192,17 @@
         <h4>Follow Us</h4>
         <a class="d-block text-decoration-none mb-2" href="https://www.facebook.com/" target="_blank"
           aria-label="Facebook - Opens in a new tab">
-          <i class="fa-brands fa-facebook text-black text-center d-inline"></i>
+          <i class="fa-brands fa-facebook ls-colour text-center d-inline"></i>
           <p class="text-black d-inline">Facebook</p>
         </a>
         <a class="d-block text-decoration-none mb-2" href="https://www.instagram.com/" target="_blank"
           aria-label="Instagram - Opens in a new tab">
-          <i class="fa-brands fa-instagram text-black text-center d-inline"></i>
+          <i class="fa-brands fa-instagram ls-colour text-center d-inline"></i>
           <p class="text-black d-inline">Instagram</p>
         </a>
         <a class="d-block text-decoration-none" href="https://twitter.com/" target="_blank"
           aria-label="Twitter - Opens in a new tab">
-          <i class="fa-brands fa-twitter text-black text-center d-inline"></i>
+          <i class="fa-brands fa-twitter ls-colour text-center d-inline"></i>
           <p class="text-black d-inline">Twitter</p>
         </a>
       </div>
@@ -205,11 +223,11 @@
   <!-- Lottie animation-->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.4/lottie.min.js"></script>
 
-  
 
-  
+
+
   {% block postloadjs %}
-<!-- ... your scripts ... -->
+  <!-- ... your scripts ... -->
 
 
 

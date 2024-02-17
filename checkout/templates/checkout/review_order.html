@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <h2>Review Your Order</h2>
+    <ul>
+        {% for item in cart_items %}
+        <li>
+            {{ item.product.name }} - £{{ item.product.price }} x {{ item.quantity }} = £{{ item.total_price }}
+        </li>
+        {% endfor %}
+    </ul>
+    <strong>Total: £{{ cart.total_price }}</strong>
+    <a href="{% url 'checkout:create_checkout_session' %}" class="btn btn-primary">Proceed to Payment</a>
+</div>
+{% endblock %}

@@ -114,10 +114,6 @@
               href="{% url 'about' %}">
               <i class="fas fa-book ls-colour"></i> About Us
             </a>
-            <a class="nav-link {% if request.resolver_match.url_name == 'about' %}active{% endif %}"
-            href="{% url 'about' %}">
-            <i class="fas fa-book ls-colour icon"></i> About Us
-          </a>
 
             <!-- Cart icon, to be shown only on the products page -->
             {% if request.resolver_match.url_name == 'products:index' %}

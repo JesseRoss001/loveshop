@@ -11,15 +11,15 @@
                 <span id="quantity-{{ item.id }}">{{ item.quantity }}</span>
                 <button class="btn btn-sm btn-outline-secondary update-cart" data-item-id="{{ item.id }}" data-action="increase">+</button>
             </p>
-            <p>Price: ${{ item.product.price }}</p>
-            <p>Total: $<span id="total-{{ item.id }}">{{ item.total_price }}</span></p>
+            <p>Price: £{{ item.product.price }}</p>
+            <p>Total: £<span id="total-{{ item.id }}">{{ item.total_price }}</span></p>
             <button class="btn btn-danger remove-from-cart" data-item-id="{{ item.id }}">Remove</button>
         </div>
         {% empty %}
         <p>Your cart is empty.</p>
         {% endfor %}
     </div>
-    <p>Total: $<span id="cart-total">{{ cart.total_price }}</span></p>
+    <p>Total: £<span id="cart-total">{{ cart.total_price }}</span></p>
     <!-- Add any additional content here -->
 </div>
 

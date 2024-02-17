@@ -46,11 +46,11 @@ def create_checkout_session(request):
         
         line_items = [{
             'price_data': {
-                'currency': 'usd',
+                'currency': 'gbp',  # Changed from 'usd' to 'gbp'
                 'product_data': {
                     'name': item.product.name,
                 },
-                'unit_amount': int(item.product.price * 100),
+                'unit_amount': int(item.product.price * 100),  # Assume price is set in pounds
             },
             'quantity': item.quantity,
         } for item in cart_items]

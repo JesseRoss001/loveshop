@@ -14,4 +14,14 @@ body, h2, .card-title, .card-text, .btn {
     outline: 0;
 }
 
+.btn-border {
+    border: 2px solid #d51857!important;
+    background: transparent;
+    color: #000;
+}
 
+.btn-border:hover {
+    background: #d51857;
+    color: #fff;
+    letter-spacing: 1px;
+}

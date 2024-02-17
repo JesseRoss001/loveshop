@@ -1,48 +1,222 @@
 {% load static %}
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>LoveShop</title>
   <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
   <link href="{% static 'css/style.css' %}" rel="stylesheet">
+  <style>
+    /* Add your 3D effect CSS here */
+    header {
+      /* Create 3D effect for the header */
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transform: translateY(-4px);
+      transition: transform 0.3s ease-in-out;
+    }
+
+    header:hover {
+      transform: translateY(0);
+    }
+
+    .navbar-nav .nav-link.active, .navbar-nav .nav-link:hover {
+      background-color: #f06;
+      color: #fff;
+      border-radius: 4px;
+      transition: background-color 0.3s;
+    }
+
+        /* Ensure the active class has a background color */
+        .navbar .nav-link.active {
+      background-color: #f06;
+      color: #fff;
+    }
+
+    .navbar-nav .nav-link {
+      /* Non-active page styles */
+      display: flex;
+      align-items: center;
+      gap: 0.5rem; /* Adjust gap size as needed */
+    }
+    .navbar {
+      padding: 0.5rem 1rem;
+    }
+    .navbar-brand svg {
+      height: 40px; /* Adjust size as needed */
+      margin-right: 0.5rem;
+    }
+    .navbar-nav .nav-link.active {
+      background-color: #f06;
+      color: #fff;
+      border-radius: 4px;
+    }
+    .navbar-nav .nav-link {
+      transition: color 0.3s, background-color 0.3s;
+    }
+    .navbar-nav .nav-link:hover {
+      color: #fff;
+      background-color: #f06;
+    }
+    /* Cart icon styles */
+
+  </style>
+    {% block extra_css %}
+  {% endblock extra_css %}
 </head>
+
 <body>
 
-<header>
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="{% url 'home' %}">LoveShop</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav">
-          <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
-          <a class="nav-link" href="{% url 'products:index' %}">Products</a>
-          <a class="nav-link" href="{% url 'contact:index' %}">Contact</a>
-          <a class="nav-link" href="{% url 'checkout:index' %}">Checkout</a>
-          {% if user.is_authenticated %}
-            <a class="nav-link" href="{% url 'accounts:logout' %}">Logout</a>
-          {% else %}
+  <header>
+    <!-- Banner -->
+    <div class="row text-center baner-anim pink-bg text-white">
+      <div class="anim">
+        <p class="text-uppercase my-2 ms-0">Order by 4PM for next day delivery</p>
+      </div>
+      <div class="anim">
+        <p class="text-uppercase my-2">Free delivery on orders over $100!</p>
+      </div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid justify-content-center">
+        <a class="navbar-brand d-flex d-lg-none align-items-center" href="{% url 'home' %}">
+          <!-- SVG logo added here -->
+          <img src="{% static 'images/logo2.svg' %}" alt="LoveShop Logo" style="height: 40px; margin-right: 8px;">
+          
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+          aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav text-uppercase mx-auto">
+            <img src="{% static 'images/logo2.svg' %}" class="d-none d-lg-flex" alt="LoveShop Logo" style="height: 60px; margin-right: 2rem;">
+            <a class="nav-link {% if request.resolver_match.url_name == 'home' %}active{% endif %}" href="{% url 'home' %}">
+              <i class="fas fa-home"></i> Home
+            </a>
+            <a class="nav-link {% if request.resolver_match.url_name == 'products:index' %}active{% endif %}" href="{% url 'products:index' %}">
+              <i class="fas fa-box-open"></i> Products
+            </a>
+            <a class="nav-link {% if request.resolver_match.url_name == 'contact:index' %}active{% endif %}" href="{% url 'contact:index' %}">
+              <i class="fas fa-envelope"></i> Contact
+            </a>
+
+ <!-- Cart icon, to be shown only on the products page -->
+ {% if request.resolver_match.url_name == 'products:index' %}
+ <div class="cart-icon-container">
+   <a class="nav-link cart-icon active" href="#" data-bs-toggle="modal" data-bs-target="#cartModal">
+     <i class="fa fa-shopping-cart nav-icon"></i> Cart <span id="cart-icon-count">0</span>
+   </a>
+ </div>
+ {% endif %}
+
+
+
+            {% if user.is_authenticated %}
+
+            <form action="{% url 'accounts:logout' %}" method="post" id="logout-form" style="display: none;">
+              {% csrf_token %}
+            </form>
+            <a class="nav-link" href="#" onclick="document.getElementById('logout-form').submit();">Logout</a>
+
+         
+            {% else %}
             <a class="nav-link" href="{% url 'accounts:login' %}">Login</a>
             <a class="nav-link" href="{% url 'accounts:register' %}">Register</a>
           {% endif %}
         </div>
       </div>
+
+          </div>
+      
+    </nav>
+  </header>
+
+  <main class="container mt-4">
+    {% block content %}
+    {% endblock %}
+  </main>
+ 
+  <!-- Footer -->
+  <footer class="container text-black pt-4 pb-2 mt-auto">
+    <hr class="container border-2 opacity-75 ls-colour">
+    <div class="row">
+      <div class="col-md-6">
+        <h4>Be Mine Boutique</h4>
+        <p class="fst-italic">Be Mine Boutique, your premier destination for heartfelt expressions, offers a curated
+          selection of unique Valentine's Day gifts. Elevate your celebration of love with our exclusive range of
+          thoughtful presents, ensuring your special moments are adorned with charm and sentiment. Discover the perfect
+          blend of romance and style at Be Mine Boutique, where each carefully crafted item reflects the essence of
+          love, making your Valentine's Day unforgettable.
+        </p>
+      </div>
+      <!-- Contact us form page -->
+      <div class="col-6 col-md-3">
+        <a class="d-block text-black text-decoration-none" href="">
+          <h4>Contact Us</h4>
+        </a>
+        <!-- Clickable links for telephone number and email address -->
+        <ul class="list-unstyled">
+          <li class="mb-2">Phone: <a class="text-black text-decoration-none" href="tel:01756254754">0123456789</a></li>
+          <li class="mb-2">Email: <a class="text-black text-decoration-none"
+              href="mailto:contact@loveshop.com">contact@loveshop.com</a></li>
+          <li>Address: 14 Love Avenue, Loveland, IE</li>
+        </ul>
+      </div>
+      <!-- Social media links -->
+      <div class="col-6 col-md-3 footer-mg">
+        <h4>Follow Us</h4>
+        <a class="d-block text-decoration-none mb-2" href="https://www.facebook.com/" target="_blank"
+          aria-label="Facebook - Opens in a new tab">
+          <i class="fa-brands fa-facebook text-black text-center d-inline"></i>
+          <p class="text-black d-inline">Facebook</p>
+        </a>
+        <a class="d-block text-decoration-none mb-2" href="https://www.instagram.com/" target="_blank"
+          aria-label="Instagram - Opens in a new tab">
+          <i class="fa-brands fa-instagram text-black text-center d-inline"></i>
+          <p class="text-black d-inline">Instagram</p>
+        </a>
+        <a class="d-block text-decoration-none" href="https://twitter.com/" target="_blank"
+          aria-label="Twitter - Opens in a new tab">
+          <i class="fa-brands fa-twitter text-black text-center d-inline"></i>
+          <p class="text-black d-inline">Twitter</p>
+        </a>
+      </div>
     </div>
-  </nav>
-</header>
+    <hr class="border-1 opacity-75 ls-colour">
+    <!-- Copyright lower footer -->
+    <div class="text-center">
+      <p>&copy; <span id="current-year"></span> Code Crush Crew </p>
+    </div>
+  </footer>
 
-<main class="container mt-4">
-  {% block content %}
+  <!-- Bootstrap Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"></script>
+  <!-- Font Awesome  -->
+  <script src="https://kit.fontawesome.com/baba64def8.js" crossorigin="anonymous"></script>
+  <!-- Lottie animation-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.4/lottie.min.js"></script>
+
+  
+
+  
+  {% block postloadjs %}
+<!-- ... your scripts ... -->
+
+
+
   {% endblock %}
-</main>
 
-<!-- Bootstrap Bundle with Popper -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+  <script src="{% static 'js/base.js' %}"></script>
+
 </body>
+
 </html>

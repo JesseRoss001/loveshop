@@ -1,0 +1,9 @@
+<!-- cart_items.html -->
+{% for item in cart.items.all %}
+<div class="cart-item">
+  <h5>{{ item.product.name }}</h5>
+  <p>Quantity: {{ item.quantity }}</p>
+  <p>Price: ${{ item.total_price }}</p>
+</div>
+{% endfor %}
+<p>Total: ${{ cart.total_price }}</p>

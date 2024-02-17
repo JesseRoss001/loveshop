@@ -61,9 +61,7 @@ Happy shopping!
     - [Version Control](#version-control)
     - [Heroku Deployment](#heroku-deployment)
   - [Credits](#credits)
-    - [Contributers](#contributers)
-    - [Content](#content)
-    - [Media](#media)
+  - [Acknowledgements](#acknowledgements)
 
 
 # Project
@@ -176,9 +174,7 @@ Planning is the backbone of Be Mine Boutique's success. From conceptualizing the
 ### Surface
 
 At Be Mine Boutique, our color palette is carefully chosen to evoke a sense of sophistication and romance. The timeless combination of black and pink creates a visually appealing contrast, symbolizing the elegance and vibrancy synonymous with the spirit of love. Against the clean canvas of white background, these colors pop, enhancing the overall aesthetics of our platform. Whether it's the deep richness of black, the romantic allure of pink, or the pristine background, our color choices are a deliberate blend that aims to convey a refined and delightful visual experience for our users at Be Mine Boutique.
-#232323 black
-#D51857 pink
-#fff background
+
 | Hex | RGB |
 | -------------- | ----------------- |
 | #D51857 | (213,24,87) |
@@ -198,9 +194,6 @@ HTML, CSS, Bootstrap, Javascript, Django, MarkDown
 * [CSS Grid](https://www.w3schools.com/css/css_grid.asp) used for an enhanced responsive layout.
 * [JavaScript](https://www.javascript.com/) used for user interaction on the site.
 * [Python](https://www.python.org/) used as the back-end programming language.
-PostgreSQL 
-ElephantSQL used as the Postgres database.
-Heroku used for hosting the deployed back-end site.
 
 ### Frameworks, Libraries & Extensions
 
@@ -220,6 +213,13 @@ Heroku used for hosting the deployed back-end site.
 
 ### Existing Features
 
+**Navbar:**
+
+- Home Page: Navigate to the heart of our shop and learn more about our story and commitment to quality.
+- Product Page: Explore our curated collection of Valentine's Day gifts, where you can find the perfect expression of love for any occasion.
+- Contact Us: Reach out to us effortlessly through various contact options or utilize the inquiry form for any questions or assistance.
+- Logout: After login user can securely sign out from your account, ensuring the privacy and security of your information.
+
 **Sign in and Login:**
 
 - Login
@@ -233,8 +233,48 @@ Heroku used for hosting the deployed back-end site.
 
 **Home Page:**
 
-1. **About Us Section:** Discover the heartwarming story of our shop and our unwavering commitment to quality. Learn more about the passion that goes into curating our collection of enchanting Valentine's Day gifts.
-2. **Shop Now Call to Action:** Immerse yourself in the world of love and affection with a single click! Our prominent 'Shop Now' button beckons you to explore our exclusive collection and find the perfect gifts for those cherished moments.
+- About Us Section
+  - Discover the heartwarming story of our shop and our unwavering commitment to quality. Learn more about the passion that goes into curating our collection of enchanting Valentine's Day gifts.
+- Shop Now Call to Action
+  - Immerse yourself in the world of love and affection with a single click! Our prominent 'Shop Now' button beckons you to explore our exclusive collection and find the perfect gifts for those cherished moments.
+
+  (image link)
+
+**Product Page:**
+
+- Product List
+  - Explore our diverse collection of Valentine's Day gifts, carefully curated for every romantic occasion.
+  **Filtering Options:**
+   - By Category: Streamline your search by selecting specific categories for a personalized browsing experience.
+   - By Price: Tailor your choices to your budget with easy price range filtering.
+   - By Product Name: Find your desired items quickly using our efficient search feature.
+- Detailed Descriptions
+  - Dive into the heart of each product with detailed descriptions, uncovering unique features and sentiments that make each item special.
+- Direct Add to Cart
+  - Simplify your shopping journey by adding your favorite items directly to the cart with a single click, ensuring a seamless and efficient checkout process.
+
+
+(image link)
+
+**Contact Us Page:**
+
+- Contact Information
+  - Find all the necessary contact details to reach us easily. Whether it's a phone call, email, or visit, we're here to assist you.
+- Inquiry Form
+  - Can't reach us right away? No problem! Utilize our convenient inquiry form to share your details and send a message directly to our team. We'll get back to you promptly to address any questions or concerns you may have.
+
+(images)
+
+**Footer:**
+
+- Details About Our Shop
+   - Explore the heartwarming story behind our shop, our dedication to quality, and the passion that goes into curating our enchanting Valentine's Day gifts.
+
+- Contact Details
+   - Find all the necessary contact information to connect with us, whether through phone, email, or in-person visits. We're here to assist you and answer any inquiries you may have.
+
+- Social Media Links
+   - Stay connected and follow us on social media platforms for the latest updates, promotions, and a glimpse into the world of love and romance. Engage with us on [Facebook](#), [Instagram](#), and [Twitter](#) to be a part of our vibrant community.
 
 ### Features Left to Implement
 
@@ -244,7 +284,7 @@ In the future we would like to add,
 * An account page the user could customise with a profile picture.
 * A more in depth settings section where users could customise the UI of the page including themes and tabs available in the dashboard. 
 * An addition to the profile page where the user can select the currency they wish to view their finances in
-* Add more personalised style to the dashboard tab sections 
+* Add more personalised style to the home page sections 
 
 ## Testing
 
@@ -280,17 +320,81 @@ The following git commands were used throughout development to push code to the 
 
 - git push - This command was used to push all committed code to the remote repository on github.
 
-### Heroku Deployment
+### Deployment Steps on Heroku
 
-- Heroku provides a platform for hosting web applications.
-- The deployed site will update automatically upon new commits to the master branch.
+This project, developed for [Heroku](https://www.heroku.com/), is a Django-based application that enables users to build, run, and operate applications entirely in the cloud.
+
+
+1. **Create a New App:**
+   - Select "New" in the top-right corner of your Heroku Dashboard and choose "Create new app" from the dropdown menu.
+   - Choose a unique app name, select a region (EU or USA), and click "Create App."
+
+2. **Configure Environment Variables:**
+   - From the app's Settings, click "Reveal Config Vars" and set your environment variables:
+     | Key | Value |
+     | CLOUDINARY_URL | user's own value |
+     | DATABASE_URL | user's own value |
+     | DISABLE_COLLECTSTATIC | 1 (temporary) |
+     | SECRET_KEY | user's own value |
+
+3. **Install Requirements and Create Procfile:**
+   - Install project requirements using `pip3 install -r requirements.txt`.
+   - Create a Procfile with `echo web: gunicorn app_name.wsgi > Procfile` (replace app_name with your Django app name).
+   - replace app_name with the name of your primary Django app name; the folder where settings.py is located
+
+For Heroku deployment, follow these steps to connect your own GitHub repository to the newly created app:
+
+Either:
+
+ - Select Automatic Deployment from the Heroku app.
+
+Or:
+
+- In the Terminal/CLI, connect to Heroku using this command: heroku login -i
+- Set the remote for Heroku: heroku git:remote -a app_name (replace app_name with your app name)
+- After performing the standard Git add, commit, and push to GitHub, you can now type:
+  - git push heroku main
+
+The project should now be connected and deployed to Heroku!
+
+## Local Deployment
+
+This project can be cloned or forked in order to make a local copy on your own system.
+
+For either method, you will need to install any applicable packages found within the requirements.txt file.
+
+1. **Install Requirements and Configure Environment:**
+   - Install project requirements: `pip3 install -r requirements.txt`
+   - Create `env.py` at the root level with your environment variables.
+
+2. **Run the Project Locally:**
+   - Start the Django app: `python3 manage.py runserver`
+   - Make migrations and migrate: `python3 manage.py makemigrations` and `python3 manage.py migrate`
+   - Create a superuser: `python3 manage.py createsuperuser`
+   - Load fixtures if needed: `python3 manage.py loaddata file-name.json`
+   - Run the app again: `python3 manage.py runserver`
+
+## Cloning
+
+You can clone the repository by following these steps:
+
+1. Go to the GitHub repository
+2. Locate the Code button above the list of files and click it
+3. Select if you prefer to clone using HTTPS, SSH, or GitHub CLI and click the copy button to copy the URL to your clipboard
+4. Open Git Bash or Terminal
+5. Change the current working directory to the one where you want the cloned directory
+6. In your IDE Terminal, type the following command to clone my repository:
+git clone The Link
+7. Press Enter to create your local clone.
+
+Forking
+By forking the GitHub Repository, we make a copy of the original repository on our GitHub account to view and/or make changes without affecting the original owner's repository. You can fork this repository by using the following steps:
+
+1. Log in to GitHub and locate the GitHub Repository
+2. At the top of the Repository (not top of page) just above the "Settings" Button on the menu, locate the "Fork" Button.
+3. Once clicked, you should now have a copy of the original repository in your own GitHub account!
 
 ## Credits
 
-### Contributers 
 
-
-### Content
-
-
-### Media
+## Acknowledgements

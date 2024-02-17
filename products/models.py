@@ -48,5 +48,7 @@ class CartItem(models.Model):
 
     @property
     def total_price(self):
+        if self.product.is_valentines_special:
+            return self.quantity * self.product.discounted_price
         return self.quantity * self.product.price
 # Create your models here.

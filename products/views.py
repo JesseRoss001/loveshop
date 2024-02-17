@@ -74,7 +74,20 @@ def add_to_cart(request, product_id):
 @login_required
 def view_cart(request):
     cart, created = Cart.objects.get_or_create(user=request.user)
-    return render(request, 'cart/view_cart.html', {'cart': cart})
+    items_with_prices = [
+        {
+            'name': item.product.name,
+            'quantity': item.quantity,
+            'price': item.product.discounted_price if item.product.is_valentines_special else item.product.price,
+            'total': item.total_price,
+        }
+        for item in cart.items.all()
+    ]
+    total_price = sum(item['total'] for item in items_with_prices)
+    return render(request, 'cart/view_cart.html', {
+        'items_with_prices': items_with_prices,
+        'total_price': total_price,
+    })
 
 # views.py
 @login_required

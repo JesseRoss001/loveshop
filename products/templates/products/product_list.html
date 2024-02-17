@@ -75,7 +75,12 @@
 </div>
 <!-- Valentine's Specials Carousel -->
 {% if valentine_specials %}
-<div id="valentinesCarousel" class="carousel slide" data-bs-ride="carousel">
+<div id="valentinesCarousel" class="carousel slide my-4" data-bs-ride="carousel">
+    <h3 class="text-center text-danger">
+        <i class="fas fa-heart"></i> Valentine's Day Specials <i class="fas fa-heart"></i>
+    </h3>
+    <p class="text-center">Find the perfect gift for your loved one with these special deals!</p>
+
     <div class="carousel-inner">
       {% for product in valentine_specials %}
       <div class="carousel-item {% if forloop.first %}active{% endif %}">

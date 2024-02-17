@@ -6,7 +6,7 @@ import environ
 env = environ.Env()
 # Assuming the .env file is located at the same level as manage.py
 environ.Env.read_env(os.path.join(os.path.dirname(os.path.dirname(__file__)), '.env'))
-
+EMAIL_VALIDATION_API_KEY = os.environ.get('EMAIL_VALIDATION_API_KEY', '')
 from pathlib import Path
 
 
@@ -27,7 +27,11 @@ DEBUG = True
 # Add the Gitpod and Heroku hostnames to ALLOWED_HOSTS  
 
 
+<<<<<<< HEAD
 ALLOWED_HOSTS = ['loveshop-037a9f640521.herokuapp.com', 'localhost', '127.0.0.1', '8000-jesseross001-loveshop-l66tcfpckvd.ws-eu108.gitpod.io', '8000-enrightc-loveshop-1yvrkj5ue7l.ws-eu108.gitpod.io', '8000-jesseross001-loveshop-ge9dv0dwqbc.ws-eu108.gitpod.io','8000-jesseross001-loveshop-x4466lrm8sk.ws-eu108.gitpod.io', '8000-jesseross001-loveshop-vlxgoz8ar2u.ws-eu108.gitpod.io',  '8000-jesseross001-loveshop-vlxgoz8ar2u.ws-eu108.gitpod.io', '8000-jesseross001-loveshop-nf87aulamh1.ws-eu108.gitpod.io', '8000-jesseross001-loveshop-nf87aulamh1.ws-eu108.gitpod.io' ]
+=======
+ALLOWED_HOSTS = ['loveshop-037a9f640521.herokuapp.com', 'localhost', '127.0.0.1', '8000-jesseross001-loveshop-l66tcfpckvd.ws-eu108.gitpod.io', '8000-enrightc-loveshop-1yvrkj5ue7l.ws-eu108.gitpod.io', '8000-jesseross001-loveshop-ge9dv0dwqbc.ws-eu108.gitpod.io','8000-jesseross001-loveshop-x4466lrm8sk.ws-eu108.gitpod.io', '8000-jesseross001-loveshop-vlxgoz8ar2u.ws-eu108.gitpod.io',  '8000-jesseross001-loveshop-vlxgoz8ar2u.ws-eu108.gitpod.io', '8000-jesseross001-loveshop-nf87aulamh1.ws-eu108.gitpod.io', '8000-jesseross001-loveshop-nf87aulamh1.ws-eu108.gitpod.io', '8000-jesseross001-loveshop-iw1cu87l27t.ws-eu108.gitpod.io' ]
+>>>>>>> main
 
 
 CSRF_TRUSTED_ORIGINS = [
@@ -50,6 +54,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    
     'products',
     'loveshop',
     'accounts',
@@ -110,6 +115,9 @@ AUTH_PASSWORD_VALIDATORS = [
     },
     {
         'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+        'OPTIONS': {
+            'min_length': 8,
+        },
     },
     {
         'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',

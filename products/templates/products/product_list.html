@@ -10,6 +10,20 @@
     <p>Browse our comprehensive list of Valentine's Day gifts and find the perfect present for your loved one.</p>
     <!-- Cart Modal -->
 <!-- Cart Modal -->
+<!-- Product Info Modal -->
+<div class="modal fade" id="productInfoModal" tabindex="-1" aria-labelledby="productInfoModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="productInfoModalLabel">Product Information</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <!-- Product info will be loaded here dynamically -->
+            </div>
+        </div>
+    </div>
+</div>
 <div class="modal fade" id="cartModal" tabindex="-1" aria-labelledby="cartModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -27,6 +41,8 @@
         </div>
     </div>
 </div>
+
+
     <!-- Search and Filter Form -->
     <form method="get" action="" class="mb-4">
         <div class="form-row">
@@ -64,6 +80,7 @@
                     <p class="card-text">£{{ product.price }}</p>
                     <p class="card-text">Rating: {{ product.rating }}/5</p>
                     <a href="{% url 'products:add_to_cart' product.id %}" class="btn btn-primary add-to-cart" data-product-id="{{ product.id }}">Add to cart</a>
+                    <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#productInfoModal" data-product-id="{{ product.id }}">Info</button>
                 </div>
             </div>
         </div>
@@ -195,4 +212,27 @@
             });
         });
         </script>
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                var productInfoModal = document.getElementById('productInfoModal');
+            
+                document.querySelectorAll('.btn-info').forEach(function(button) {
+                    button.addEventListener('click', function() {
+                        var productId = button.getAttribute('data-product-id');
+            
+                        fetch(`{% url 'products:product_detail' 0 %}`.replace('0', productId))
+                        .then(response => response.json())
+                        .then(data => {
+                            productInfoModal.querySelector('.modal-title').textContent = data.name;
+                            productInfoModal.querySelector('.modal-body').innerHTML = `
+                                <p>Price: £${data.price}</p>
+                                <p>Description: ${data.description}</p>
+                                <p>Rating: ${data.rating}</p>
+                                <!-- Add more details as needed -->
+                            `;
+                        });
+                    });
+                });
+            });
+            </script>
     {% endblock %}

@@ -120,3 +120,13 @@ def load_view_cart(request):
 def checkout(request):
     # Your checkout logic here
     return render(request, 'checkout.html')
+
+def product_detail(request, product_id):
+    product = get_object_or_404(Product, pk=product_id)
+    return JsonResponse({
+        'name': product.name,
+        'price': str(product.price),
+        'description': product.description,
+        'rating': str(product.rating),
+              # Include any other fields you want to display in the modal
+    })

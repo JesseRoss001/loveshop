@@ -35,7 +35,6 @@ def review_order(request):
         'cart': cart
     }
     return render(request, 'checkout/review_order.html', context)
-
 @login_required
 def create_checkout_session(request):
     try:
@@ -44,16 +43,26 @@ def create_checkout_session(request):
         if not cart_items:
             return HttpResponse("Your cart is empty.", status=404)
         
-        line_items = [{
-            'price_data': {
-                'currency': 'gbp',  # Changed from 'usd' to 'gbp'
-                'product_data': {
-                    'name': item.product.name,
+        line_items = []
+
+        for item in cart_items:
+            # Check if the item is a Valentine's special and has a discounted price
+            if item.product.is_valentines_special and item.product.discounted_price is not None:
+                unit_amount = item.product.discounted_price
+            else:
+                unit_amount = item.product.price
+
+            # Add the item to the line items for Stripe Checkout
+            line_items.append({
+                'price_data': {
+                    'currency': 'gbp',
+                    'product_data': {
+                        'name': item.product.name,
+                    },
+                    'unit_amount': int(unit_amount * 100),  # Stripe requires the amount to be in the smallest currency unit
                 },
-                'unit_amount': int(item.product.price * 100),  # Assume price is set in pounds
-            },
-            'quantity': item.quantity,
-        } for item in cart_items]
+                'quantity': item.quantity,
+            })
 
         checkout_session = stripe.checkout.Session.create(
             payment_method_types=['card'],

@@ -56,6 +56,7 @@
         </div>
     </div>
 </div>
+{% if user.is_authenticated %}
 <div class="modal fade" id="cartModal" tabindex="-1" aria-labelledby="cartModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -68,11 +69,14 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Continue Shopping</button>
+                
                 <a href="{% url 'checkout:checkout' %}" class="btn btn-primary">Go to Checkout</a>
+
             </div>
         </div>
     </div>
 </div>
+{% endif %}
 <!-- Valentine's Specials Carousel -->
 {% if valentine_specials %}
 <div id="valentinesCarousel" class="carousel slide my-4" data-bs-ride="carousel">
@@ -93,9 +97,11 @@
             </p>
             <p class="card-text">Rating: {{ product.rating }}/5</p>
             {% if product.quantity_remaining > 0 %}
+            {% if user.is_authenticated %}
             <a href="{% url 'products:add_to_cart' product.id %}" class="btn btn-primary add-to-cart" data-product-id="{{ product.id }}">
                 <i class="fas fa-cart-plus"></i> Add to Cart
             </a>
+            {% endif %}
             {% else %}
             <button class="btn btn-secondary" disabled>Sold Out</button>
             {% endif %}
@@ -129,9 +135,11 @@
                     <p class="card-text">£{{ product.price }}</p>
                     <p class="card-text">Rating: {{ product.rating }}/5</p>
                     {% if product.quantity_remaining > 0 %}
+                    {% if user.is_authenticated %}
                     <a href="{% url 'products:add_to_cart' product.id %}" class="btn btn-primary add-to-cart" data-product-id="{{ product.id }}">
                         <i class="fas fa-cart-plus"></i> Add to cart
                     </a>
+                    {% endif %}
                     {% else %}
                     <button class="btn btn-secondary" disabled>Sold Out</button>
                     {% endif %}

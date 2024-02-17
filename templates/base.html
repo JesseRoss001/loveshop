@@ -43,11 +43,27 @@
       align-items: center;
       gap: 0.5rem; /* Adjust gap size as needed */
     }
-
-    /* Cart icon styles */
-    .cart-icon {
-      display: none; /* Hide by default, show with JS */
+    .navbar {
+      padding: 0.5rem 1rem;
     }
+    .navbar-brand svg {
+      height: 40px; /* Adjust size as needed */
+      margin-right: 0.5rem;
+    }
+    .navbar-nav .nav-link.active {
+      background-color: #f06;
+      color: #fff;
+      border-radius: 4px;
+    }
+    .navbar-nav .nav-link {
+      transition: color 0.3s, background-color 0.3s;
+    }
+    .navbar-nav .nav-link:hover {
+      color: #fff;
+      background-color: #f06;
+    }
+    /* Cart icon styles */
+
   </style>
 </head>
 
@@ -67,9 +83,17 @@
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="container-fluid justify-content-center">
-        <!-- Navbar content -->
+        <a class="navbar-brand" href="{% url 'home' %}">
+          <!-- Add your SVG logo here -->
+          {% include 'static/images/logo.svg' %}
+          LoveShop
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+          aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-          <div class="navbar-nav text-uppercase">
+          <div class="navbar-nav text-uppercase mx-auto">
             <a class="nav-link {% if request.resolver_match.url_name == 'home' %}active{% endif %}" href="{% url 'home' %}">
               <i class="fas fa-home"></i> Home
             </a>
@@ -80,12 +104,14 @@
               <i class="fas fa-envelope"></i> Contact
             </a>
 
-            <!-- Dynamic Cart icon: Will only display on products page -->
-            {% if request.resolver_match.url_name == 'products:index' %}
-            <a class="nav-link cart-icon" href="#" data-bs-toggle="modal" data-bs-target="#cartModal">
-              <i class="fas fa-shopping-cart"></i> Cart <span id="cart-icon-count">0</span>
-            </a>
-            {% endif %}
+ <!-- Cart icon, to be shown only on the products page -->
+ {% if request.resolver_match.url_name == 'products:index' %}
+ <div class="cart-icon-container">
+   <a class="nav-link cart-icon active" href="#" data-bs-toggle="modal" data-bs-target="#cartModal">
+     <i class="fa fa-shopping-cart nav-icon"></i> Cart <span id="cart-icon-count">0</span>
+   </a>
+ </div>
+ {% endif %}
 
 
 
@@ -103,13 +129,7 @@
           {% endif %}
         </div>
       </div>
-      {% if request.resolver_match.url_name == 'products:index' %}
-      <div class="cart-icon-container" style="display: block;">
-        <a href="#" data-bs-toggle="modal" data-bs-target="#cartModal">
-          <i class="fas fa-shopping-cart"></i> Cart <span id="cart-icon-count">0</span>
-        </a>
-      </div>
-      {% endif %}
+
           </div>
       
     </nav>
@@ -181,29 +201,8 @@
   <script src="https://kit.fontawesome.com/baba64def8.js" crossorigin="anonymous"></script>
   <!-- Lottie animation-->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.4/lottie.min.js"></script>
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      // Script to show cart icon only on product list page
-      var currentUrlName = "{{ request.resolver_match.url_name }}";
-      var productPageName = "products:index";
 
-      // Find the cart icon container
-      var cartIconContainer = document.querySelector('.cart-icon-container');
-
-      // Check if we are on the product list page
-      if (currentUrlName === productPageName && cartIconContainer) {
-        cartIconContainer.style.display = 'block'; // Show the cart icon container
-      }
-
-      // Set active class on current page link
-      var navLinks = document.querySelectorAll('.navbar .nav-link');
-      navLinks.forEach(function(link) {
-        if (link.href === window.location.href) {
-          link.classList.add('active');
-        }
-      });
-    });
-  </script>
+  
 
   
   {% block postloadjs %}

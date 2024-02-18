@@ -15,31 +15,7 @@
     </div>
     <p class="text-center mb-4">Browse our comprehensive list of Valentine's Day gifts and find the perfect present for your loved one.</p>
 
-    <!-- Search and Filter Form -->
-    <form method="get" action="" class="mb-4">
-        <div class="row g-3 justify-content-center">
-            <div class="col-md-3">
-                <input type="text" name="query" class="form-control" placeholder="Search products..." value="{{ request.GET.query }}">
-            </div>
-            <div class="col-md-3">
-                <select name="category" class="form-control">
-                    <option value="">All Categories</option>
-                    {% for category, category_display in CATEGORY_CHOICES %}
-                    <option value="{{ category }}" {% if request.GET.category == category %}selected{% endif %}>{{ category_display }}</option>
-                    {% endfor %}
-                </select>
-            </div>
-            <div class="col-md-3">
-                <select name="sort" class="form-control">
-                    <option value="price_asc" {% if request.GET.sort == 'price_asc' %}selected{% endif %}>Price (Low to High)</option>
-                    <option value="price_desc" {% if request.GET.sort == 'price_desc' %}selected{% endif %}>Price (High to Low)</option>
-                </select>
-            </div>
-            <div class="col-md-auto">
-                <button type="submit" class="btn btn-border rounded text-uppercase">Filter</button>
-            </div>
-        </div>
-    </form>
+
 <!-- Product Info Modal -->
 <div class="modal fade" id="productInfoModal" tabindex="-1" aria-labelledby="productInfoModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
@@ -228,6 +204,31 @@
         <h3 class="text-center text-danger mt-5"><i class="fas fa-heart"></i> Shop our other products <i class="fas fa-heart"></i></h3>
         <p class="text-center fst-italic mb-4">Explore our exquisite selection of perfect Valentine's products, curated for your special moments. Indulge in the richness of choices that capture the essence of love and celebration.</p>
     </div>
+       <!-- Search and Filter Form -->
+       <form method="get" action="" class="mb-4">
+        <div class="row g-3 justify-content-center">
+            <div class="col-md-3">
+                <input type="text" name="query" class="form-control" placeholder="Search products..." value="{{ request.GET.query }}">
+            </div>
+            <div class="col-md-3">
+                <select name="category" class="form-control">
+                    <option value="">All Categories</option>
+                    {% for category, category_display in CATEGORY_CHOICES %}
+                    <option value="{{ category }}" {% if request.GET.category == category %}selected{% endif %}>{{ category_display }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="col-md-3">
+                <select name="sort" class="form-control">
+                    <option value="price_asc" {% if request.GET.sort == 'price_asc' %}selected{% endif %}>Price (Low to High)</option>
+                    <option value="price_desc" {% if request.GET.sort == 'price_desc' %}selected{% endif %}>Price (High to Low)</option>
+                </select>
+            </div>
+            <div class="col-md-auto">
+                <button type="submit" class="btn btn-border rounded text-uppercase">Filter</button>
+            </div>
+        </div>
+    </form>
     <div class="row row-cols-1 row-cols-md-3 g-4"> 
        
         {% for product in products %}

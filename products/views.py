@@ -184,4 +184,5 @@ def product_detail(request, product_id):
         'name': product.name,
         'price': str(product.price),
         'description': product.description,
+ 'rating': str(product.rating),
     }) # Set safe=False if you're not returning a dictionary

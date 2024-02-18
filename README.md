@@ -17,11 +17,11 @@ Welcome to Be Mine Boutique, the enchanting online emporium designed to make eve
 
 
 - About Be Mine Boutique
-At Be Mine Boutique, we believe in turning ordinary moments into extraordinary memories. Our e-commerce platform is meticulously crafted to curate an extensive collection of romantic gifts, ensuring you find the perfect expression of love for your special someone. From timeless classics to unique, personalized treasures, Be Mine Boutique offers an array of options that cater to every taste and style.
+At Be Mine Boutique, we believe in turning ordinary moments into extraordinary memories. Our e-commerce platform is meticulously crafted to curate an extensive collection of romantic gifts, ensuring you find the perfect expression of love for your special someone. From timeless classics to unique, personalised treasures, Be Mine Boutique offers an array of options that cater to every taste and style.
 
 
 - Why Be Mine Boutique?
-Curated Selection: Our team of experts handpicks each item to ensure a diverse and thoughtful selection of gifts. From classic roses to innovative and personalized keepsakes, Be Mine Boutique has it all.
+Curated Selection: Our team of experts handpicks each item to ensure a diverse and thoughtful selection of gifts. From classic roses to innovative and personalised keepsakes, Be Mine Boutique has it all.
 
 
 Ease of Navigation: We understand the importance of a seamless shopping experience. Our user-friendly interface allows you to effortlessly browse through products, making your journey to find the ideal gift enjoyable and stress-free.
@@ -30,8 +30,7 @@ Ease of Navigation: We understand the importance of a seamless shopping experien
 Secure Transactions: Your security is our priority. Be Mine Boutique employs state-of-the-art encryption and secure payment gateways to ensure that your transactions are protected at every step.
 
 
-Spread the Love
-Join us in the journey of spreading love and joy. Be Mine Boutique is not just a place to buy gifts; it's an experience crafted to enhance your celebrations and create lasting memories. Celebrate love, express emotions, and make every moment count with Be Mine Boutique.
+Spread the Love: Join us on the journey of spreading love and joy. Be Mine Boutique is not just a place to buy gifts; it's an experience crafted to enhance your celebrations and create lasting memories. Celebrate love, express emotions, and make every moment count with Be Mine Boutique.
 
 Happy shopping!
 
@@ -79,7 +78,7 @@ Happy shopping!
 # Judging Criteria
 ### 1. User Experience & Accessibility
 
-- Our project prioritizes a seamless and inclusive experience for all users. The user interface is designed with accessibility in mind, ensuring that everyone, regardless of ability, can navigate and interact with ease.
+- Our project prioritises a seamless and inclusive experience for all users. The user interface is designed with accessibility in mind, ensuring that everyone, regardless of ability, can navigate and interact with ease.
 
 ### 2. Project is Responsive
 - Our project is built with responsiveness in mind. Whether you're accessing it from a desktop, tablet, or mobile device, the layout and design adapt gracefully to different screen sizes, providing a consistent and visually appealing experience.
@@ -88,7 +87,9 @@ Happy shopping!
 - Every aspect of our project is crafted with the Hackathon theme in mind. From the design elements to the functionality, our project aligns seamlessly with the theme, showcasing our commitment to the event's purpose.
 
 ### 4. Project was Well-Planned and Executed (using GitHub Projects)
-- We, a collaborative team, meticulously planned and executed our project using GitHub Projects. Our project board served as a central hub for task management, issue tracking, and collaboration, ensuring a well-organized and efficiently executed development process.
+
+We, a collaborative team, meticulously planned and executed our project using GitHub Projects. Our project board served as a central hub for task management, issue tracking, and collaboration, ensuring a well-organised and efficiently executed development process.
+
 
 ### 5. Project Uses One of the CSS Frameworks
 - To enhance the project's styling and maintain consistency, we, as a team, chose [Bootstrap](https://getbootstrap.com/) as our CSS framework. This choice not only streamlined our design process but also contributed to the overall responsiveness and visual appeal of the project.
@@ -96,27 +97,29 @@ Happy shopping!
 ### Teamwork and Collaboration
 Our success is a testament to the power of teamwork. The collaborative efforts of each team member played a crucial role in achieving our goals. Regular communication, shared responsibilities, and a shared vision were the driving forces behind the seamless execution of this project. We believe that effective teamwork is the foundation of innovation, and our project reflects the dedication and synergy of our talented team.
 
+
 [Back to Top](#table-of-contents)
 <br>
+
 
 # Project
 
 ## Objective
 
-The primary objective of Be Mine Boutique is to create an immersive and user-friendly e-commerce platform dedicated to offering a diverse range of romantic gifts for the celebration of love, with a particular focus on Valentine's Day. Our goal is to provide users with a curated selection of timeless classics, innovative personalized items, and expressive tokens of affection.
+The primary objective of Be Mine Boutique is to create an immersive and user-friendly e-commerce platform dedicated to offering a diverse range of romantic gifts for the celebration of love, with a particular focus on Valentine's Day. Our goal is to provide users with a curated selection of timeless classics, innovative personalised items, and expressive tokens of affection.
 
 
 ## Site User Goal
 
 
-The primary goal for users visiting Be Mine Boutique is to discover and acquire the perfect romantic gift to express their love and create memorable moments, particularly for occasions like Valentine's Day. Users aim to explore a thoughtfully curated collection of timeless classics and personalized treasures, effortlessly navigating the site to find unique and meaningful items that resonate with their emotions. Be Mine Boutique empowers users to enhance their celebrations by providing a seamless and secure online shopping experience, where they can easily select and purchase the ideal gift to convey their sentiments and make every romantic occasion truly special.
+The primary goal for users visiting Be Mine Boutique is to discover and acquire the perfect romantic gift to express their love and create memorable moments, particularly for occasions like Valentine's Day. Users aim to explore a thoughtfully curated collection of timeless classics and personalised treasures, effortlessly navigating the site to find unique and meaningful items that resonate with their emotions. Be Mine Boutique empowers users to enhance their celebrations by providing a seamless and secure online shopping experience, where they can easily select and purchase the ideal gift to convey their sentiments and make every romantic occasion truly special.
 
 
 ## Project Management
 
 ### Github Project Board
 
-The Project Board facilitated a comprehensive overview of the project, breaking down tasks, features, and milestones into manageable cards. This approach allowed us to maintain a structured and organized workflow, ensuring that each component of Be Mine Boutique was systematically addressed.
+The Project Board facilitated a comprehensive overview of the project, breaking down tasks, features, and milestones into manageable cards. This approach allowed us to maintain a structured and organised workflow, ensuring that each component of Be Mine Boutique was systematically addressed.
 
 
 ![Project Board](/assets/images/project_board.png)
@@ -150,7 +153,7 @@ So that I can keep up to date with new products and promotions. | &check; |
 So that I can find relevant information and communicate effectively with the platform. | &check; |
 | User Story 6 (Must Have)| As a First time User | I want to be notified about any changes I have made
 So that I have a clear understanding of what has been completed/updated. | &check; |
-| User Story 7 (Should Have)| As a Returning User with a Loyalty Card | I expect to receive personalized recommendations based on my past purchases
+| User Story 7 (Should Have)| As a Returning User with a Loyalty Card | I expect to receive personalised recommendations based on my past purchases
 So that it is easier for me to discover relevant Valentine’s day gift ideas. | &check; |
 | User Story 8 (Should Have)| As a Returning User with a Loyalty Card | I appreciate exclusive discounts or promotions offered to loyal customers
 So that it provides incentive for me to continue shopping. | &check; |
@@ -167,7 +170,7 @@ So that I can track my orders and ensure they are delivered on time and meet my 
 | User Story 14 (Must Have)| As a Registered User | I want to have the possibility to add selected products to my wishlist so that I can save them for later purchase. | &check; |
 | User Story 15 (Must Have)| As a Registered User | I want to have the possibility to access my profile so I can see all my personal details. | &check; |
 | User Story 16 (Must Have)| As a Registered User | I want to leave a review for a product I have purchased so I can share my feedback with other users. | &check; |
-| User Story 17 (Must Have)| As a Registered User | I want to be able to easily write and attach personalized messages to my gift orders so I can add a special touch for my loved one. | &check; |
+| User Story 17 (Must Have)| As a Registered User | I want to be able to easily write and attach personalised messages to my gift orders so I can add a special touch for my loved one. | &check; |
 | User Story 18 (Must Have)| As a Store Owner |  want to easily add, edit, and delete products from the shop so that I can make sure the website is up to date. | &check; |
 | User Story 19 (Must Have)| As a Store Owner | I want to be connected with the website customers,
 So that I can effectively communicate with them and keep them updated. | &check; |
@@ -184,13 +187,15 @@ So that I can maintain the quality of product reviews and ensure customer satisf
 Our development strategy for Be Mine Boutique centered around delivering a seamless and enchanting shopping experience for users. Key aspects of our approach include:
 
 1. **User-Centric Design:**
-  - Prioritizing user experience and engagement through intuitive interfaces and user-friendly features.
+  - Prioritising user experience and engagement through intuitive interfaces and user-friendly features.
 
 2. **Agile Development:**
   - Embracing an agile development methodology to adapt quickly to changing requirements and deliver incremental updates.
 
 3. **Cross-Functional Collaboration:**
   - Fostering collaboration between design, development, and testing teams to ensure a cohesive and polished end product.
+
+[Go to Top](#be-mine-boutique)
 
 ## Scope
 
@@ -207,7 +212,7 @@ Be Mine Boutique features a carefully curated collection of Valentine's Day gift
 
 ### 2. User Registration and Authentication
 
-To enhance user engagement, the platform allows users to register for accounts securely. The authentication process ensures a personalized shopping experience.
+To enhance user engagement, the platform allows users to register for accounts securely. The authentication process ensures a personalised shopping experience.
 
 ### 3. Intuitive Product Pages
 
@@ -237,8 +242,8 @@ While the current scope focuses on the core features for Valentine's Day, our ro
  - Implementing a feedback system to allow users to share their experiences and recommendations.
 
 
-- **Personalized Recommendations:**
- - Introducing personalized recommendation features based on user preferences and purchase history.
+- **Personalised Recommendations:**
+ - Introducing personalised recommendation features based on user preferences and purchase history.
 
 Our commitment is to continuously evolve and expand the scope based on user feedback and emerging trends in the e-commerce landscape.
 
@@ -262,17 +267,17 @@ In the initial design phase of Be Mine Boutique, we utilized Figma to create a c
 - The design adapts seamlessly across different devices and screen sizes, offering an optimal viewing experience whether on desktop, tablet, or mobile.
 
 #### Engaging Visuals
-- Be Mine Boutique prioritizes Engaging Visuals to create a visually delightful and seamless user experience. From wireframe concepts to product displays, we focus on captivating aesthetics to enhance the charm of our Valentine's Day gifts. Explore a visually appealing online shopping journey that combines the spirit of romance with user-friendly design.
+- Be Mine Boutique prioritises Engaging Visuals to create a visually delightful and seamless user experience. From wireframe concepts to product displays, we focus on captivating aesthetics to enhance the charm of our Valentine's Day gifts. Explore a visually appealing online shopping journey that combines the spirit of romance with user-friendly design.
 
 #### Accessibility
 - At Be Mine Boutique, accessibility is a priority. We're committed to creating an inclusive online space with features like clear text, structured layouts, and image alt text. Our goal is to ensure a seamless and enjoyable shopping experience for everyone.
 
 #### User-Friendly Features
-- At Be Mine Boutique, user-friendly features are at the forefront of our design. Navigating through our website is intuitive, with clear menus, straightforward product displays, and a streamlined checkout process. We've prioritized a seamless user experience, ensuring that every click is a step closer to finding the perfect Valentine's Day gift.
+- At Be Mine Boutique, user-friendly features are at the forefront of our design. Navigating through our website is intuitive, with clear menus, straightforward product displays, and a streamlined checkout process. We've prioritised a seamless user experience, ensuring that every click is a step closer to finding the perfect Valentine's Day gift.
 
 ### Planning
 
-Planning is the backbone of Be Mine Boutique's success. From conceptualizing the initial wireframes to orchestrating a seamless user experience, meticulous planning has been the driving force. Our project board on GitHub serves as the dynamic hub where tasks are organized, progress is tracked, and collaboration flourishes. Every aspect, from design to implementation, is a result of strategic planning, ensuring that Be Mine Boutique not only meets but exceeds the expectations of our users. With a clear roadmap and agile adaptation, our planning is a testament to the precision and foresight embedded in every stage of development.
+Planning is the backbone of Be Mine Boutique's success. From conceptualizing the initial wireframes to orchestrating a seamless user experience, meticulous planning has been the driving force. Our project board on GitHub serves as the dynamic hub where tasks are organised, progress is tracked, and collaboration flourishes. Every aspect, from design to implementation, is a result of strategic planning, ensuring that Be Mine Boutique not only meets but exceeds the expectations of our users. With a clear roadmap and agile adaptation, our planning is a testament to the precision and foresight embedded in every stage of development.
 
 ### Surface
 
@@ -319,10 +324,12 @@ HTML, CSS, Javascript, Python
 * [Git](https://git-scm.com/ ) - Git is a free and open source distributed version control system designed to handle everything from small to very large projects with speed and efficiency.
 * [PostgreSQL](https://www.postgresql.org/) used as the relational database management.
 
+
 [Back to Top](#table-of-contents)
 <br>
 
 # Features
+
 
 ### Existing Features
 
@@ -342,7 +349,9 @@ HTML, CSS, Javascript, Python
 
 
 - Login
+
   - Access your account to explore personalized features. Log in effortlessly to access your saved favorites, track orders, and enjoy a tailored shopping experience.
+
 - Register
   - New to our shop? Sign up here for an enhanced experience. Unlock exclusive offers, faster checkout, and the latest updates by creating your account.
 - Forgot Password
@@ -371,11 +380,13 @@ HTML, CSS, Javascript, Python
 
 
 - Product List
+
   - Explore our diverse collection of Valentine's Day gifts, carefully curated for every romantic occasion.
   #### Filtering Options
     - By Category: Streamline your search by selecting specific categories for a personalized browsing experience.
     - By Price: Tailor your choices to your budget with easy price range filtering.
     - By Product Name: Find your desired items quickly using our efficient search feature.
+
 - Detailed Descriptions
   - Dive into the heart of each product with detailed descriptions, uncovering unique features and sentiments that make each item special.
 - Direct Add to Cart
@@ -447,7 +458,9 @@ In the future we would like to add,
 * An addition to the profile page where the user can select the currency they wish to view their finances in
 * Add more personalised style to the home page sections
 
+
 # Testing
+
 
 Be Mine Boutique underwent thorough manual testing during development and post-deployment to ensure a robust and user-friendly experience. For a detailed summary of our manual testing efforts, please refer to [this document](test.md).
 
@@ -522,6 +535,8 @@ For either method, you will need to install any applicable packages found within
   - Load fixtures if needed: `python3 manage.py loaddata file-name.json`
   - Run the app again: `python3 manage.py runserver`
 
+[Go to Top](#be-mine-boutique)
+
 ### Cloning
 
 
@@ -562,6 +577,8 @@ A heartfelt thank you to the Code Crush Crew, our dedicated Hackathon team, for 
 
 - [Unsplash](https://unsplash.com/): Providing stunning and royalty-free images that enhance the visual appeal of our project.
 
+- [LottieFiles](https://lottiefiles.com/): Providing the animations that enhance and bring vibrancy to our project.
+
 ### Special Mentions
 We extend our gratitude to the entire open-source community for creating an ecosystem that fosters learning, collaboration, and innovation.
 
@@ -583,7 +600,11 @@ We are indebted to online learning platforms like YouTube, Stack Overflow, and F
 ### Visual Assets
 A special thanks to Unsplash for providing stunning, high-quality images that enhance the visual appeal of our project.
 
+A heartfelt appreciation to LottieFiles for supplying captivating and dynamic animations that elevate the visual aesthetics of our project.
+
 Thank you all for being an integral part of this exciting journey!
+
 
 [Back to Top](#table-of-contents)
 <br>
+

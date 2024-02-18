@@ -61,7 +61,7 @@ def product_list(request):
     })
 
 
-@login_required
+
 def add_to_cart(request, product_id):
     product = get_object_or_404(
          Product, id=product_id, quantity_remaining__gt=0)
@@ -184,5 +184,5 @@ def product_detail(request, product_id):
         'name': product.name,
         'price': str(product.price),
         'description': product.description,
-        'rating': str(product.rating),
-    })
+ 'rating': str(product.rating),
+    }) # Set safe=False if you're not returning a dictionary

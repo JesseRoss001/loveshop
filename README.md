@@ -5,12 +5,15 @@
 
 ![Website responsiveness on multiple screen sizes](assets/images/responsive_design.png)
 
-
+### [Live link to Be Mine Boutique](https://loveshop-037a9f640521.herokuapp.com/)
 # Intro:
 
 
 ### Be Mine Boutique - Your Ultimate Destination for Romantic Delights
+
+
 Welcome to Be Mine Boutique, the enchanting online emporium designed to make every moment of love unforgettable. As we pave the way to celebrate the essence of romance, Be Mine Boutique is your go-to destination for exquisite Valentine's gifts that speak volumes of affection.
+
 
 
 - About Be Mine Boutique
@@ -72,6 +75,7 @@ Happy shopping!
  - [Credits](#credits)
  - [Acknowledgements](#acknowledgements)
 
+
 ## Testing
 
 Be Mine Boutique underwent thorough manual testing during development and post-deployment to ensure a robust and user-friendly experience. For a detailed summary of our manual testing efforts, please refer to [this document](test.md).
@@ -80,24 +84,31 @@ Be Mine Boutique underwent thorough manual testing during development and post-d
 The validation of Be Mine Boutique can be found [here](validation.md).
 
 ## Judging Criteria
+
 ### 1. User Experience & Accessibility
 
 - Our project prioritises a seamless and inclusive experience for all users. The user interface is designed with accessibility in mind, ensuring that everyone, regardless of ability, can navigate and interact with ease.
 
 ### 2. Project is Responsive
-Our project is built with responsiveness in mind. Whether you're accessing it from a desktop, tablet, or mobile device, the layout and design adapt gracefully to different screen sizes, providing a consistent and visually appealing experience.
+- Our project is built with responsiveness in mind. Whether you're accessing it from a desktop, tablet, or mobile device, the layout and design adapt gracefully to different screen sizes, providing a consistent and visually appealing experience.
 
 ### 3. Project Aligns Well to Hackathon Theme
-Every aspect of our project is crafted with the Hackathon theme in mind. From the design elements to the functionality, our project aligns seamlessly with the theme, showcasing our commitment to the event's purpose.
+- Every aspect of our project is crafted with the Hackathon theme in mind. From the design elements to the functionality, our project aligns seamlessly with the theme, showcasing our commitment to the event's purpose.
 
 ### 4. Project was Well-Planned and Executed (using GitHub Projects)
+
 We, a collaborative team, meticulously planned and executed our project using GitHub Projects. Our project board served as a central hub for task management, issue tracking, and collaboration, ensuring a well-organised and efficiently executed development process.
 
+
 ### 5. Project Uses One of the CSS Frameworks
-To enhance the project's styling and maintain consistency, we, as a team, chose [Bootstrap](https://getbootstrap.com/) as our CSS framework. This choice not only streamlined our design process but also contributed to the overall responsiveness and visual appeal of the project.
+- To enhance the project's styling and maintain consistency, we, as a team, chose [Bootstrap](https://getbootstrap.com/) as our CSS framework. This choice not only streamlined our design process but also contributed to the overall responsiveness and visual appeal of the project.
 
 ### Teamwork and Collaboration
 Our success is a testament to the power of teamwork. The collaborative efforts of each team member played a crucial role in achieving our goals. Regular communication, shared responsibilities, and a shared vision were the driving forces behind the seamless execution of this project. We believe that effective teamwork is the foundation of innovation, and our project reflects the dedication and synergy of our talented team.
+
+
+[Back to Top](#table-of-contents)
+<br>
 
 
 # Project
@@ -123,10 +134,10 @@ The Project Board facilitated a comprehensive overview of the project, breaking 
 ![Project Board](/assets/images/project_board.png)
 
 
-### A live demo to the website can be found [here](https://loveshop-037a9f640521.herokuapp.com/)
+[Back to Top](#table-of-contents)
+<br>
 
-
-## User stories
+# User stories
 
 
 The integration of user stories derived from our wireframe designs on the Project Board has been instrumental. It provided a clear linkage between design concepts and functional requirements, ensuring that the development team was aligned with the envisioned user experience. This connection between design and implementation has been crucial in delivering a product that not only meets technical specifications but also aligns seamlessly with the intended user journey.
@@ -174,6 +185,9 @@ So that I can track my orders and ensure they are delivered on time and meet my 
 So that I can effectively communicate with them and keep them updated. | &check; |
 | User Story 20 (Must Have)| As a Store Owner | I want to be able to view and manage customer reviews for products on the website,
 So that I can maintain the quality of product reviews and ensure customer satisfaction. | &check; |
+
+[Back to Top](#table-of-contents)
+<br>
 
 ## Strategy
 
@@ -286,8 +300,10 @@ At Be Mine Boutique, our color palette is carefully chosen to evoke a sense of s
 
 ![color-pallette](assets/images/colour.png)
 
+[Back to Top](#table-of-contents)
+<br>
 
-## Technologies used
+# Technologies used
 
 The website is designed using following technologies:
 
@@ -317,9 +333,12 @@ HTML, CSS, Javascript, Python
 * [Git](https://git-scm.com/ ) - Git is a free and open source distributed version control system designed to handle everything from small to very large projects with speed and efficiency.
 * [PostgreSQL](https://www.postgresql.org/) used as the relational database management.
 
-[Go to Top](#be-mine-boutique)
 
-## Features
+[Back to Top](#table-of-contents)
+<br>
+
+# Features
+
 
 ### Existing Features
 
@@ -339,60 +358,62 @@ HTML, CSS, Javascript, Python
 
 
 - Login
- - Access your account to explore personalised features. Log in effortlessly to access your saved favorites, track orders, and enjoy a tailored shopping experience.
-- Register
- - New to our shop? Sign up here for an enhanced experience. Unlock exclusive offers, faster checkout, and the latest updates by creating your account.
-- Forgot Password
- - Securely reset your password if needed. We understand forgetful moments; reset your password hassle-free to regain access to your account.
 
-#### Login page
+  - Access your account to explore personalized features. Log in effortlessly to access your saved favorites, track orders, and enjoy a tailored shopping experience.
+
+- Register
+  - New to our shop? Sign up here for an enhanced experience. Unlock exclusive offers, faster checkout, and the latest updates by creating your account.
+- Forgot Password
+  - Securely reset your password if needed. We understand forgetful moments; reset your password hassle-free to regain access to your account.
+
+##### Login page
 
 ![Login page](assets/images/login.png)
 
-#### Register Page
+##### Register Page
 
 ![Register page](assets/images/register.png)
 
 ### Home Page
 
 - A Message
- - As user step into our virtual space, they'll be greeted by a beautifully crafted message, echoing the essence of our shop.
+  - As user step into our virtual space, they'll be greeted by a beautifully crafted message, echoing the essence of our shop.
 - Shop Now Call to Action
- - Immerse yourself in the world of love and affection with a single click! Our prominent 'Shop Now' button beckons user to explore our exclusive collection and find the perfect gifts for those cherished moments.
+  - Immerse yourself in the world of love and affection with a single click! Our prominent 'Shop Now' button beckons user to explore our exclusive collection and find the perfect gifts for those cherished moments.
 
-#### Home Page
-
+##### Home Page
 
 ![Home page](assets/images/home_page.png)
-
 
 ### Product Page
 
 
 - Product List
- - Explore our diverse collection of Valentine's Day gifts, carefully curated for every romantic occasion.
- **Filtering Options:**
-  - By Category: Streamline your search by selecting specific categories for a personalised browsing experience.
-  - By Price: Tailor your choices to your budget with easy price range filtering.
-  - By Product Name: Find your desired items quickly using our efficient search feature.
+
+  - Explore our diverse collection of Valentine's Day gifts, carefully curated for every romantic occasion.
+  #### Filtering Options
+    - By Category: Streamline your search by selecting specific categories for a personalized browsing experience.
+    - By Price: Tailor your choices to your budget with easy price range filtering.
+    - By Product Name: Find your desired items quickly using our efficient search feature.
+
 - Detailed Descriptions
- - Dive into the heart of each product with detailed descriptions, uncovering unique features and sentiments that make each item special.
+  - Dive into the heart of each product with detailed descriptions, uncovering unique features and sentiments that make each item special.
 - Direct Add to Cart
- - Simplify your shopping journey by adding your favorite items directly to the cart with a single click, ensuring a seamless and efficient checkout process.
+  - Simplify your shopping journey by adding your favorite items directly to the cart with a single click, ensuring a seamless and efficient checkout process.
 
 
-![Product page](assets/images/product_page1.png)
-![Product page](assets/images/product_page2.png)
-![Product page](assets/images/product_page3.png)
+![Product page](assets/images/product_page.png)
+![Product page](assets/images/products_page2.png)
+![Product page](assets/images/products_page3.png)
 
 ### Contact Us Page
 
 - Contact Information
- - Find all the necessary contact details to reach us easily. Whether it's a phone call, email, or visit, we're here to assist you.
+  - Find all the necessary contact details to reach us easily. Whether it's a phone call, email, or visit, we're here to assist you.
 - Inquiry Form
- - Can't reach us right away? No problem! Utilize our convenient inquiry form to share your details and send a message directly to our team. We'll get back to you promptly to address any questions or concerns you may have.
+  - Can't reach us right away? No problem! Utilize our convenient inquiry form to share your details and send a message directly to our team. We'll get back to you promptly to address any questions or concerns you may have.
 - FAQ
- - conveniently placed below our Contact Us page. Find quick answers to common questions, allowing customers to read and understand more about our products and services.
+  - conveniently placed below our Contact Us page. Find quick answers to common questions, allowing customers to read and understand more about our products and services.
 
 ![Contact page](assets/images/contact_page1.png)
 ![Contact page](assets/images/contact_page2.png)
@@ -433,6 +454,9 @@ By streamlining the checkout process with these two key components, we aim to en
 
 ![Footer](assets/images/footer.png)
 
+[Back to Top](#table-of-contents)
+<br>
+
 ### Features Left to Implement
 
 In the future we would like to add,
@@ -443,10 +467,18 @@ In the future we would like to add,
 * An addition to the profile page where the user can select the currency they wish to view their finances in
 * Add more personalised style to the home page sections
 
-[Go to Top](#be-mine-boutique)
 
 
-## Deployment
+# Testing
+
+
+Be Mine Boutique underwent thorough manual testing during development and post-deployment to ensure a robust and user-friendly experience. For a detailed summary of our manual testing efforts, please refer to [this document](test.md).
+
+
+[Back to Top](#table-of-contents)
+<br>
+
+# Deployment
 
 ### Version Control
 
@@ -530,14 +562,17 @@ You can clone the repository by following these steps:
 git clone The Link
 7. Press Enter to create your local clone.
 
-Forking
+### Forking
 By forking the GitHub Repository, we make a copy of the original repository on our GitHub account to view and/or make changes without affecting the original owner's repository. You can fork this repository by using the following steps:
 
 1. Log in to GitHub and locate the GitHub Repository
 2. At the top of the Repository (not top of page) just above the "Settings" Button on the menu, locate the "Fork" Button.
 3. Once clicked, you should now have a copy of the original repository in your own GitHub account!
 
-## Credits
+[Back to Top](#table-of-contents)
+<br>
+
+# Credits
 A heartfelt thank you to the Code Crush Crew, our dedicated Hackathon team, for their collaborative efforts and creativity. This project wouldn't have been possible without each member's unique contributions and commitment.
 
 ### Technologies and Frameworks
@@ -558,7 +593,7 @@ A heartfelt thank you to the Code Crush Crew, our dedicated Hackathon team, for 
 ### Special Mentions
 We extend our gratitude to the entire open-source community for creating an ecosystem that fosters learning, collaboration, and innovation.
 
-## Acknowledgements
+# Acknowledgements
 We would like to express our sincere gratitude to everyone who contributed to the success of this project. Our journey has been enriched by the support, guidance, and inspiration from the following individuals and communities:
 
 ### Code Crush Crew
@@ -580,4 +615,7 @@ A heartfelt appreciation to LottieFiles for supplying captivating and dynamic an
 
 Thank you all for being an integral part of this exciting journey!
 
-[Go to Top](#be-mine-boutique)
+
+[Back to Top](#table-of-contents)
+<br>
+

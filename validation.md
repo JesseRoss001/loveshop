@@ -45,30 +45,24 @@ I've tested deployed project on multiple devices to check for responsiveness iss
 <img src="assets/images/validation/product-page.png">
 </p>
 
-## Products Detail
-
-<p>
-<img src="assets/validators/product-detail-page1.png">
-</p>
-
-## Shopping Bag
-
-<p>
-<img src="assets/validators/bag-page.png">
-</p>
-
-
 ## Checkout Page
 
 <p>
-<img src="assets/validators/checkout-page.png">
+<img src="assets/images/validation/checkout-page.png">
 </p>
 
 
-### Order History
+## Review Order Page
 
 <p>
-<img src="assets/validators/order-history-page.png">
+<img src="assets/images/validation/revieworder1.png">
+</p>
+
+
+### Payment Cancelled
+
+<p>
+<img src="assets/images/validation/payment-cancelled1.png">
 </p>
 
 
@@ -148,8 +142,8 @@ I've tested deployed project on multiple devices to check for responsiveness iss
 </p>
 
 # Pylint Validation
-### Pylint Validation Remark for LoveShop Heroku Django Application
-After conducting a comprehensive code review and linting process on my LoveShop Django application, I have identified that the code adheres closely to PEP 8 standards. Here are the detailed observations:
+### Pylint Validation Remark for Be Mine Boutique Heroku Django Application
+After conducting a comprehensive code review and linting process on my Be Mine Boutique Django application, I have identified that the code adheres closely to PEP 8 standards. Here are the detailed observations:
 
 #### Code Structure and Quality
 Project Organization: The project directories and files are meticulously organized, promoting ease of navigation and maintenance.
@@ -175,7 +169,7 @@ Line Length Exceptions: There are several instances where line lengths exceed th
 ##### Static Assets
 Static Images: The static resources, specifically Pylint output images, are appropriately placed within the ./workspace/loveshop/images/pylint/ directory, following Django's conventions for static files.
 
-##### In summary, the review has led to the conclusion that the LoveShop application's codebase is of exceptional quality. The few instances where lines exceed the recommended length are justified due to the nature of the elements involved, such as URLs and long string literals, where splitting the lines would not be practical.
+##### In summary, the review has led to the conclusion that the Be Mine Boutique application's codebase is of exceptional quality. The few instances where lines exceed the recommended length are justified due to the nature of the elements involved, such as URLs and long string literals, where splitting the lines would not be practical.
 
 
 ![Pylint1](images/pylint/pylint1.png)

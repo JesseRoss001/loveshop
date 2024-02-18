@@ -8,8 +8,8 @@
 <div class="container mt-4">
     <h2 class="text-center my-4">Valentine's Day Gifts</h2>
     <div class="d-flex justify-content-between align-items-center mb-3">
-        <a href="#" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#cartModal">
-            <i class="fas fa-shopping-cart"></i> Cart <span class="badge bg-primary rounded-pill" id="cart-icon-count">0</span>
+        <a href="#" class="btn btn-border rounded text-uppercase my-3 p-3" data-bs-toggle="modal" data-bs-target="#cartModal">
+            <i class="fas fa-shopping-cart"></i> Cart <span class="badge ls-bg rounded-pill" id="cart-icon-count">0</span>
         </a>
         <div id="success-message" class="alert alert-success" style="display: none;"></div>
     </div>
@@ -36,7 +36,7 @@
                 </select>
             </div>
             <div class="col-md-auto">
-                <button type="submit" class="btn btn-primary">Filter</button>
+                <button type="submit" class="btn btn-border rounded text-uppercase">Filter</button>
             </div>
         </div>
     </form>
@@ -56,6 +56,7 @@
         </div>
     </div>
 </div>
+{% if user.is_authenticated %}
 <div class="modal fade" id="cartModal" tabindex="-1" aria-labelledby="cartModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -68,28 +69,114 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Continue Shopping</button>
+                
                 <a href="{% url 'checkout:checkout' %}" class="btn btn-primary">Go to Checkout</a>
+
             </div>
         </div>
     </div>
 </div>
+{% endif %}
+<!-- Valentine's Specials Carousel -->
+{% if valentine_specials %}
+<div id="valentinesCarousel" class="carousel slide my-4" data-bs-ride="carousel">
+    <h3 class="text-center text-danger">
+        <i class="fas fa-heart"></i> Valentine's Day Specials <i class="fas fa-heart"></i>
+    </h3>
+    <p class="text-center">Find the perfect gift for your loved one with these special deals!</p>
 
-
+    <div class="carousel-inner d-flex">
+      {% for product in valentine_specials %}
+      <div class="carousel-item {% if forloop.first %}active{% endif %}">
+        <div class="card h-100">
+          <img src="{{ product.image.url }}" class="card-img-top" alt="{{ product.name }}">
+          <div class="card-body">
+            <h5 class="card-title">{{ product.name }}</h5>
+            <p class="card-text">
+              <s>£{{ product.price }}</s> £{{ product.discounted_price }}
+            </p>
+            <p class="card-text">Rating: {{ product.rating }}</p>
+            {% if product.quantity_remaining > 0 %}
+            {% if user.is_authenticated %}
+            <a href="{% url 'products:add_to_cart' product.id %}" class="btn btn-primary add-to-cart" data-product-id="{{ product.id }}">
+                <i class="fas fa-cart-plus"></i> Add to Cart
+            </a>
+            {% endif %}
+            {% else %}
+            <button class="btn btn-secondary" disabled>Sold Out</button>
+            {% endif %}
+            <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#productInfoModal" data-product-id="{{ product.id }}">
+                <i class="fas fa-info-circle"></i> Info
+            </button>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    <a class="carousel-control-prev" href="#valentinesCarousel" role="button" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#valentinesCarousel" role="button" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </a>
+</div>
+{% endif %}
 
     <!-- Products Grid -->
     <div class="row row-cols-1 row-cols-md-3 g-4"> 
         {% for product in products %}
         <div class="col mb-3 {% if forloop.counter > 10 %}d-none d-sm-block{% endif %} {% if forloop.counter > 12 %}d-md-none{% endif %} {% if forloop.counter > 16 %}d-lg-none{% endif %}">
-            <div class="card h-100">
+            <div class="card h-100 {% if product.quantity_remaining <= 0 %}out-of-stock{% endif %}">
                 <img src="{{ product.image.url }}" class="card-img-top w-100 " alt="{{ product.name }}">
                 <div class="card-body">
                     <h5 class="card-title">{{ product.name }}</h5>
                     <p class="card-text">£{{ product.price }}</p>
-                    <p class="card-text">Rating: {{ product.rating }}/5</p>
-                    <a href="{% url 'products:add_to_cart' product.id %}" class="btn btn-primary add-to-cart" data-product-id="{{ product.id }}">
+                    <!-- Product Rating -->
+                    <div class="rating-div text-danger pe-0">
+                        <span class="fa-stack fa-lg">
+                            <i class="far fa-heart fa-stack-1x"></i>
+                            {% if product.rating >= 1 %}
+                                <i class="fas fa-heart fa-stack-1x"></i>
+                            {% endif %}
+                        </span>
+                        <span class="fa-stack fa-lg">
+                            <i class="far fa-heart fa-stack-1x"></i>
+                            {% if product.rating >= 2 %}
+                                <i class="fas fa-heart fa-stack-1x"></i>
+                            {% endif %}
+                        </span>
+                        <span class="fa-stack fa-lg">
+                            <i class="far fa-heart fa-stack-1x"></i>
+                            {% if product.rating >= 3 %}
+                                <i class="fas fa-heart fa-stack-1x"></i>
+                            {% endif %}
+                        </span>
+                        <span class="fa-stack fa-lg">
+                            <i class="far fa-heart fa-stack-1x"></i>
+                            {% if product.rating >= 4 %}
+                                <i class="fas fa-heart fa-stack-1x"></i>
+                            {% endif %}
+                        </span>
+                        <span class="fa-stack fa-lg me-1">
+                            <i class="far fa-heart fa-stack-1x"></i>
+                            {% if product.rating >= 5 %}
+                                <i class="fas fa-heart fa-stack-1x"></i>
+                            {% endif %}
+                        </span>
+                    </div>
+                    <!-- End of rating -->
+                    {% if product.quantity_remaining > 0 %}
+                    {% if user.is_authenticated %}
+                    <a href="{% url 'products:add_to_cart' product.id %}" class="btn ls-btn rounded text-uppercase my-3 shadow" data-product-id="{{ product.id }}">
                         <i class="fas fa-cart-plus"></i> Add to cart
                     </a>
-                    <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#productInfoModal" data-product-id="{{ product.id }}">
+                    {% endif %}
+                    {% else %}
+                    <button class="btn btn-secondary" disabled>Sold Out</button>
+                    {% endif %}
+                    <button type="button" class="btn btn-border rounded text-uppercase my-3 shadow" data-bs-toggle="modal" data-bs-target="#productInfoModal" data-product-id="{{ product.id }}">
                         <i class="fas fa-info-circle"></i> Info
                     </button>
                 </div>
@@ -102,22 +189,21 @@
 <!-- Pagination -->
 {% if products.has_other_pages %}
 <nav aria-label="Page navigation example">
-    <ul class="pagination">
+    <ul class="pagination text-uppercase">
         {% if products.has_previous %}
-            <li class="page-item"><a class="page-link" href="?page=1&{% if request.GET.query %}query={{ request.GET.query }}&{% endif %}{% if request.GET.category %}category={{ request.GET.category }}&{% endif %}{% if request.GET.sort %}sort={{ request.GET.sort }}{% endif %}">First</a></li>
-            <li class="page-item"><a class="page-link" href="?page={{ products.previous_page_number }}&{% if request.GET.query %}query={{ request.GET.query }}&{% endif %}{% if request.GET.category %}category={{ request.GET.category }}&{% endif %}{% if request.GET.sort %}sort={{ request.GET.sort }}{% endif %}">Previous</a></li>
+            <li class="page-item shadow"><a class="page-link" href="?page=1&{% if request.GET.query %}query={{ request.GET.query }}&{% endif %}{% if request.GET.category %}category={{ request.GET.category }}&{% endif %}{% if request.GET.sort %}sort={{ request.GET.sort }}{% endif %}">First</a></li>
+            <li class="page-item shadow"><a class="page-link" href="?page={{ products.previous_page_number }}&{% if request.GET.query %}query={{ request.GET.query }}&{% endif %}{% if request.GET.category %}category={{ request.GET.category }}&{% endif %}{% if request.GET.sort %}sort={{ request.GET.sort }}{% endif %}">Previous</a></li>
         {% endif %}
         <!-- Page numbers can go here -->
         {% if products.has_next %}
-            <li class="page-item"><a class="page-link" href="?page={{ products.next_page_number }}&{% if request.GET.query %}query={{ request.GET.query }}&{% endif %}{% if request.GET.category %}category={{ request.GET.category }}&{% endif %}{% if request.GET.sort %}sort={{ request.GET.sort }}{% endif %}">Next</a></li>
-            <li class="page-item"><a class="page-link" href="?page={{ products.paginator.num_pages }}&{% if request.GET.query %}query={{ request.GET.query }}&{% endif %}{% if request.GET.category %}category={{ request.GET.category }}&{% endif %}{% if request.GET.sort %}sort={{ request.GET.sort }}{% endif %}">Last</a></li>
+            <li class="page-item shadow"><a class="page-link" href="?page={{ products.next_page_number }}&{% if request.GET.query %}query={{ request.GET.query }}&{% endif %}{% if request.GET.category %}category={{ request.GET.category }}&{% endif %}{% if request.GET.sort %}sort={{ request.GET.sort }}{% endif %}">Next</a></li>
+            <li class="page-item shadow"><a class="page-link" href="?page={{ products.paginator.num_pages }}&{% if request.GET.query %}query={{ request.GET.query }}&{% endif %}{% if request.GET.category %}category={{ request.GET.category }}&{% endif %}{% if request.GET.sort %}sort={{ request.GET.sort }}{% endif %}">Last</a></li>
         {% endif %}
     </ul>
 </nav>
 {% endif %}
     </div>
 
-  
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             // Event listener for modal show action
@@ -130,7 +216,7 @@
                     rebindCartEventHandlers();
                 });
             });
-        
+    
             // Function to rebind event handlers after new content is loaded into the modal
             function rebindCartEventHandlers() {
                 // Bind event handlers for updating cart item quantities
@@ -141,7 +227,7 @@
                         updateUserOrder(itemId, action);
                     });
                 });
-        
+    
                 // Bind event handlers for removing items from the cart
                 document.querySelectorAll('.remove-from-cart').forEach(function(button) {
                     button.addEventListener('click', function() {
@@ -150,7 +236,7 @@
                     });
                 });
             }
-        
+    
             // Function to update the user's cart
             function updateUserOrder(itemId, action) {
                 fetch(`{% url 'products:update_cart' %}`, {
@@ -171,7 +257,7 @@
                     }
                 });
             }
-        
+    
             // Function to remove an item from the user's cart
             function removeItemFromCart(itemId) {
                 fetch(`{% url 'products:remove_from_cart' %}`, {
@@ -194,9 +280,9 @@
                     }
                 });
             }
-        
-            // Event listener for add-to-cart buttons
-            document.addEventListener('click', function(e) {
+    
+            // Delegate event for 'Add to Cart' button clicks from the container
+            document.querySelector('.container').addEventListener('click', function(e) {
                 if (e.target && e.target.matches('.add-to-cart')) {
                     e.preventDefault();
                     var productId = e.target.dataset.productId;
@@ -222,28 +308,31 @@
                 }
             });
         });
-        </script>
-        <script>
-            document.addEventListener('DOMContentLoaded', function() {
-                var productInfoModal = document.getElementById('productInfoModal');
-            
-                document.querySelectorAll('.btn-info').forEach(function(button) {
-                    button.addEventListener('click', function() {
-                        var productId = button.getAttribute('data-product-id');
-            
-                        fetch(`{% url 'products:product_detail' 0 %}`.replace('0', productId))
-                        .then(response => response.json())
-                        .then(data => {
-                            productInfoModal.querySelector('.modal-title').textContent = data.name;
-                            productInfoModal.querySelector('.modal-body').innerHTML = `
-                                <p>Price: £${data.price}</p>
-                                <p>Description: ${data.description}</p>
-                                <p>Rating: ${data.rating}</p>
-                                <!-- Add more details as needed -->
-                            `;
-                        });
-                    });
+    </script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var productInfoModal = document.getElementById('productInfoModal');
+
+        document.querySelectorAll('.btn-info').forEach(function(button) {
+            button.addEventListener('click', function() {
+                var productId = button.getAttribute('data-product-id');
+
+                fetch(`{% url 'products:product_detail' 0 %}`.replace('0', productId))
+                .then(response => response.json())
+                .then(data => {
+                    productInfoModal.querySelector('.modal-title').textContent = data.name;
+                    productInfoModal.querySelector('.modal-body').innerHTML = `
+                        <p>Price: £${data.price}</p>
+                            
+<p>Description: ${data.description}</p>
+                        <p>Rating: ${data.rating}</p>
+                        <!-- Add more details as needed -->
+                    `;
                 });
             });
-            </script>
+        });
+    });
+
+  
+</script>
     {% endblock %}

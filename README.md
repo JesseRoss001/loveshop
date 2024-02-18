@@ -75,9 +75,20 @@ The primary goal for users visiting Be Mine Boutique is to discover and acquire 
 
 The Project Board facilitated a comprehensive overview of the project, breaking down tasks, features, and milestones into manageable cards. This approach allowed us to maintain a structured and organized workflow, ensuring that each component of Be Mine Boutique was systematically addressed.
 
+
 ![Project Board](/assets/images/project_board.png)
 
 ### A live demo to the website can be found [here](https://loveshop-037a9f640521.herokuapp.com/)
+
+
+
+## UX
+
+In the initial design phase of Love Shop, we utilized Figma to create a comprehensive wireframe, providing a visual blueprint for the e-commerce platform. Figma's collaborative features facilitated real-time teamwork, ensuring a cohesive visualization of the user interface. The wireframe outlines essential elements, including navigation menus and product displays, guiding a seamless and intuitive user experience.
+
+[Wireframe](https://www.figma.com/file/wKzMN7lJ3J6kuoPx5ZbyCn/Wireframe?type=design&node-id=0-1&mode=design&t=vupIF9MRZJLTBluZ-0)
+
+
 
 ## User stories
 

@@ -17,7 +17,7 @@
 
 <div class="container-fluid">
     <div class="col d-flex flex-column align-items-center mt-5">
-        <h2 class="title-font text-black">Contact Us</h2>
+        <h2 class="title-font text-black my-3 fst-italic">Contact Us</h2>
         <hr class="w-50 text-center mb-1">
 
     </div>
@@ -27,105 +27,172 @@
         <div class="container">
             <div class="row gy-4">
                 <div class="col-lg-4">
-                    <div class="info-item  d-flex flex-column justify-content-center align-items-center text-black">
+                    <div class="info-item  d-flex flex-column justify-content-center align-items-center text-black ">
                         <i class="fas fa-map"></i>
-                        <h3>Our Address</h3>
-                        <p>Corbally,
-                            Limerick,
-                            Co. Clare</p>
+                        <h3 class=" my-3 fst-italic">Our Address</h3>
+                        <p>14 Love Avenue, 
+                          Loveland, 
+                          IE</p>
                     </div>
                 </div><!-- End Info Item -->
 
                 <div class="col-lg-4 col-md-6">
                     <div class="info-item d-flex flex-column justify-content-center align-items-center text-black">
                         <i class="fas fa-envelope"></i>
-                        <h3>Email Us</h3>
-                        <p>sabina.i.macovei@gmail.com</p>
+                        <h3 class=" my-3 fst-italic">Email Us</h3>
+                        <p>contact@loveshop.com</p>
                     </div>
                 </div><!-- End Info Item -->
 
                 <div class="col-lg-4 col-md-6">
                     <div class="info-item  d-flex flex-column justify-content-center align-items-center text-black">
                         <i class="fas fa-phone"></i>
-                        <h3>Call Us</h3>
-                        <p>+353 123 456789</p>
+                        <h3 class=" my-3 fst-italic">Call Us</h3>
+                        <p>+353 0123456789</p>
                     </div>
                 </div><!-- End Info Item -->
 
             </div>
         </div>
     </section>
-            <!-- Contact Form -->
-    
-</div>
-<div class="container product-forms">
-    <div class="py-3 text-center">
-        <h2>Contact Us</h2>
-        <hr>
-    </div>
-    <div class="card shadow">
-        <div class="card-body">
-            <form method="POST" action="{% url 'contact:contact_success' %}"enctype="multipart/form-data">
-                {% csrf_token %}
-                {{ form|crispy }}
-                <div class="text-center">
-                    <a class="btn btn-outline-dark rounded-0" href="{% url 'home' %}">Cancel</a>
-                    <button class="btn btn-primary rounded-0" type="submit">Submit</button>
-                </div>
-            </form>
+
+<!-- Contact Form -->
+<div class="container-fluid">
+  <div class="col d-flex flex-column align-items-center mt-5">
+      <h2 class="title-font text-black my-3 fst-italic">Get in touch</h2>
+      <hr class="w-50 text-center mb-1">
+
+  </div>
+ 
+ 
+<section id="contact" class="contact m-3">
+        <div class="card shadow  my-3 fst-italic ls-border text-black">
+            <div class="card-body contact m-3">
+                <form method="POST" action="{% url 'contact:contact_success' %}"enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="big-labels>
+                      {{ form|crispy }}
+                  </div>
+                    <div class="text-center">
+                        <button class="btn ls-btn rounded text-uppercase my-3 p-3" type="submit">Submit</button>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
-</div>
+</section>
 
-<section>
-    <div id="accordion">
-        <div class="card">
-          <div class="card-header" id="headingOne">
+<!-- FAQ's -->
+<div class="container-fluid">
+  <div class="col d-flex flex-column align-items-center mt-5">
+      <h2 class="title-font text-black my-3 fst-italic">FAQ's</h2>
+      <hr class="w-50 text-center mb-1">
+
+  </div>
+<section id="contact" class="contact m-3 ">
+    <div id="accordion" class="col d-flex flex-column">
+        <div class="card col my-2 ls-border align-items-center text-black ">
+          <div class="card-header text-black " id="headingOne">
             <h5 class="mb-0">
-              <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                Collapsible Group Item #1
+              <button class="btn" type="button" data-bs-toggle="collapse" data-bs-target="#multiCollapseExample1" aria-expanded="false" aria-controls="multiCollapseExample1">
+                <h4 class="align-items-center text-black fst-italic"> How can I track my parcel? </h4>
               </button>
             </h5>
           </div>
       
-          <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+          <div class="collapse" id="multiCollapseExample1" data-bs-parent="#accordion" >
             <div class="card-body">
-              Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+              Once your order has been dispatched, we'll send you an email with a tracking link. Alternatively, you can fill in the form on our tracking page and receive up to date tracking information.
             </div>
           </div>
         </div>
         
-        <div class="card">
-          <div class="card-header" id="headingTwo">
+        <div class="card col my-2 ls-border align-items-center text-black">
+          <div class="card-header text-black" id="headingTwo">
             <h5 class="mb-0">
-              <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                Collapsible Group Item #2
+              <button class="btn" type="button" data-bs-toggle="collapse" data-bs-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2">
+                <h4 class="align-items-center text-black fst-italic"> How long do returns take? </h4>
               </button>
             </h5>
           </div>
-          <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+          <div class="collapse" id="multiCollapseExample2" data-bs-parent="#accordion">
             <div class="card-body">
-              Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+              The returns process usually takes up to 7 working days from the date you sent the package to us processing the return - this can be a little longer during busy seasonal periods, such as Halloween and Christmas. You will get an email confirmation from us as soon as we process your return, which is typically within 5 working days of us receiving the return. Any refund that you are due will be automatically issued to your chosen payment method when you purchased the item and depending on your payment method issuer, this can take around 5 working days.
             </div>
           </div>
         </div>
-        <div class="card">
-          <div class="card-header" id="headingThree">
+        <div class="card col my-2 ls-border align-items-center text-black">
+          <div class="card-header text-black" id="headingTree">
             <h5 class="mb-0">
-              <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                Collapsible Group Item #3
+              <button class="btn" type="button" data-bs-toggle="collapse" data-bs-target="#multiCollapseExample3" aria-expanded="false" aria-controls="multiCollapseExample3">
+                <h4 class="align-items-center text-black fst-italic">How can I pay for my order?</h4>
               </button>
             </h5>
           </div>
-          <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+          <div class="collapse" id="multiCollapseExample3" data-bs-parent="#accordion">
             <div class="card-body">
-              Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+              You can pay for your items using Visa credit and debit cards, Mastercard, Maestro credit card or by using PayPal, Apple Pay, Google Pay or Klarna.
             </div>
           </div>
         </div>
-      </div>
+        <div class="card col my-2 ls-border align-items-center text-black">
+          <div class="card-header text-black" id="headingTree">
+            <h5 class="mb-0">
+              <button class="btn" type="button" data-bs-toggle="collapse" data-bs-target="#multiCollapseExample4" aria-expanded="false" aria-controls="multiCollapseExample4">
+                <h4 class="align-items-center text-black fst-italic">Wat are my shipping & deivery options?</h4>
+              </button>
+            </h5>
+          </div>
+          <div class="collapse" id="multiCollapseExample4" data-bs-parent="#accordion">
+            <div class="card-body">
+              We offer various shipping options. In some cases a third-party supplier may be managing our inventory and will be responsible for shipping your products.
+            </div>
+          </div>
+        </div>
+        <div class="card col my-2 ls-border align-items-center text-black">
+          <div class="card-header text-black" id="headingTree">
+            <h5 class="mb-0">
+              <button class="btn" type="button" data-bs-toggle="collapse" data-bs-target="#multiCollapseExample5" aria-expanded="false" aria-controls="multiCollapseExample5">
+                <h4 class="align-items-center text-black fst-italic">Do you deliver internationally?</h4>
+              </button>
+            </h5>
+          </div>
+          <div class="collapse" id="multiCollapseExample5" data-bs-parent="#accordion">
+            <div class="card-body">
+              We do not offer international shipping.
+            </div>
+          </div>
+        </div>
+        <div class="card col my-2 ls-border align-items-center text-black">
+          <div class="card-header text-black" id="headingTree">
+            <h5 class="mb-0">
+              <button class="btn" type="button" data-bs-toggle="collapse" data-bs-target="#multiCollapseExample6" aria-expanded="false" aria-controls="multiCollapseExample6">
+                <h4 class="align-items-center text-black fst-italic">Are there other shipping restrictions?</h4>
+              </button>
+            </h5>
+          </div>
+          <div class="collapse" id="multiCollapseExample6" data-bs-parent="#accordion">
+            <div class="card-body">
+              Orders only ship on business days, which are Monday - Friday.
+            </div>
+          </div>
+        </div>
+        <div class="card col my-2 ls-border align-items-center text-black">
+          <div class="card-header text-black" id="headingTree">
+            <h5 class="mb-0">
+              <button class="btn" type="button" data-bs-toggle="collapse" data-bs-target="#multiCollapseExample7" aria-expanded="false" aria-controls="multiCollapseExample7">
+                <h4 class="align-items-center text-black fst-italic">What happens if my order is delayed?</h4>
+              </button>
+            </h5>
+          </div>
+          <div class="collapse" id="multiCollapseExample7" data-bs-parent="#accordion">
+            <div class="card-body">
+              If delivery is delayed for any reason we will let you know as soon as possible and will advise you of a revised estimated date for delivery.
+            </div>
+          </div>
+        </div>
 
-
+</section>
 
 
 {% endblock %}

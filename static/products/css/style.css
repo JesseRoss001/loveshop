@@ -13,20 +13,22 @@ h2 {
     text-align: center;
 }
 
-/* Button Styles */
-.ls-btn, .add-to-cart, .btn-info {
-    background-color: #d51857;
-    border: none;
-    color: #fff;
-    font-size: 1rem;
-    padding: .375rem .75rem;
-    text-transform: uppercase;
-    transition: background-color .3s ease;
+
+/* Shopping cart button */
+.btn-border {
+    border: 2px solid #d51857!important;
+    background: transparent;
+    color: #000;
 }
 
-.ls-btn:hover, .add-to-cart:hover, .btn-info:hover {
-    background-color: #bb164d;
+.btn-border:hover {
+    background: #d51857;
     color: #fff;
+    letter-spacing: 1px;
+}
+
+.ls-bg {
+    background-color: #d51857;
 }
 
 /* Link and Icon Adjustment */
@@ -77,6 +79,10 @@ a:hover {
     object-fit: cover;
 }
 
+.page-item {
+    margin-right: 10px;
+}
+
 /* Responsive image grid */
 @media (max-width: 768px) {
     .card-img-top {
@@ -107,4 +113,81 @@ a:hover {
         top: 100vh;
         opacity: 0;
     }
+}
+
+
+.carousel-caption .original-price {
+    text-decoration: line-through;
+    color: grey;
+  }
+  
+  .carousel-caption .discounted-price {
+    color: red;
+    font-weight: bold;
+  }
+  
+  /* New styles for out-of-stock products */
+  .out-of-stock {
+    opacity: 0.5;
+  }
+  
+  .out-of-stock .add-to-cart {
+    display: none;
+  }
+
+  .carousel-item {
+    text-align: center; /* Center text for smaller images */
+}
+
+.carousel-caption h5,
+.carousel-caption .card-text {
+    background-color: rgba(255, 255, 255, 0.75); /* Semi-transparent background */
+    display: inline-block; /* Keep background tight to the text */
+    margin: 0.5em;
+    padding: 0.5em;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: #d51857; /* Make the controls stand out */
+    border-radius: 50%; /* Circular background */
+    padding: 10px; /* Padding around the arrow icons */
+}
+
+/* Ensure carousel images have the same height as cards */
+.carousel-item .card-img-top {
+    height: 325px; /* Adjust height as needed */
+}
+
+/* Adjust the size of the carousel to match the card layout */
+@media (min-width: 768px) {
+    .carousel-inner .carousel-item {
+        flex: 0 0 33.333%; /* Show 3 items at a time for larger screens */
+        max-width: 33.333%;
+    }
+}
+
+/* Adjust carousel controls to be more visible */
+.carousel-control-prev,
+.carousel-control-next {
+    filter: drop-shadow(0 0 2px #000); /* Shadow effect for better visibility */
+}
+
+/*  Rating heart */
+
+.rating-div {
+    font-size: 12px;
+    display: flex;
+}
+
+.fa-stack {
+    margin-right: -20px!important;
+}
+
+.fa-stack-1x {
+    line-height: normal!important;
+}
+
+.fa-stack:first-child {
+    margin-left: -10px;
 }

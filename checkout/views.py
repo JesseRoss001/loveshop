@@ -10,10 +10,11 @@ from products.models import Cart, CartItem
 # Set the Stripe API key
 stripe.api_key = settings.STRIPE_SECRET_KEY
 
+
 @login_required
 def checkout_page(request):
-    user_profile, created = UserProfile.objects.get_or_create(user=request.user)
-    
+    user_profile, created = UserProfile.objects.get_or_create(
+        user=request.user)
     if request.method == 'POST':
         form = AddressForm(request.POST, instance=user_profile)
         if form.is_valid():
@@ -23,6 +24,7 @@ def checkout_page(request):
         form = AddressForm(instance=user_profile)
 
     return render(request, 'checkout/checkout_page.html', {'form': form})
+
 
 @login_required
 def review_order(request):
@@ -36,6 +38,7 @@ def review_order(request):
     }
     return render(request, 'checkout/review_order.html', context)
 
+
 @login_required
 def create_checkout_session(request):
     try:
@@ -43,17 +46,27 @@ def create_checkout_session(request):
         cart_items = CartItem.objects.filter(cart=user_cart)
         if not cart_items:
             return HttpResponse("Your cart is empty.", status=404)
-        
-        line_items = [{
-            'price_data': {
-                'currency': 'gbp',  # Changed from 'usd' to 'gbp'
-                'product_data': {
-                    'name': item.product.name,
+        line_items = []
+
+        for item in cart_items:
+            # Check if the item is a Valentine's special and  discounted price
+            if item.product.is_valentines_special and item.product.discounted_price is not None:  # Noqa
+                unit_amount = item.product.discounted_price
+            else:
+                unit_amount = item.product.price
+
+            # Add the item to the line items for Stripe Checkout
+            line_items.append({
+                'price_data': {
+                    'currency': 'gbp',
+                    'product_data': {
+                        'name': item.product.name,
+                    },
+                    'unit_amount': int(
+                        unit_amount * 100),  # Stripe  amount smallest  unit
                 },
-                'unit_amount': int(item.product.price * 100),  # Assume price is set in pounds
-            },
-            'quantity': item.quantity,
-        } for item in cart_items]
+                'quantity': item.quantity,
+            })
 
         checkout_session = stripe.checkout.Session.create(
             payment_method_types=['card'],
@@ -67,12 +80,15 @@ def create_checkout_session(request):
     except Cart.DoesNotExist:
         return HttpResponse("You do not have a cart.", status=404)
     except Exception as e:
-        return JsonResponse({'error': str(e)})
+        logger.error(f"Error creating checkout session: {e}", exc_info=True)
+        return JsonResponse({'error': "An unexpected error occurred. Please try again later."})  # Noqa
+
 
 @login_required
 def payment_success(request):
     # Handle successful payment
     return render(request, 'checkout/payment_success.html')
+
 
 @login_required
 def payment_cancel(request):

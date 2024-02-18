@@ -17,7 +17,9 @@ class ContactUs(models.Model):
         ('Other', 'Other'),
     ]
 
-    category = models.CharField(max_length=50, choices=CATEGORY_CHOICES, default='General Inquiry', null=False, blank=False)
+    category = models.CharField(
+        max_length=50, choices=CATEGORY_CHOICES,
+        default='General Inquiry', null=False, blank=False)
     name = models.CharField(max_length=100)
     email = models.EmailField()
     subject = models.CharField(max_length=200)

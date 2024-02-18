@@ -1,10 +1,7 @@
 
 # Be Mine Boutique
 
-</h1>
-
-<img src="logo" alt="BudgetBustersBanner" width="1200"/>
-
+![Website responsiveness on multiple screen sizes](assets/images/be_mine_boutique.png)
 
 # Intro:
 
@@ -36,8 +33,6 @@ Happy shopping!
   - [Site User's Goal](#site-user's-goal)
   - [Project Management](#project-management)
     - [Github Project Board](#github-project-board)
-  - [Demo](#demo)
-    - [A live demo to the website can be found here](#a-live-demo-to-the-website-can-be-found-here)
   - [User stories](#user-stories)
     - [Strategy](#strategy)
     - [Scope](#scope)
@@ -79,13 +74,12 @@ The primary goal for users visiting Be Mine Boutique is to discover and acquire 
 ### Github Project Board
 
 The Project Board facilitated a comprehensive overview of the project, breaking down tasks, features, and milestones into manageable cards. This approach allowed us to maintain a structured and organized workflow, ensuring that each component of Be Mine Boutique was systematically addressed.
-![Project Board](images/project_board.png)
 
-## Demo
 
-![Website look on different devices](INSERT LINK)
+![Project Board](/assets/images/project_board.png)
 
 ### A live demo to the website can be found [here](https://loveshop-037a9f640521.herokuapp.com/)
+
 
 
 ## UX
@@ -95,11 +89,14 @@ In the initial design phase of Love Shop, we utilized Figma to create a comprehe
 [Wireframe](https://www.figma.com/file/wKzMN7lJ3J6kuoPx5ZbyCn/Wireframe?type=design&node-id=0-1&mode=design&t=vupIF9MRZJLTBluZ-0)
 
 
+
 ## User stories
 
 The integration of user stories derived from our wireframe designs on the Project Board has been instrumental. It provided a clear linkage between design concepts and functional requirements, ensuring that the development team was aligned with the envisioned user experience. This connection between design and implementation has been crucial in delivering a product that not only meets technical specifications but also aligns seamlessly with the intended user journey.
 
-![User stories](images/user_stories.png)
+![User stories](/assets/images/user_stories.png)
+
+![User stories](/assets/images/user_story2.png)
 
 |  | | |
 |:-------:|:--------|:--------|
@@ -140,12 +137,70 @@ So that I can effectively communicate with them and keep them updated. | &check;
 So that I can maintain the quality of product reviews and ensure customer satisfaction. | &check; |
 
 
-### Strategy
+## Strategy
 
-### Scope
+### Development Approach
+
+Our development strategy for Be Mine Boutique centered around delivering a seamless and enchanting shopping experience for users. Key aspects of our approach include:
+
+1. **User-Centric Design:**
+   - Prioritizing user experience and engagement through intuitive interfaces and user-friendly features.
+
+2. **Agile Development:**
+   - Embracing an agile development methodology to adapt quickly to changing requirements and deliver incremental updates.
+
+3. **Cross-Functional Collaboration:**
+   - Fostering collaboration between design, development, and testing teams to ensure a cohesive and polished end product.
+
+
+## Scope
+
+### Overview
+
+Be Mine Boutique is an e-commerce platform specifically designed to cater to the unique gifting needs of Valentine's Day. The scope of this project revolves around providing users with a delightful and convenient shopping experience centered on love and celebration.
+
+### Key Features
+
+### 1. Curated Valentine's Day Collection
+
+Be Mine Boutique features a carefully curated collection of Valentine's Day gifts, including chocolates, flowers, jewelry, and more.
+
+### 2. User Registration and Authentication
+
+To enhance user engagement, the platform allows users to register for accounts securely. The authentication process ensures a personalized shopping experience.
+
+### 3. Intuitive Product Pages
+
+The product pages are designed for ease of navigation, presenting users with detailed information about each item, including pricing and availability.
+
+### 4. Seamless Shopping Cart
+
+Users can easily add and remove items from their shopping carts, providing a hassle-free experience while managing their selections.
+
+### 5. Secure Checkout Process
+
+A secure and intuitive checkout process ensures that users can efficiently provide their full address and payment details to complete their purchases.
+
+### 6. Responsive Design
+
+Be Mine Boutique is developed with a responsive design, ensuring a consistent and optimal user experience across various devices and screen sizes.
+
+## Future Enhancements
+
+While the current scope focuses on the core features for Valentine's Day, our roadmap includes potential enhancements such as:
+
+- **Expanded Product Categories:**
+  - Diversifying the product range to cater to other occasions and celebrations.
+
+- **User Reviews and Ratings:**
+  - Implementing a feedback system to allow users to share their experiences and recommendations.
+
+- **Personalized Recommendations:**
+  - Introducing personalized recommendation features based on user preferences and purchase history.
+
+Our commitment is to continuously evolve and expand the scope based on user feedback and emerging trends in the e-commerce landscape.
 
 **Website Sections:**
-
 
 ### Skeleton
 The website is designed to be clear and simple. The site has a main login page which wen completed opens to a dashboard page. On this dashboard there are multiple tabs which the user can use to navigate the various tools availiable to them. 
@@ -153,11 +208,11 @@ The website is designed to be clear and simple. The site has a main login page w
 -  Wireframes
 In the initial design phase of Be Mine Boutique, we utilized Figma to create a comprehensive wireframe, providing a visual blueprint for the e-commerce platform. Figma's collaborative features facilitated real-time teamwork, ensuring a cohesive visualization of the user interface. The wireframe outlines essential elements, including navigation menus and product displays, guiding a seamless and intuitive user experience. 
 
-![Wireframe](https://www.figma.com/file/wKzMN7lJ3J6kuoPx5ZbyCn/Wireframe?type=design&node-id=0-1&mode=design&t=vupIF9MRZJLTBluZ-0)
+[Wireframe](https://www.figma.com/file/wKzMN7lJ3J6kuoPx5ZbyCn/Wireframe?type=design&node-id=0-1&mode=design&t=vupIF9MRZJLTBluZ-0)
 
 ## UX
 
-##### Intuitive Navigation
+#### Intuitive Navigation
 
 - The website features a straightforward and intuitive navigation system, ensuring users can easily find what they're looking for.
 
@@ -189,7 +244,7 @@ At Be Mine Boutique, our color palette is carefully chosen to evoke a sense of s
 | #fff | (255,255,255) |
 
 
-![color-pallette](./static/images/readme-images/bb-color-pallette.png)
+![color-pallette](assets/images/colour.png)
 
 ## Technologies used <hr>
 
@@ -213,7 +268,7 @@ HTML, CSS, Bootstrap, Javascript, Django, MarkDown
 * [GitHub](https://github.com/) - GitHub is a global company that provides hosting for software development version control using Git.
 * [Gitpod](https://gitpod.io/workspaces/) - One-click ready-to-code development environments for GitHub.
 * [Heroku](https://dashboard.heroku.com/) - Heroku is a cloud platform that lets companies build, deliver, monitor and scale apps.
-* [Git] (https://git-scm.com/ ) - Git is a free and open source distributed version control system designed to handle everything from small to very large projects with speed and efficiency.
+* [Git](https://git-scm.com/ ) - Git is a free and open source distributed version control system designed to handle everything from small to very large projects with speed and efficiency.
 * [PostgreSQL](https://www.postgresql.org/) used as the relational database management.
 
 ## Features
@@ -236,7 +291,13 @@ HTML, CSS, Bootstrap, Javascript, Django, MarkDown
 - Forgot Password 
   - Securely reset your password if needed. We understand forgetful moments; reset your password hassle-free to regain access to your account.
 
-(link)
+#### Login page 
+
+![Login page](assets/images/login.png)
+
+#### Register Page
+
+![Register page](assets/images/register.png)
 
 **Home Page:**
 
@@ -245,7 +306,9 @@ HTML, CSS, Bootstrap, Javascript, Django, MarkDown
 - Shop Now Call to Action
   - Immerse yourself in the world of love and affection with a single click! Our prominent 'Shop Now' button beckons you to explore our exclusive collection and find the perfect gifts for those cherished moments.
 
-  (image link)
+#### Home Page
+
+![Home page](assets/images/home_page.png)
 
 **Product Page:**
 
@@ -260,8 +323,10 @@ HTML, CSS, Bootstrap, Javascript, Django, MarkDown
 - Direct Add to Cart
   - Simplify your shopping journey by adding your favorite items directly to the cart with a single click, ensuring a seamless and efficient checkout process.
 
+![Product page](assets/images/product_page1.png)
+![Product page](assets/images/product_page2.png)
+![Product page](assets/images/product_page3.png)
 
-(image link)
 
 **Contact Us Page:**
 
@@ -269,19 +334,38 @@ HTML, CSS, Bootstrap, Javascript, Django, MarkDown
   - Find all the necessary contact details to reach us easily. Whether it's a phone call, email, or visit, we're here to assist you.
 - Inquiry Form
   - Can't reach us right away? No problem! Utilize our convenient inquiry form to share your details and send a message directly to our team. We'll get back to you promptly to address any questions or concerns you may have.
+- FAQ
+  - conveniently placed below our Contact Us page. Find quick answers to common questions, allowing customers to read and understand more about our products and services.
 
-(images)
+![Contact page](assets/images/contact_page1.png)
+![Contact page](assets/images/contact_page2.png)
+![Faq](assets/images/faq.png)
+
+**Checkout:**
+
+In the Checkout section, users can seamlessly complete their purchase by providing essential information for a smooth and secure transaction.
+
+User Input:
+- Full Address
+   - Users are prompted to input their complete address, ensuring that the selected Valentine's Day gifts reach the intended recipient with precision.
+- Payment Details:**
+   - To finalize the transaction, users are required to provide payment details. This step is crucial for processing the order securely and efficiently.
+
+By streamlining the checkout process with these two key components, we aim to enhance the overall user experience, making it easy and convenient for customers to express their love through our curated collection of Valentine's Day gifts.
+
+![Checkout page](assets/images/checkout_page.png)
 
 **Footer:**
 
 - Details About Our Shop
    - Explore the heartwarming story behind our shop, our dedication to quality, and the passion that goes into curating our enchanting Valentine's Day gifts.
-
 - Contact Details
    - Find all the necessary contact information to connect with us, whether through phone, email, or in-person visits. We're here to assist you and answer any inquiries you may have.
-
 - Social Media Links
    - Stay connected and follow us on social media platforms for the latest updates, promotions, and a glimpse into the world of love and romance. Engage with us on [Facebook](#), [Instagram](#), and [Twitter](#) to be a part of our vibrant community.
+
+![Footer](assets/images/footer.png)
+
 
 ### Features Left to Implement
 
@@ -295,25 +379,7 @@ In the future we would like to add,
 
 ## Testing
 
-* We tested the site, and it works in different web browsers: Chrome, Firefox, and Microsoft Edge.
-* We confirmed that the site is responsive and functions on different screen sizes using the devtools device toolbar.
-
-| Section Tested | Input To Validate | Expected Outcome | Actual Outcome | Pass/Fail |
-| -------------- | ----------------- | ---------------- | -------------- | --------- |
-| XXXX | XXXX | XXXX | XXXX| XXXX |
-
-
-### Validator Testing
-
-#### WebAim Contrast checker 
-
-
-#### Fixed Bugs
-
-
-#### Unfixed Bugs
-
-* None to report 
+Be Mine Boutique underwent thorough manual testing during development and post-deployment to ensure a robust and user-friendly experience. For a detailed summary of our manual testing efforts, please refer to [this document](test.md).
 
 ## Deployment
 
@@ -339,6 +405,7 @@ This project, developed for [Heroku](https://www.heroku.com/), is a Django-based
 2. **Configure Environment Variables:**
    - From the app's Settings, click "Reveal Config Vars" and set your environment variables:
      | Key | Value |
+     | ---------------------- | ----------------------- |
      | CLOUDINARY_URL | user's own value |
      | DATABASE_URL | user's own value |
      | DISABLE_COLLECTSTATIC | 1 (temporary) |

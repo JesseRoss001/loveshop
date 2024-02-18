@@ -7,13 +7,15 @@ from django.contrib.auth.models import User
 from django.core.exceptions import ValidationError
 from accounts.models import UserProfile  # Make sure this import is correct
 
+
 class UserRegisterForm(UserCreationForm):
     email = forms.EmailField(required=True)
     phone_number = forms.CharField(required=True)
 
     class Meta:
         model = User
-        fields = ('username', 'email', 'phone_number', 'password1', 'password2')
+        fields = ('username', 'email',
+                  'phone_number', 'password1', 'password2')
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -27,23 +29,24 @@ class UserRegisterForm(UserCreationForm):
 
         self.fields['username'].widget.attrs['autofocus'] = True
         for field in self.fields:
-            self.fields[field].widget.attrs['placeholder'] = placeholders[field]
-            self.fields[field].widget.attrs['class'] = 'mb-3 px-2 py-2 rounded shadow text-black form-border'
+            self.fields[field].widget.attrs['placeholder'] = placeholders[field]  # noqa
+            self.fields[field].widget.attrs['class'] = 'mb-3 px-2 py-2 rounded shadow text-black form-border'  # noqa
             self.fields[field].label = False
 
     def clean_email(self):
         email = self.cleaned_data.get('email')
         api_key = settings.EMAIL_VALIDATION_API_KEY
-        response = requests.get(f"https://emailvalidation.abstractapi.com/v1/?api_key={api_key}&email={email}")
-        
+        response = requests.get(f"https://emailvalidation.abstractapi.com/v1/?api_key={api_key}&email={email}")  # noqa
         if response.status_code == 200:
             result = response.json()
             if result['deliverability'] == 'DELIVERABLE':
                 return email
             else:
-                raise forms.ValidationError('Email is invalid or undeliverable.')
+                raise forms.ValidationError(
+                    'Email is invalid or undeliverable.')
         else:
-            raise forms.ValidationError('Failed to validate email. Please try again later.')
+            raise forms.ValidationError(
+                'Failed to validate email. Please try again later.')
 
     def clean_phone_number(self):
         phone_number = self.cleaned_data.get('phone_number')
@@ -58,7 +61,7 @@ class UserRegisterForm(UserCreationForm):
         if commit:
             user.save()
             UserProfile.objects.create(
-                user=user, 
+                user=user,
                 phone_number=self.cleaned_data['phone_number']
             )
         return user

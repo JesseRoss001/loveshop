@@ -4,6 +4,7 @@ from django.shortcuts import redirect, render
 from django.views.generic import CreateView
 from .forms import UserRegisterForm
 
+
 # Registration view
 def register(request):
     if request.method == 'POST':
@@ -16,5 +17,4 @@ def register(request):
         form = UserRegisterForm()
     return render(request, 'registration/register.html', {'form': form})
 
-# Login and Logout views will use Django's built-in views. 
-# You don't need to add them here if you're not customizing them beyond the template.
+# Login and Logout views will use Django's built-in views.

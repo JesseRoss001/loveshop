@@ -1,16 +1,13 @@
 import os
 import dj_database_url
 import environ
-
+from pathlib import Path
 # Initialize environment variables
 env = environ.Env()
 # Assuming the .env file is located at the same level as manage.py
-environ.Env.read_env(os.path.join(os.path.dirname(os.path.dirname(__file__)), '.env'))
+environ.Env.read_env(
+    os.path.join(os.path.dirname(os.path.dirname(__file__)), '.env'))
 EMAIL_VALIDATION_API_KEY = os.environ.get('EMAIL_VALIDATION_API_KEY', '')
-from pathlib import Path
-
-
-
 STRIPE_SECRET_KEY = env('STRIPE_SECRET_KEY')
 STRIPE_PUBLISHABLE_KEY = env('STRIPE_PUBLISHABLE_KEY')
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -20,16 +17,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-nc#^$gs3+t@+s+g1^y8p*+#6@#4y9qjxuc)%-ijb%6!b19q3g^'
+SECRET_KEY = 'django-insecure-nc#^$gs3+t@+s+g1^y8p*+#6@#4y9qjxuc)%-ijb%6!b19q3g^'  # Noqa
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+
 # Add the Gitpod and Heroku hostnames to ALLOWED_HOSTS  
-
-
 ALLOWED_HOSTS = ['loveshop-037a9f640521.herokuapp.com', 'localhost', '127.0.0.1', '8000-jesseross001-loveshop-l66tcfpckvd.ws-eu108.gitpod.io', '8000-enrightc-loveshop-1yvrkj5ue7l.ws-eu108.gitpod.io', '8000-jesseross001-loveshop-ge9dv0dwqbc.ws-eu108.gitpod.io','8000-jesseross001-loveshop-x4466lrm8sk.ws-eu108.gitpod.io', '8000-jesseross001-loveshop-vlxgoz8ar2u.ws-eu108.gitpod.io',  '8000-jesseross001-loveshop-vlxgoz8ar2u.ws-eu108.gitpod.io', '8000-jesseross001-loveshop-nf87aulamh1.ws-eu108.gitpod.io', '8000-jesseross001-loveshop-nf87aulamh1.ws-eu108.gitpod.io', '8000-jesseross001-loveshop-iw1cu87l27t.ws-eu108.gitpod.io', '8000-jesseross001-loveshop-84iol2m5xai.ws-eu108.gitpod.io',  '8000-jesseross001-loveshop-ibx768l2xj0.ws-eu108.gitpod.io', '8000-jesseross001-loveshop-ibx768l2xj0.ws-eu108.gitpod.io' ]
-
-
 CSRF_TRUSTED_ORIGINS = [
     'https://localhost',
     'https://127.0.0.1',
@@ -51,7 +45,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    
     'products',
     'loveshop',
     'accounts',
@@ -67,7 +60,7 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',  # Add this line for WhiteNoise
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -81,7 +74,7 @@ ROOT_URLCONF = 'loveshop.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'templates'],  # Add this line to include your templates directory
+        'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -102,25 +95,26 @@ WSGI_APPLICATION = 'loveshop.wsgi.application'
 
 # Database configuration
 DATABASES = {
-    'default': dj_database_url.config(default='postgres://vqxjheds:1nrdvdG2fkWUbcvRB-bjE_xYyKiMlCh9@trumpet.db.elephantsql.com/vqxjheds')
+    'default': dj_database_url.config(
+        default='postgres://vqxjheds:1nrdvdG2fkWUbcvRB-bjE_xYyKiMlCh9@trumpet.db.elephantsql.com/vqxjheds')  # noqa
 }
 
 # Password validation
 AUTH_PASSWORD_VALIDATORS = [
     {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',  # noqa
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',  # noqa
         'OPTIONS': {
             'min_length': 8,
         },
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',  # noqa
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',  # noqa
     },
 ]
 
@@ -151,4 +145,3 @@ CLOUDINARY_STORAGE = {
 }
 
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
-

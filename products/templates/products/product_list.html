@@ -40,8 +40,6 @@
             </div>
         </div>
     </form>
-    <!-- Cart Modal -->
-<!-- Cart Modal -->
 <!-- Product Info Modal -->
 <div class="modal fade" id="productInfoModal" tabindex="-1" aria-labelledby="productInfoModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
@@ -145,7 +143,7 @@
                 {% else %}
                 <button class="btn btn-secondary" disabled>Sold Out</button>
                 {% endif %}
-                <button type="button" class=" btn btn-border rounded text-uppercase my-3 shadow" data-bs-toggle="modal" data-bs-target="#productInfoModal" data-product-id="{{ product.id }}">
+                <button type="button" class=" btn btn-info btn-border rounded text-uppercase my-3 shadow" data-bs-toggle="modal" data-bs-target="#productInfoModal" data-product-id="{{ product.id }}">
                     <i class="fas fa-info-circle"></i> Info
                 </button>
             </div>
@@ -197,7 +195,7 @@
                         {% endif %}
                     </span>
                 </div>
-                <button type="button" class="btn btn-border rounded text-uppercase my-3 shadow" data-bs-toggle="modal" data-bs-target="#productInfoModal" data-product-id="{{ product.id }}">
+                <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#productInfoModal" data-product-id="{{ product.id }}">
                     <i class="fas fa-info-circle"></i> Info
                 </button>
                 <!-- End of rating -->
@@ -282,7 +280,7 @@
                     {% else %}
                     <button class="btn btn-secondary" disabled>Sold Out</button>
                     {% endif %}
-                    <button type="button" class="btn btn-border rounded text-uppercase my-3 shadow" data-bs-toggle="modal" data-bs-target="#productInfoModal" data-product-id="{{ product.id }}">
+                    <button type="button" class="btn btn-info btn-border rounded text-uppercase my-3 shadow" data-bs-toggle="modal" data-bs-target="#productInfoModal" data-product-id="{{ product.id }}">
                         <i class="fas fa-info-circle"></i> Info
                     </button>
                 </div>
@@ -309,8 +307,28 @@
 </nav>
 {% endif %}
     </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var productInfoModal = document.getElementById('productInfoModal');
+        
+            document.querySelectorAll('.btn-info').forEach(function(button) {
+                button.addEventListener('click', function() {
+                    var productId = button.getAttribute('data-product-id');
+        
+                    fetch(`{% url 'products:product_detail' 0 %}`.replace('0', productId))
+                    .then(response => response.json())
+                    .then(data => {
+                        productInfoModal.querySelector('.modal-title').textContent = data.name;
+                        productInfoModal.querySelector('.modal-body').innerHTML = `
+                            <p>Price: £${data.price}</p>
+                            <p>Description: ${data.description}</p>
+                        `;
+                    });
+                });
+            });
+        });
+        </script>
 
-    
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             var cartModal = document.getElementById('cartModal');
@@ -472,38 +490,5 @@
     }
 });
 </script>
-<Script> 
-    document.addEventListener('DOMContentLoaded', function() {
-        // Binding for dynamic product info buttons
-        document.querySelector('.container').addEventListener('click', function(e) {
-            // Check if the clicked element is an info button
-            if (e.target && e.target.matches('button.btn-info')) {
-                var productId = e.target.dataset.productId; // Get the product ID from the data attribute
-    
-                // Make an AJAX request to the product_detail view
-                fetch(`/products/product-detail/${productId}/`)
-                    .then(response => response.json())
-                    .then(data => {
-                        // If the request was successful, populate the modal with the product data
-                        var modalTitle = document.querySelector('#productInfoModal .modal-title');
-                        var modalBody = document.querySelector('#productInfoModal .modal-body');
-    
-                        modalTitle.textContent = data.name;
-                        modalBody.innerHTML = `
-                            <p>Price: £${data.price}</p>
-                            <p>Description: ${data.description}</p>
-                            <p>Rating: ${data.rating}</p>
-                        `;
-    
-                        // Show the modal using Bootstrap's modal method
-                        var productInfoModal = new bootstrap.Modal(document.getElementById('productInfoModal'));
-                        productInfoModal.show();
-                    })
-                    .catch(error => {
-                        console.error('Error:', error);
-                    });
-            }
-        });
-    });
-    </Script>
+
 {% endblock %}

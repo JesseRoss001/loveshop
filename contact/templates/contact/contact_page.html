@@ -19,11 +19,11 @@
     <div class="col d-flex flex-column align-items-center mt-5">
         <h2 class="title-font text-black my-3 fst-italic">Contact Us</h2>
         <hr class="w-50 text-center mb-1">
-
-    </div>
+    </div> 
+</div>
    
-    <!-- ======= Contact Section ======= -->
-    <section id="contact" class="contact m-3">
+<!-- ======= Contact Section ======= -->
+  <section id="contact" class="contact m-3">
         <div class="container">
             <div class="row gy-4">
                 <div class="col-lg-4">
@@ -54,7 +54,7 @@
 
             </div>
         </div>
-    </section>
+  </section>
 
 <!-- Contact Form -->
 <div class="container-fluid">
@@ -63,23 +63,23 @@
       <hr class="w-50 text-center mb-1">
 
   </div>
+</div>
  
- 
-<section id="contact" class="contact m-3">
-        <div class="card shadow  my-3 fst-italic ls-border text-black">
-            <div class="card-body contact m-3">
-                <form method="POST" action="{% url 'contact:contact_success' %}"enctype="multipart/form-data">
+<section id="contact-form" class="contact m-3">
+    <div class="card shadow  my-3 fst-italic ls-border text-black">
+        <div class="card-body contact m-3">
+                <form method="POST" action="{% url 'contact:contact_success' %}" enctype="multipart/form-data">
                     {% csrf_token %}
-                    <div class="big-labels>
+                  <div class="big-labels">
                       {{ form|crispy }}
                   </div>
                     <div class="text-center">
                         <button class="btn ls-btn rounded text-uppercase my-3 p-3" type="submit">Submit</button>
                     </div>
                 </form>
-            </div>
         </div>
     </div>
+   
 </section>
 
 <!-- FAQ's -->
@@ -89,13 +89,15 @@
       <hr class="w-50 text-center mb-1">
 
   </div>
-<section id="contact" class="contact m-3 ">
-    <div id="accordion" class="col d-flex flex-column">
+</div>
+
+<section id="faqs" class="contact m-3 ">
+  <div id="accordion" class="col d-flex flex-column">
         <div class="card col my-2 ls-border align-items-center text-black ">
           <div class="card-header text-black " id="headingOne">
             <h5 class="mb-0">
               <button class="btn" type="button" data-bs-toggle="collapse" data-bs-target="#multiCollapseExample1" aria-expanded="false" aria-controls="multiCollapseExample1">
-                <h4 class="align-items-center text-black fst-italic"> How can I track my parcel? </h4>
+                <span class="align-items-center text-black fst-italic"> How can I track my parcel? </span>
               </button>
             </h5>
           </div>
@@ -111,7 +113,7 @@
           <div class="card-header text-black" id="headingTwo">
             <h5 class="mb-0">
               <button class="btn" type="button" data-bs-toggle="collapse" data-bs-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2">
-                <h4 class="align-items-center text-black fst-italic"> How long do returns take? </h4>
+                <span class="align-items-center text-black fst-italic"> How long do returns take? </span>
               </button>
             </h5>
           </div>
@@ -125,7 +127,7 @@
           <div class="card-header text-black" id="headingTree">
             <h5 class="mb-0">
               <button class="btn" type="button" data-bs-toggle="collapse" data-bs-target="#multiCollapseExample3" aria-expanded="false" aria-controls="multiCollapseExample3">
-                <h4 class="align-items-center text-black fst-italic">How can I pay for my order?</h4>
+                <span class="align-items-center text-black fst-italic">How can I pay for my order?</span>
               </button>
             </h5>
           </div>
@@ -136,10 +138,10 @@
           </div>
         </div>
         <div class="card col my-2 ls-border align-items-center text-black">
-          <div class="card-header text-black" id="headingTree">
+          <div class="card-header text-black" id="headingfour">
             <h5 class="mb-0">
               <button class="btn" type="button" data-bs-toggle="collapse" data-bs-target="#multiCollapseExample4" aria-expanded="false" aria-controls="multiCollapseExample4">
-                <h4 class="align-items-center text-black fst-italic">Wat are my shipping & deivery options?</h4>
+                <span class="align-items-center text-black fst-italic">Wat are my shipping & deivery options?</span>
               </button>
             </h5>
           </div>
@@ -150,10 +152,10 @@
           </div>
         </div>
         <div class="card col my-2 ls-border align-items-center text-black">
-          <div class="card-header text-black" id="headingTree">
+          <div class="card-header text-black" id="headingfive">
             <h5 class="mb-0">
               <button class="btn" type="button" data-bs-toggle="collapse" data-bs-target="#multiCollapseExample5" aria-expanded="false" aria-controls="multiCollapseExample5">
-                <h4 class="align-items-center text-black fst-italic">Do you deliver internationally?</h4>
+                <span class="align-items-center text-black fst-italic">Do you deliver internationally?</span>
               </button>
             </h5>
           </div>
@@ -164,10 +166,10 @@
           </div>
         </div>
         <div class="card col my-2 ls-border align-items-center text-black">
-          <div class="card-header text-black" id="headingTree">
+          <div class="card-header text-black" id="headingsix">
             <h5 class="mb-0">
               <button class="btn" type="button" data-bs-toggle="collapse" data-bs-target="#multiCollapseExample6" aria-expanded="false" aria-controls="multiCollapseExample6">
-                <h4 class="align-items-center text-black fst-italic">Are there other shipping restrictions?</h4>
+                <span class="align-items-center text-black fst-italic">Are there other shipping restrictions?</span>
               </button>
             </h5>
           </div>
@@ -178,10 +180,10 @@
           </div>
         </div>
         <div class="card col my-2 ls-border align-items-center text-black">
-          <div class="card-header text-black" id="headingTree">
+          <div class="card-header text-black" id="headingseven">
             <h5 class="mb-0">
               <button class="btn" type="button" data-bs-toggle="collapse" data-bs-target="#multiCollapseExample7" aria-expanded="false" aria-controls="multiCollapseExample7">
-                <h4 class="align-items-center text-black fst-italic">What happens if my order is delayed?</h4>
+                <span class="align-items-center text-black fst-italic">What happens if my order is delayed?</span>
               </button>
             </h5>
           </div>
@@ -191,7 +193,7 @@
             </div>
           </div>
         </div>
-
+  </div>      
 </section>
 
 

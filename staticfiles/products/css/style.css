@@ -86,7 +86,7 @@ a:hover {
 .falling-heart {
     position: fixed;
     top: -50px;
-    font-size: 24px; // Adjust the size as needed
+    font-size: 24px; 
     color: red;
     pointer-events: none;
     animation: fall linear forwards;

@@ -116,3 +116,8 @@ body {
     border: 2px solid #d51857;
     outline: 0;
 }
+
+
+.btn > span.align-items-center {
+    font-size: 1.5rem; 
+}

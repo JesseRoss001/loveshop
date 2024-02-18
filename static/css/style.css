@@ -68,6 +68,10 @@ body {
     background-color: #d51857;
 }
 
+.form-control:focus{
+    border: 2px solid #D51857!important;
+    outline: 0!important;
+}
 
 
 /* ------------------- Keyframes for banner animation */

@@ -13,21 +13,6 @@ h2 {
     text-align: center;
 }
 
-/* Button Styles */
-.ls-btn, .add-to-cart, .btn-info {
-    background-color: #d51857;
-    border: none;
-    color: #fff;
-    font-size: 1rem;
-    padding: .375rem .75rem;
-    text-transform: uppercase;
-    transition: background-color .3s ease;
-}
-
-.ls-btn:hover, .add-to-cart:hover, .btn-info:hover {
-    background-color: #bb164d;
-    color: #fff;
-}
 
 /* Shopping cart button */
 .btn-border {
@@ -92,6 +77,10 @@ a:hover {
     width: 100%;
     height: 325px;
     object-fit: cover;
+}
+
+.page-item {
+    margin-right: 10px;
 }
 
 /* Responsive image grid */
@@ -182,4 +171,23 @@ a:hover {
 .carousel-control-prev,
 .carousel-control-next {
     filter: drop-shadow(0 0 2px #000); /* Shadow effect for better visibility */
+}
+
+/*  Rating heart */
+
+.rating-div {
+    font-size: 12px;
+    display: flex;
+}
+
+.fa-stack {
+    margin-right: -20px!important;
+}
+
+.fa-stack-1x {
+    line-height: normal!important;
+}
+
+.fa-stack:first-child {
+    margin-left: -10px;
 }

@@ -79,7 +79,7 @@ The primary goal for users visiting Be Mine Boutique is to discover and acquire 
 ### Github Project Board
 
 The Project Board facilitated a comprehensive overview of the project, breaking down tasks, features, and milestones into manageable cards. This approach allowed us to maintain a structured and organized workflow, ensuring that each component of Be Mine Boutique was systematically addressed.
-![Project Board](images/project_board.png)
+![Test](assets/images/test.png)
 
 ## Demo
 

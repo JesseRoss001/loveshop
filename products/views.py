@@ -61,7 +61,7 @@ def product_list(request):
     })
 
 
-@login_required
+
 def add_to_cart(request, product_id):
     product = get_object_or_404(
          Product, id=product_id, quantity_remaining__gt=0)

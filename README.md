@@ -1,7 +1,7 @@
 
 # Be Mine Boutique
 
-![Website responsiveness on multiple screen sizes](assets/images/be_mine_boutique.png)
+![Website responsiveness on multiple screen sizes](assets/images/responsive_design.png)
 
 # Intro:
 
@@ -30,7 +30,7 @@ Happy shopping!
 - [Table of Contents](#table-of-contents)
 - [Project](#project)
   - [Objective](#objective)
-  - [Site User's Goal](#site-user's-goal)
+  - [Site User Goal](#site-user-goal)
   - [Project Management](#project-management)
     - [Github Project Board](#github-project-board)
   - [User stories](#user-stories)
@@ -40,21 +40,27 @@ Happy shopping!
     - [UX](#ux)
     - [Planning](#planning)
     - [Surface](#surface)
-  - [Technologies used ](#technologies-used-)
-    - [Libraries](#libraries)
-    - [Frameworks \& Extensions](#frameworks--extensions)
+  - [Technologies used](#technologies-used)
+    - [Main languages](#main-languages)
+    - [Frameworks and Libraries](#frameworks-and-libraries)
     - [Others](#others)
   - [Features](#features)
     - [Existing Features](#existing-features)
+      - [Navigation Bar](#navigation-bar)
+      - [Sign in and Login](#sign-in-and-login)
+      - [Home Page](#home-page)
+      - [Product Page](#product-page)
+      - [Contact Us Page](#contact-us-page)
+      - [About Us Page](#about-us-page)
+      - [Checkout](#checkout)
+      - [Footer](#footer)
     - [Features Left to Implement](#features-left-to-implement)
   - [Testing](#testing)
-    - [Validator Testing](#validator-testing)
-      - [WebAim Contrast checker](#webaim-contrast-checker)
-      - [Fixed Bugs](#fixed-bugs)
-      - [Unfixed Bugs](#unfixed-bugs)
   - [Deployment](#deployment)
     - [Version Control](#version-control)
     - [Heroku Deployment](#heroku-deployment)
+    - [Local Deployment](#local-deployment)
+    - [Cloning](#cloning)
   - [Credits](#credits)
   - [Acknowledgements](#acknowledgements)
 
@@ -65,7 +71,7 @@ Happy shopping!
 
 The primary objective of Be Mine Boutique is to create an immersive and user-friendly e-commerce platform dedicated to offering a diverse range of romantic gifts for the celebration of love, with a particular focus on Valentine's Day. Our goal is to provide users with a curated selection of timeless classics, innovative personalized items, and expressive tokens of affection.
 
-## Site User's Goal
+## Site User Goal
 
 The primary goal for users visiting Be Mine Boutique is to discover and acquire the perfect romantic gift to express their love and create memorable moments, particularly for occasions like Valentine's Day. Users aim to explore a thoughtfully curated collection of timeless classics and personalized treasures, effortlessly navigating the site to find unique and meaningful items that resonate with their emotions. Be Mine Boutique empowers users to enhance their celebrations by providing a seamless and secure online shopping experience, where they can easily select and purchase the ideal gift to convey their sentiments and make every romantic occasion truly special.
 
@@ -78,12 +84,6 @@ The Project Board facilitated a comprehensive overview of the project, breaking 
 ![Project Board](/assets/images/project_board.png)
 
 ### A live demo to the website can be found [here](https://loveshop-037a9f640521.herokuapp.com/)
-
-## UX
-
-In the initial design phase of Love Shop, we utilized Figma to create a comprehensive wireframe, providing a visual blueprint for the e-commerce platform. Figma's collaborative features facilitated real-time teamwork, ensuring a cohesive visualization of the user interface. The wireframe outlines essential elements, including navigation menus and product displays, guiding a seamless and intuitive user experience.
-
-[Wireframe](https://www.figma.com/file/wKzMN7lJ3J6kuoPx5ZbyCn/Wireframe?type=design&node-id=0-1&mode=design&t=vupIF9MRZJLTBluZ-0)
 
 ## User stories
 
@@ -199,7 +199,6 @@ Our commitment is to continuously evolve and expand the scope based on user feed
 
 ### Skeleton
 The website is designed to be clear and simple. The site has a main login page which wen completed opens to a dashboard page. On this dashboard there are multiple tabs which the user can use to navigate the various tools availiable to them. 
-
 -  Wireframes
 In the initial design phase of Be Mine Boutique, we utilized Figma to create a comprehensive wireframe, providing a visual blueprint for the e-commerce platform. Figma's collaborative features facilitated real-time teamwork, ensuring a cohesive visualization of the user interface. The wireframe outlines essential elements, including navigation menus and product displays, guiding a seamless and intuitive user experience. 
 
@@ -241,10 +240,13 @@ At Be Mine Boutique, our color palette is carefully chosen to evoke a sense of s
 
 ![color-pallette](assets/images/colour.png)
 
-## Technologies used <hr>
+## Technologies used
 
 The website is designed using following technologies: 
-HTML, CSS, Bootstrap, Javascript, Django, MarkDown
+
+### Main languages
+
+HTML, CSS, Javascript, Python
 
 * [HTML](https://en.wikipedia.org/wiki/HTML) used for the main site content.
 * [CSS](https://en.wikipedia.org/wiki/CSS) used for the main site design and layout.
@@ -252,7 +254,7 @@ HTML, CSS, Bootstrap, Javascript, Django, MarkDown
 * [JavaScript](https://www.javascript.com/) used for user interaction on the site.
 * [Python](https://www.python.org/) used as the back-end programming language.
 
-### Frameworks, Libraries & Extensions
+### Frameworks and Libraries
 
 * [Django](https://www.djangoproject.com/) – Django is a high-level Python Web framework that encourages rapid development and clean, pragmatic design.
 * [Bootstrap](https://getbootstrap.com/) – Bootstrap is a web framework that focuses on simplifying the development of informative web pages.
@@ -270,18 +272,20 @@ HTML, CSS, Bootstrap, Javascript, Django, MarkDown
 
 ### Existing Features
 
-**Navbar:**
+### Navigation Bar
 
 - Home Page: Navigate to the heart of our shop and learn more about our story and commitment to quality.
 - Product Page: Explore our curated collection of Valentine's Day gifts, where you can find the perfect expression of love for any occasion.
 - Contact Us: Reach out to us effortlessly through various contact options or utilize the inquiry form for any questions or assistance.
 - Logout: After login user can securely sign out from your account, ensuring the privacy and security of your information.
 
-**Sign in and Login:**
+![Navbar](assets/images/navbar.png)
+
+### Sign in and Login
 
 - Login
   - Access your account to explore personalized features. Log in effortlessly to access your saved favorites, track orders, and enjoy a tailored shopping experience.
-- Create Account 
+- Register 
   - New to our shop? Sign up here for an enhanced experience. Unlock exclusive offers, faster checkout, and the latest updates by creating your account.
 - Forgot Password 
   - Securely reset your password if needed. We understand forgetful moments; reset your password hassle-free to regain access to your account.
@@ -294,18 +298,18 @@ HTML, CSS, Bootstrap, Javascript, Django, MarkDown
 
 ![Register page](assets/images/register.png)
 
-**Home Page:**
+### Home Page
 
-- About Us Section
-  - Discover the heartwarming story of our shop and our unwavering commitment to quality. Learn more about the passion that goes into curating our collection of enchanting Valentine's Day gifts.
+- A Message
+  - As user step into our virtual space, they'll be greeted by a beautifully crafted message, echoing the essence of our shop.
 - Shop Now Call to Action
-  - Immerse yourself in the world of love and affection with a single click! Our prominent 'Shop Now' button beckons you to explore our exclusive collection and find the perfect gifts for those cherished moments.
+  - Immerse yourself in the world of love and affection with a single click! Our prominent 'Shop Now' button beckons user to explore our exclusive collection and find the perfect gifts for those cherished moments.
 
 #### Home Page
 
 ![Home page](assets/images/home_page.png)
 
-**Product Page:**
+### Product Page
 
 - Product List
   - Explore our diverse collection of Valentine's Day gifts, carefully curated for every romantic occasion.
@@ -323,7 +327,7 @@ HTML, CSS, Bootstrap, Javascript, Django, MarkDown
 ![Product page](assets/images/product_page3.png)
 
 
-**Contact Us Page:**
+### Contact Us Page
 
 - Contact Information
   - Find all the necessary contact details to reach us easily. Whether it's a phone call, email, or visit, we're here to assist you.
@@ -336,7 +340,14 @@ HTML, CSS, Bootstrap, Javascript, Django, MarkDown
 ![Contact page](assets/images/contact_page2.png)
 ![Faq](assets/images/faq.png)
 
-**Checkout:**
+### About Us Page
+
+- Our "About Us" page is dedicated to providing insights into who we are and the values that define our identity. It serves as a space where users can delve into our story, fostering trust and ensuring an enjoyable shopping experience. We focus on two main aspects: introducing ourselves and showcasing our core values, aiming to create a connection with our users.
+
+![About us](assets/images//about_us.png)
+
+
+### Checkout
 
 In the Checkout section, users can seamlessly complete their purchase by providing essential information for a smooth and secure transaction.
 
@@ -350,7 +361,7 @@ By streamlining the checkout process with these two key components, we aim to en
 
 ![Checkout page](assets/images/checkout_page.png)
 
-**Footer:**
+### Footer
 
 - Details About Our Shop
    - Explore the heartwarming story behind our shop, our dedication to quality, and the passion that goes into curating our enchanting Valentine's Day gifts.
@@ -388,7 +399,7 @@ The following git commands were used throughout development to push code to the 
 
 - git push - This command was used to push all committed code to the remote repository on github.
 
-### Deployment Steps on Heroku
+### Heroku Deployment
 
 This project, developed for [Heroku](https://www.heroku.com/), is a Django-based application that enables users to build, run, and operate applications entirely in the cloud.
 
@@ -426,7 +437,7 @@ Or:
 
 The project should now be connected and deployed to Heroku!
 
-## Local Deployment
+### Local Deployment
 
 This project can be cloned or forked in order to make a local copy on your own system.
 
@@ -443,7 +454,7 @@ For either method, you will need to install any applicable packages found within
    - Load fixtures if needed: `python3 manage.py loaddata file-name.json`
    - Run the app again: `python3 manage.py runserver`
 
-## Cloning
+### Cloning
 
 You can clone the repository by following these steps:
 
@@ -464,6 +475,40 @@ By forking the GitHub Repository, we make a copy of the original repository on o
 3. Once clicked, you should now have a copy of the original repository in your own GitHub account!
 
 ## Credits
+A heartfelt thank you to the Code Crush Crew, our dedicated Hackathon team, for their collaborative efforts and creativity. This project wouldn't have been possible without each member's unique contributions and commitment.
 
+### Technologies and Frameworks
+- [Django](https://www.djangoproject.com/): Our web framework of choice, providing a robust and scalable foundation for building this project.
+
+### Inspirational Platforms
+- [Youtube](https://www.youtube.com/): A treasure trove of tutorials and insights that fueled our learning and inspired innovative solutions.
+
+- [Stack Overflow](https://stackoverflow.com/): The invaluable community where we sought guidance, shared knowledge, and resolved challenges throughout the development process.
+
+### Additional Resources
+- [GitHub](https://github.com/): Our version control platform, ensuring seamless collaboration and version tracking.
+
+- [Unsplash](https://unsplash.com/): Providing stunning and royalty-free images that enhance the visual appeal of our project.
+
+### Special Mentions
+We extend our gratitude to the entire open-source community for creating an ecosystem that fosters learning, collaboration, and innovation.
 
 ## Acknowledgements
+We would like to express our sincere gratitude to everyone who contributed to the success of this project. Our journey has been enriched by the support, guidance, and inspiration from the following individuals and communities:
+
+### Code Crush Crew
+A big shoutout to each member of the Code Crush Crew, whose passion, dedication, and collaborative spirit brought this project to life. Unique skills and perspectives have made a lasting impact.
+
+### Open-Source Community
+The vibrant and supportive open-source community deserves recognition for creating an environment where ideas flourish and knowledge is freely shared. Thank you to all contributors who paved the way for innovation.
+
+### Tools and Frameworks
+Our project stands on the shoulders of giants—thank you to the creators and maintainers of the tools and frameworks that powered our development journey, including Django and GitHub.
+
+### Learning Platforms
+We are indebted to online learning platforms like YouTube, Stack Overflow, and FreeCodeCamp, whose vast resources expanded our knowledge and skills.
+
+### Visual Assets
+A special thanks to Unsplash for providing stunning, high-quality images that enhance the visual appeal of our project.
+
+Thank you all for being an integral part of this exciting journey!

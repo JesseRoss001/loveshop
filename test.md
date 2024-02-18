@@ -81,6 +81,8 @@ Return back to the [README.md](README.md) file.
 | iPhone 11      |N/A                | Responsive                 | Yes                 |
 | Samsung Galaxy S8      |N/A                | Responsive                 | Yes                 |
 | Desktop 1024px | Responsive                 | N/A                 | Yes                 |
+## Validation
+The validation of Be Mine Boutique can be found [here](validation.md).
 
 ## Conclusion
 

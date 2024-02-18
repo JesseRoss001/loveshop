@@ -48,10 +48,7 @@ a:hover {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
-}
+
 
 .card-img-top {
     width: 100%;
@@ -86,7 +83,7 @@ a:hover {
 .falling-heart {
     position: fixed;
     top: -50px;
-    font-size: 24px; // Adjust the size as needed
+    font-size: 24px; 
     color: red;
     pointer-events: none;
     animation: fall linear forwards;

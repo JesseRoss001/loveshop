@@ -42,5 +42,11 @@ button, input, optgroup, select, textarea {
 
 .ls-border {
             border: 2px solid #d51857;}
-            /* padding: 30px 38px 35px;}
+
+
+
+.btn > span.align-items-center {
+    font-size: 1.5rem; 
+}
+ 
 

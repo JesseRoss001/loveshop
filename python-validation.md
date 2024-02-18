@@ -43,3 +43,4 @@ Static Images: The static resources, specifically Pylint output images, are appr
 ![Pylint13](images/pylint/pylint13.png)
 ![Pylint14](images/pylint/pylint14.png)
 ![Pylint15](images/pylint/pylint15.png)
+![Pylint16](images/pylint/pylint16.png)

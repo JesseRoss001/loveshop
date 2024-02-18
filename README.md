@@ -72,6 +72,13 @@ Happy shopping!
  - [Credits](#credits)
  - [Acknowledgements](#acknowledgements)
 
+## Testing
+
+Be Mine Boutique underwent thorough manual testing during development and post-deployment to ensure a robust and user-friendly experience. For a detailed summary of our manual testing efforts, please refer to [this document](test.md).
+
+## Validation
+The validation of Be Mine Boutique can be found [here](validation.md).
+
 ## Judging Criteria
 ### 1. User Experience & Accessibility
 
@@ -438,9 +445,6 @@ In the future we would like to add,
 
 [Go to Top](#be-mine-boutique)
 
-## Testing
-
-Be Mine Boutique underwent thorough manual testing during development and post-deployment to ensure a robust and user-friendly experience. For a detailed summary of our manual testing efforts, please refer to [this document](test.md).
 
 ## Deployment
 

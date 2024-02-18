@@ -5,6 +5,7 @@
 <link href="{% static 'products/css/style.css' %}" rel="stylesheet">
 {% endblock extra_css %}
 {% block content %}
+
 <div class="container mt-4">
     <h2 class="text-center my-4">Valentine's Day Gifts</h2>
     <div class="d-flex align-items-center mb-1 justify-content-center">
@@ -109,15 +110,15 @@
                 <!-- End of rating -->
                 {% if product.quantity_remaining > 0 %}
                 {% if user.is_authenticated %}
-<div class="product-actions">
-    <a href="javascript:void(0);" class="btn ls-btn rounded text-uppercase my-3 shadow add-to-cart" data-product-id="{{ product.id }}">
-        <i class="fas fa-cart-plus"></i> Add to Cart
-    </a>
-    <div class="add-to-cart-success-message"></div> <!-- Placeholder for the success message -->
-</div>
+                    <div class="product-actions">
+                        <a href="javascript:void(0);" class="btn ls-btn rounded text-uppercase my-3 shadow add-to-cart" data-product-id="{{ product.id }}">
+                            <i class="fas fa-cart-plus"></i> Add to Cart
+                        </a>
+                        <div class="add-to-cart-success-message"></div> <!-- Placeholder for the success message -->
+                    </div>
                 {% endif %}
                 {% else %}
-                <button class="btn btn-secondary" disabled>Sold Out</button>
+                    <button class="btn btn-secondary" disabled>Sold Out</button>
                 {% endif %}
                 <button type="button" class=" btn btn-info btn-border rounded text-uppercase my-3 shadow" data-bs-toggle="modal" data-bs-target="#productInfoModal" data-product-id="{{ product.id }}">
                     <i class="fas fa-info-circle"></i> Info
@@ -127,7 +128,9 @@
         </div>
         {% endfor %}
     </div>
-    <button id="showMoreBtn" class="btn ls-btn rounded text-uppercase my-3 p-3">Show More</button>
+    {% if user.is_authenticated %}
+        <button id="showMoreBtn" class="btn ls-btn rounded text-uppercase my-3 p-3">Show More</button>
+    {% endif %}
     <div class="additional-products row row-cols-1 row-cols-md-3 g-4" style="display: none;">
         {% for product in valentine_specials|slice:"3:" %}
         <div class="product col mb-3">

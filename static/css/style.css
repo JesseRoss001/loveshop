@@ -116,3 +116,8 @@ body {
     border: 2px solid #d51857;
     outline: 0;
 }
+
+/* Error page */
+.error-size {
+    font-size: 60px;
+}

@@ -118,6 +118,12 @@ body {
 }
 
 
+/* Error page */
+.error-size {
+    font-size: 60px;
+
+
 .btn > span.align-items-center {
     font-size: 1.5rem; 
+
 }

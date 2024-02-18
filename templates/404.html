@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<style>
+    .error-size {
+        font-size: 60px;
+    }
+</style>
+<div class="container py-4 text-center">
+    <div class="col-12">
+        <!-- Error Page Content -->
+        <div class="row">
+            <h1 class="error-size text-center text-danger my-4"> <i class="fas fa-heart"></i> 404 <i class="fas fa-heart"></i> </h1>
+            <h2 class="my-4">OOPS! Page not found!</h2>
+            <!-- Home Button -->
+            <div class="my-4">
+                <a href="{% url 'home' %}" class="text-decoration-none text-black">
+                    <button class="btn ls-btn rounded text-uppercase my-3 p-3">Go
+                        Home <i class="fas fa-home"></i></button>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

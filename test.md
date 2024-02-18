@@ -81,8 +81,7 @@ Return back to the [README.md](README.md) file.
 | iPhone 11      |N/A                | Responsive                 | Yes                 |
 | Samsung Galaxy S8      |N/A                | Responsive                 | Yes                 |
 | Desktop 1024px | Responsive                 | N/A                 | Yes                 |
-## Validation
-The validation of Be Mine Boutique can be found [here](validation.md).
+
 
 ## Bugs and Issues
 
@@ -90,6 +89,7 @@ The validation of Be Mine Boutique can be found [here](validation.md).
 | :--- | :--- | :--- |
 | 1 | Checkout button works on empty shopping cart | It is possible to go to checkout page with an empty bag. |
 | 2 | Checkout form required field | On the checkout form only the postal code is required, so user can proceed to payment without full address. |
+| 3 | Filter function reload page to the top | After clicking on filter button it does filter but it also scroll page to the top. |
 
 Due to time constraints, we were unable to address all of the bugs found during the testing process.
 

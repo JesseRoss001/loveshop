@@ -75,7 +75,16 @@ Happy shopping!
  - [Credits](#credits)
  - [Acknowledgements](#acknowledgements)
 
-# Judging Criteria
+
+## Testing
+
+Be Mine Boutique underwent thorough manual testing during development and post-deployment to ensure a robust and user-friendly experience. For a detailed summary of our manual testing efforts, please refer to [this document](test.md).
+
+## Validation
+The validation of Be Mine Boutique can be found [here](validation.md).
+
+## Judging Criteria
+
 ### 1. User Experience & Accessibility
 
 - Our project prioritises a seamless and inclusive experience for all users. The user interface is designed with accessibility in mind, ensuring that everyone, regardless of ability, can navigate and interact with ease.
@@ -459,10 +468,12 @@ In the future we would like to add,
 * Add more personalised style to the home page sections
 
 
+
 # Testing
 
 
 Be Mine Boutique underwent thorough manual testing during development and post-deployment to ensure a robust and user-friendly experience. For a detailed summary of our manual testing efforts, please refer to [this document](test.md).
+
 
 [Back to Top](#table-of-contents)
 <br>

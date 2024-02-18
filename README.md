@@ -30,16 +30,13 @@ Secure Transactions: Your security is our priority. Be Mine Boutique employs sta
 Spread the Love
 Join us in the journey of spreading love and joy. Be Mine Boutique is not just a place to buy gifts; it's an experience crafted to enhance your celebrations and create lasting memories. Celebrate love, express emotions, and make every moment count with Be Mine Boutique.
 
-
 Happy shopping!
-
-
-
 
 # Table of Contents
 - [Be Mine Boutique](#be-mine-boutique)
 - [Intro](#intro)
 - [Table of Contents](#table-of-contents)
+- [Judging Criteria](#judging-criteria)
 - [Project](#project)
  - [Objective](#objective)
  - [Site User Goal](#site-user-goal)
@@ -76,14 +73,32 @@ Happy shopping!
  - [Credits](#credits)
  - [Acknowledgements](#acknowledgements)
 
+## Judging Criteria
+### 1. User Experience & Accessibility
+
+- Our project prioritizes a seamless and inclusive experience for all users. The user interface is designed with accessibility in mind, ensuring that everyone, regardless of ability, can navigate and interact with ease.
+
+### 2. Project is Responsive
+Our project is built with responsiveness in mind. Whether you're accessing it from a desktop, tablet, or mobile device, the layout and design adapt gracefully to different screen sizes, providing a consistent and visually appealing experience.
+
+### 3. Project Aligns Well to Hackathon Theme
+Every aspect of our project is crafted with the Hackathon theme in mind. From the design elements to the functionality, our project aligns seamlessly with the theme, showcasing our commitment to the event's purpose.
+
+### 4. Project was Well-Planned and Executed (using GitHub Projects)
+We, a collaborative team, meticulously planned and executed our project using GitHub Projects. Our project board served as a central hub for task management, issue tracking, and collaboration, ensuring a well-organized and efficiently executed development process.
+
+### 5. Project Uses One of the CSS Frameworks
+To enhance the project's styling and maintain consistency, we, as a team, chose [Bootstrap](https://getbootstrap.com/) as our CSS framework. This choice not only streamlined our design process but also contributed to the overall responsiveness and visual appeal of the project.
+
+### Teamwork and Collaboration
+Our success is a testament to the power of teamwork. The collaborative efforts of each team member played a crucial role in achieving our goals. Regular communication, shared responsibilities, and a shared vision were the driving forces behind the seamless execution of this project. We believe that effective teamwork is the foundation of innovation, and our project reflects the dedication and synergy of our talented team.
+
 
 
 
 # Project
 
-
 ## Objective
-
 
 The primary objective of Be Mine Boutique is to create an immersive and user-friendly e-commerce platform dedicated to offering a diverse range of romantic gifts for the celebration of love, with a particular focus on Valentine's Day. Our goal is to provide users with a curated selection of timeless classics, innovative personalized items, and expressive tokens of affection.
 
@@ -96,9 +111,7 @@ The primary goal for users visiting Be Mine Boutique is to discover and acquire 
 
 ## Project Management
 
-
 ### Github Project Board
-
 
 The Project Board facilitated a comprehensive overview of the project, breaking down tasks, features, and milestones into manageable cards. This approach allowed us to maintain a structured and organized workflow, ensuring that each component of Be Mine Boutique was systematically addressed.
 
@@ -116,7 +129,6 @@ The integration of user stories derived from our wireframe designs on the Projec
 
 
 ![User stories](/assets/images/user_stories.png)
-
 
 ![User stories](/assets/images/user_story2.png)
 
@@ -159,85 +171,57 @@ So that I can effectively communicate with them and keep them updated. | &check;
 | User Story 20 (Must Have)| As a Store Owner | I want to be able to view and manage customer reviews for products on the website,
 So that I can maintain the quality of product reviews and ensure customer satisfaction. | &check; |
 
-
-
-
 ## Strategy
-
 
 ### Development Approach
 
-
 Our development strategy for Be Mine Boutique centered around delivering a seamless and enchanting shopping experience for users. Key aspects of our approach include:
-
 
 1. **User-Centric Design:**
   - Prioritizing user experience and engagement through intuitive interfaces and user-friendly features.
 
-
 2. **Agile Development:**
   - Embracing an agile development methodology to adapt quickly to changing requirements and deliver incremental updates.
-
 
 3. **Cross-Functional Collaboration:**
   - Fostering collaboration between design, development, and testing teams to ensure a cohesive and polished end product.
 
-
-
-
 ## Scope
 
-
 ### Overview
-
 
 Be Mine Boutique is an e-commerce platform specifically designed to cater to the unique gifting needs of Valentine's Day. The scope of this project revolves around providing users with a delightful and convenient shopping experience centered on love and celebration.
 
 
 ### Key Features
 
-
 ### 1. Curated Valentine's Day Collection
-
 
 Be Mine Boutique features a carefully curated collection of Valentine's Day gifts, including chocolates, flowers, jewelry, and more.
 
-
 ### 2. User Registration and Authentication
-
 
 To enhance user engagement, the platform allows users to register for accounts securely. The authentication process ensures a personalized shopping experience.
 
-
 ### 3. Intuitive Product Pages
-
 
 The product pages are designed for ease of navigation, presenting users with detailed information about each item, including pricing and availability.
 
-
 ### 4. Seamless Shopping Cart
-
 
 Users can easily add and remove items from their shopping carts, providing a hassle-free experience while managing their selections.
 
-
 ### 5. Secure Checkout Process
-
 
 A secure and intuitive checkout process ensures that users can efficiently provide their full address and payment details to complete their purchases.
 
-
 ### 6. Responsive Design
-
 
 Be Mine Boutique is developed with a responsive design, ensuring a consistent and optimal user experience across various devices and screen sizes.
 
-
 ## Future Enhancements
 
-
 While the current scope focuses on the core features for Valentine's Day, our roadmap includes potential enhancements such as:
-
 
 - **Expanded Product Categories:**
  - Diversifying the product range to cater to other occasions and celebrations.
@@ -250,60 +234,43 @@ While the current scope focuses on the core features for Valentine's Day, our ro
 - **Personalized Recommendations:**
  - Introducing personalized recommendation features based on user preferences and purchase history.
 
-
 Our commitment is to continuously evolve and expand the scope based on user feedback and emerging trends in the e-commerce landscape.
 
-
 **Website Sections:**
-
 
 ### Skeleton
 The website is designed to be clear and simple. The site has a main login page which wen completed opens to a dashboard page. On this dashboard there are multiple tabs which the user can use to navigate the various tools availiable to them.
 -  Wireframes
 In the initial design phase of Be Mine Boutique, we utilized Figma to create a comprehensive wireframe, providing a visual blueprint for the e-commerce platform. Figma's collaborative features facilitated real-time teamwork, ensuring a cohesive visualization of the user interface. The wireframe outlines essential elements, including navigation menus and product displays, guiding a seamless and intuitive user experience.
 
-
 [Wireframe](https://www.figma.com/file/wKzMN7lJ3J6kuoPx5ZbyCn/Wireframe?type=design&node-id=0-1&mode=design&t=vupIF9MRZJLTBluZ-0)
-
 
 ## UX
 
-
 #### Intuitive Navigation
-
 
 - The website features a straightforward and intuitive navigation system, ensuring users can easily find what they're looking for.
 
-
 #### Responsive Design
 
-
 - The design adapts seamlessly across different devices and screen sizes, offering an optimal viewing experience whether on desktop, tablet, or mobile.
-
 
 #### Engaging Visuals
 - Be Mine Boutique prioritizes Engaging Visuals to create a visually delightful and seamless user experience. From wireframe concepts to product displays, we focus on captivating aesthetics to enhance the charm of our Valentine's Day gifts. Explore a visually appealing online shopping journey that combines the spirit of romance with user-friendly design.
 
-
 #### Accessibility
 - At Be Mine Boutique, accessibility is a priority. We're committed to creating an inclusive online space with features like clear text, structured layouts, and image alt text. Our goal is to ensure a seamless and enjoyable shopping experience for everyone.
-
 
 #### User-Friendly Features
 - At Be Mine Boutique, user-friendly features are at the forefront of our design. Navigating through our website is intuitive, with clear menus, straightforward product displays, and a streamlined checkout process. We've prioritized a seamless user experience, ensuring that every click is a step closer to finding the perfect Valentine's Day gift.
 
-
 ### Planning
-
 
 Planning is the backbone of Be Mine Boutique's success. From conceptualizing the initial wireframes to orchestrating a seamless user experience, meticulous planning has been the driving force. Our project board on GitHub serves as the dynamic hub where tasks are organized, progress is tracked, and collaboration flourishes. Every aspect, from design to implementation, is a result of strategic planning, ensuring that Be Mine Boutique not only meets but exceeds the expectations of our users. With a clear roadmap and agile adaptation, our planning is a testament to the precision and foresight embedded in every stage of development.
 
-
 ### Surface
 
-
 At Be Mine Boutique, our color palette is carefully chosen to evoke a sense of sophistication and romance. The timeless combination of black and pink creates a visually appealing contrast, symbolizing the elegance and vibrancy synonymous with the spirit of love. Against the clean canvas of white background, these colors pop, enhancing the overall aesthetics of our platform. Whether it's the deep richness of black, the romantic allure of pink, or the pristine background, our color choices are a deliberate blend that aims to convey a refined and delightful visual experience for our users at Be Mine Boutique.
-
 
 | Hex | RGB |
 | -------------- | ----------------- |
@@ -311,23 +278,16 @@ At Be Mine Boutique, our color palette is carefully chosen to evoke a sense of s
 | #232323 | (35,35,35) |
 | #fff | (255,255,255) |
 
-
-
-
 ![color-pallette](assets/images/colour.png)
 
 
 ## Technologies used
 
-
 The website is designed using following technologies:
-
 
 ### Main languages
 
-
 HTML, CSS, Javascript, Python
-
 
 * [HTML](https://en.wikipedia.org/wiki/HTML) used for the main site content.
 * [CSS](https://en.wikipedia.org/wiki/CSS) used for the main site design and layout.
@@ -343,9 +303,7 @@ HTML, CSS, Javascript, Python
 * [Bootstrap](https://getbootstrap.com/) – Bootstrap is a web framework that focuses on simplifying the development of informative web pages.
 * [Font Awesome](https://fontawesome.com/v4.7.0/) - Font Awesome icons were used throughout the web-site.
 
-
 ### Others
-
 
 * [GitHub](https://github.com/) - GitHub is a global company that provides hosting for software development version control using Git.
 * [Gitpod](https://gitpod.io/workspaces/) - One-click ready-to-code development environments for GitHub.
@@ -353,12 +311,9 @@ HTML, CSS, Javascript, Python
 * [Git](https://git-scm.com/ ) - Git is a free and open source distributed version control system designed to handle everything from small to very large projects with speed and efficiency.
 * [PostgreSQL](https://www.postgresql.org/) used as the relational database management.
 
-
 ## Features
 
-
 ### Existing Features
-
 
 ### Navigation Bar
 
@@ -382,27 +337,20 @@ HTML, CSS, Javascript, Python
 - Forgot Password
  - Securely reset your password if needed. We understand forgetful moments; reset your password hassle-free to regain access to your account.
 
-
 #### Login page
-
 
 ![Login page](assets/images/login.png)
 
-
 #### Register Page
-
 
 ![Register page](assets/images/register.png)
 
-
 ### Home Page
-
 
 - A Message
  - As user step into our virtual space, they'll be greeted by a beautifully crafted message, echoing the essence of our shop.
 - Shop Now Call to Action
  - Immerse yourself in the world of love and affection with a single click! Our prominent 'Shop Now' button beckons user to explore our exclusive collection and find the perfect gifts for those cherished moments.
-
 
 #### Home Page
 
@@ -429,11 +377,7 @@ HTML, CSS, Javascript, Python
 ![Product page](assets/images/product_page2.png)
 ![Product page](assets/images/product_page3.png)
 
-
-
-
 ### Contact Us Page
-
 
 - Contact Information
  - Find all the necessary contact details to reach us easily. Whether it's a phone call, email, or visit, we're here to assist you.
@@ -441,7 +385,6 @@ HTML, CSS, Javascript, Python
  - Can't reach us right away? No problem! Utilize our convenient inquiry form to share your details and send a message directly to our team. We'll get back to you promptly to address any questions or concerns you may have.
 - FAQ
  - conveniently placed below our Contact Us page. Find quick answers to common questions, allowing customers to read and understand more about our products and services.
-
 
 ![Contact page](assets/images/contact_page1.png)
 ![Contact page](assets/images/contact_page2.png)
@@ -454,16 +397,11 @@ HTML, CSS, Javascript, Python
 - Our "About Us" page is dedicated to providing insights into who we are and the values that define our identity. It serves as a space where users can delve into our story, fostering trust and ensuring an enjoyable shopping experience. We focus on two main aspects: introducing ourselves and showcasing our core values, aiming to create a connection with our users.
 
 
-![About us](assets/images//about_us.png)
-
-
-
+![About us](assets/images/about_us.png)
 
 ### Checkout
 
-
 In the Checkout section, users can seamlessly complete their purchase by providing essential information for a smooth and secure transaction.
-
 
 User Input:
 - Full Address
@@ -471,15 +409,12 @@ User Input:
 - Payment Details:**
   - To finalize the transaction, users are required to provide payment details. This step is crucial for processing the order securely and efficiently.
 
-
 By streamlining the checkout process with these two key components, we aim to enhance the overall user experience, making it easy and convenient for customers to express their love through our curated collection of Valentine's Day gifts.
 
 
 ![Checkout page](assets/images/checkout_page.png)
 
-
 ### Footer
-
 
 - Details About Our Shop
   - Explore the heartwarming story behind our shop, our dedication to quality, and the passion that goes into curating our enchanting Valentine's Day gifts.
@@ -488,17 +423,11 @@ By streamlining the checkout process with these two key components, we aim to en
 - Social Media Links
   - Stay connected and follow us on social media platforms for the latest updates, promotions, and a glimpse into the world of love and romance. Engage with us on [Facebook](#), [Instagram](#), and [Twitter](#) to be a part of our vibrant community.
 
-
 ![Footer](assets/images/footer.png)
-
-
-
 
 ### Features Left to Implement
 
-
 In the future we would like to add,
-
 
 * A feature where the user could take a photo of a receipt and the information would autofil the required fields.
 * An account page the user could customise with a profile picture.
@@ -506,43 +435,30 @@ In the future we would like to add,
 * An addition to the profile page where the user can select the currency they wish to view their finances in
 * Add more personalised style to the home page sections
 
-
 ## Testing
-
 
 Be Mine Boutique underwent thorough manual testing during development and post-deployment to ensure a robust and user-friendly experience. For a detailed summary of our manual testing efforts, please refer to [this document](test.md).
 
-
 ## Deployment
-
 
 ### Version Control
 
-
 The following git commands were used throughout development to push code to the remote repo:
-
 
 - git add - This command was used to add the file(s) to the staging area before they are committed.
 
-
 - git commit -m “commit message” - This command was used to commit changes to the local repository queue ready for the final step.
-
 
 - git push - This command was used to push all committed code to the remote repository on github.
 
-
 ### Heroku Deployment
 
-
 This project, developed for [Heroku](https://www.heroku.com/), is a Django-based application that enables users to build, run, and operate applications entirely in the cloud.
-
-
 
 
 1. **Create a New App:**
   - Select "New" in the top-right corner of your Heroku Dashboard and choose "Create new app" from the dropdown menu.
   - Choose a unique app name, select a region (EU or USA), and click "Create App."
-
 
 2. **Configure Environment Variables:**
   - From the app's Settings, click "Reveal Config Vars" and set your environment variables:
@@ -553,24 +469,18 @@ This project, developed for [Heroku](https://www.heroku.com/), is a Django-based
     | DISABLE_COLLECTSTATIC | 1 (temporary) |
     | SECRET_KEY | user's own value |
 
-
 3. **Install Requirements and Create Procfile:**
   - Install project requirements using `pip3 install -r requirements.txt`.
   - Create a Procfile with `echo web: gunicorn app_name.wsgi > Procfile` (replace app_name with your Django app name).
   - replace app_name with the name of your primary Django app name; the folder where settings.py is located
 
-
 For Heroku deployment, follow these steps to connect your own GitHub repository to the newly created app:
-
 
 Either:
 
-
 - Select Automatic Deployment from the Heroku app.
 
-
 Or:
-
 
 - In the Terminal/CLI, connect to Heroku using this command: heroku login -i
 - Set the remote for Heroku: heroku git:remote -a app_name (replace app_name with your app name)
@@ -580,20 +490,15 @@ Or:
 
 The project should now be connected and deployed to Heroku!
 
-
 ### Local Deployment
-
 
 This project can be cloned or forked in order to make a local copy on your own system.
 
-
 For either method, you will need to install any applicable packages found within the requirements.txt file.
-
 
 1. **Install Requirements and Configure Environment:**
   - Install project requirements: `pip3 install -r requirements.txt`
   - Create `env.py` at the root level with your environment variables.
-
 
 2. **Run the Project Locally:**
   - Start the Django app: `python3 manage.py runserver`
@@ -602,12 +507,10 @@ For either method, you will need to install any applicable packages found within
   - Load fixtures if needed: `python3 manage.py loaddata file-name.json`
   - Run the app again: `python3 manage.py runserver`
 
-
 ### Cloning
 
 
 You can clone the repository by following these steps:
-
 
 1. Go to the GitHub repository
 2. Locate the Code button above the list of files and click it
@@ -618,65 +521,49 @@ You can clone the repository by following these steps:
 git clone The Link
 7. Press Enter to create your local clone.
 
-
 Forking
 By forking the GitHub Repository, we make a copy of the original repository on our GitHub account to view and/or make changes without affecting the original owner's repository. You can fork this repository by using the following steps:
-
 
 1. Log in to GitHub and locate the GitHub Repository
 2. At the top of the Repository (not top of page) just above the "Settings" Button on the menu, locate the "Fork" Button.
 3. Once clicked, you should now have a copy of the original repository in your own GitHub account!
 
-
 ## Credits
 A heartfelt thank you to the Code Crush Crew, our dedicated Hackathon team, for their collaborative efforts and creativity. This project wouldn't have been possible without each member's unique contributions and commitment.
-
 
 ### Technologies and Frameworks
 - [Django](https://www.djangoproject.com/): Our web framework of choice, providing a robust and scalable foundation for building this project.
 
-
 ### Inspirational Platforms
 - [Youtube](https://www.youtube.com/): A treasure trove of tutorials and insights that fueled our learning and inspired innovative solutions.
 
-
 - [Stack Overflow](https://stackoverflow.com/): The invaluable community where we sought guidance, shared knowledge, and resolved challenges throughout the development process.
-
 
 ### Additional Resources
 - [GitHub](https://github.com/): Our version control platform, ensuring seamless collaboration and version tracking.
 
-
 - [Unsplash](https://unsplash.com/): Providing stunning and royalty-free images that enhance the visual appeal of our project.
-
 
 ### Special Mentions
 We extend our gratitude to the entire open-source community for creating an ecosystem that fosters learning, collaboration, and innovation.
 
-
 ## Acknowledgements
 We would like to express our sincere gratitude to everyone who contributed to the success of this project. Our journey has been enriched by the support, guidance, and inspiration from the following individuals and communities:
-
 
 ### Code Crush Crew
 A big shoutout to each member of the Code Crush Crew, whose passion, dedication, and collaborative spirit brought this project to life. Unique skills and perspectives have made a lasting impact.
 
-
 ### Open-Source Community
 The vibrant and supportive open-source community deserves recognition for creating an environment where ideas flourish and knowledge is freely shared. Thank you to all contributors who paved the way for innovation.
-
 
 ### Tools and Frameworks
 Our project stands on the shoulders of giants—thank you to the creators and maintainers of the tools and frameworks that powered our development journey, including Django and GitHub.
 
-
 ### Learning Platforms
 We are indebted to online learning platforms like YouTube, Stack Overflow, and FreeCodeCamp, whose vast resources expanded our knowledge and skills.
 
-
 ### Visual Assets
 A special thanks to Unsplash for providing stunning, high-quality images that enhance the visual appeal of our project.
-
 
 Thank you all for being an integral part of this exciting journey!
 

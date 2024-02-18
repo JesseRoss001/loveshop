@@ -37,5 +37,7 @@ class ContactUsForm(forms.ModelForm):
 
         for field_name, field in self.fields.items():
             if field_name not in excluded_fields:
-                field.widget.attrs["placeholder"] = placeholders.get(field_name, "")
+                field.widget.attrs[
+                    "placeholder"] = placeholders.get(field_name, "")
         self.fields["name"].widget.attrs["autofocus"] = True
+        

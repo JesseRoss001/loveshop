@@ -51,7 +51,7 @@ a:hover {
 }
 
 .card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-3px);
     box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
 }
 
@@ -135,28 +135,7 @@ a:hover {
     display: none;
   }
 
-  .carousel-item {
-    text-align: center; /* Center text for smaller images */
-}
 
-.carousel-caption h5,
-.carousel-caption .card-text {
-    background-color: rgba(255, 255, 255, 0.75); /* Semi-transparent background */
-    display: inline-block; /* Keep background tight to the text */
-    margin: 0.5em;
-    padding: 0.5em;
-}
-
-.carousel-control-prev-icon,
-.carousel-control-next-icon {
-    background-color: #d51857; /* Make the controls stand out */
-    border-radius: 50%; /* Circular background */
-    padding: 10px; /* Padding around the arrow icons */
-}
-
-/* Ensure carousel images have the same height as cards */
-.carousel-item .card-img-top {
-    height: 325px; /* Adjust height as needed */
 }
 
 /* Adjust the size of the carousel to match the card layout */

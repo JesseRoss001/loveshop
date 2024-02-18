@@ -1,6 +1,67 @@
 # Testing
 
 Return back to the [README.md](README.md) file.
+
+## Manual Testing 
+
+| Feature | Test Case| Outcome |
+|-----------------|-----------------|-----------------|
+| **Navbar:** | 
+| Navbar: Hover| Hover over link on navbar | Pink border appears over hovered link. |
+| Navbar: Home | Click on "Home" on each page | User successfully taken to home page. |
+| Navbar: Products | Click on "Products" on each page | User successfully taken to Products page.  |
+| Navbar: Products | Click on "Contact" on each page | User successfully taken to contact page.  |
+| Navbar: About us | Click on "About us" on each page | User successfully taken to About us page.  |
+| Navbar: Login | Click on "Login" on each page | User successfully taken to Login page.  |
+| Navbar: Register | Click on "Register" on each page | User successfully taken to Register page.  |
+| **Homepage** | 
+| "shop Now" button | Click the button | User successfully taken to Products page.  |
+| **Products page** | 
+| Filter | Filter search criteria | Clicking on the filter button successfully filters the viewed products.  |
+| "Info" button | clickable button | Clicking the button on each product opens a modal with product description  |
+| **Contact page** | 
+| Signup form | Submit a form | ......... |
+| FAQ Accordion | Click a question to display answer | Answer cards successfully expand and collapse.  |
+| **Login page** | 
+| ...... | ...... | ......  |
+| **Register page** | 
+| ...... | ...... | ......  |
+| **Footer** | 
+| Email address| Click on the email address | Clicking emaila ddress successfully opens email window.  |
+| Social media links| Click on a social media icon | Clicking the icon successfully opens a new tab linking to the relevant social media page.  |
+
+### Browser Compatibility:
+| Browser Tested       | Intended appearance          | intended Responsiveness  |
+| ------------- |:-------------:| -----:|
+| Chrome      | Good | Good |
+| Mozilla      | Good      |   Good |
+| Safari | Good      |    Good |
+| Edge | Good      |    Good |
+
+### Responsiveness Test:
+| Device Tested | Site Responsiveness >700px | Site Responsiveness <699px | Renders as Expected |
+| ------------- | --------------------------- | --------------------------- | ------------------- |
+| iPhone 11      |N/A                | Responsive                 | Yes                 |
+| Desktop 1024px | Responsive                 | N/A                 | Yes                 |
+
+
+## Validator Testing
+### HTML
+To test the markup validity [HTML Validator](https://validator.w3.org/) was run on each of the three pages of The Gourmet Cake Club website. There were no errors or warnings detected.
+
+### CSS
+A [CSS Validator](https://validator.w3.org/) was used to check the validity of the CSS code of the website. There were no errors or warnings detected.
+
+### Light House Analysis
+Lighthouse in Chrome Developer Tools was used to assess the performance, accessibility, best practice and SEO rating of the website. This analysis was run throughout the website development with recommendations implemented accordingly to improve the score. This included compressing image sizes, adjusting contrast ratio for links and adding a meta description.
+
+The Lighthouse analysis was run on both mobile and desktop devices and the results are illustrated below:
+
+
+![Lighthouse Analysis](Put screenshot in here)
+
+
+**TEmplate Below to be deleted**
 ## Browser Testing 
 
 The website was tested on Microsoft Edge, Google Chrome , Firefox and Opera; no issues were noted.  Google Chrome testing can be seen in the responsiveness video below. 

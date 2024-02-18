@@ -99,7 +99,40 @@
                 <p class="card-text">
                 <s>£{{ product.price }}</s> £{{ product.discounted_price }}
                 </p>
-                <p class="card-text">Rating: {{ product.rating }}/5</p>
+                 <!-- Product Rating -->
+                 <div class="rating-div text-danger pe-0">
+                    <span class="fa-stack fa-lg">
+                        <i class="far fa-heart fa-stack-1x"></i>
+                        {% if product.rating >= 1 %}
+                            <i class="fas fa-heart fa-stack-1x"></i>
+                        {% endif %}
+                    </span>
+                    <span class="fa-stack fa-lg">
+                        <i class="far fa-heart fa-stack-1x"></i>
+                        {% if product.rating >= 2 %}
+                            <i class="fas fa-heart fa-stack-1x"></i>
+                        {% endif %}
+                    </span>
+                    <span class="fa-stack fa-lg">
+                        <i class="far fa-heart fa-stack-1x"></i>
+                        {% if product.rating >= 3 %}
+                            <i class="fas fa-heart fa-stack-1x"></i>
+                        {% endif %}
+                    </span>
+                    <span class="fa-stack fa-lg">
+                        <i class="far fa-heart fa-stack-1x"></i>
+                        {% if product.rating >= 4 %}
+                            <i class="fas fa-heart fa-stack-1x"></i>
+                        {% endif %}
+                    </span>
+                    <span class="fa-stack fa-lg me-1">
+                        <i class="far fa-heart fa-stack-1x"></i>
+                        {% if product.rating >= 5 %}
+                            <i class="fas fa-heart fa-stack-1x"></i>
+                        {% endif %}
+                    </span>
+                </div>
+                <!-- End of rating -->
                 {% if product.quantity_remaining > 0 %}
                 {% if user.is_authenticated %}
                 <a href="{% url 'products:add_to_cart' product.id %}" class="btn ls-btn rounded text-uppercase my-3 shadow" data-product-id="{{ product.id }}">
@@ -128,7 +161,40 @@
                 <p class="card-text">
                 <s>£{{ product.price }}</s> £{{ product.discounted_price }}
                 </p>
-                <p class="card-text">Rating: {{ product.rating }}/5</p>
+                 <!-- Product Rating -->
+                 <div class="rating-div text-danger pe-0">
+                    <span class="fa-stack fa-lg">
+                        <i class="far fa-heart fa-stack-1x"></i>
+                        {% if product.rating >= 1 %}
+                            <i class="fas fa-heart fa-stack-1x"></i>
+                        {% endif %}
+                    </span>
+                    <span class="fa-stack fa-lg">
+                        <i class="far fa-heart fa-stack-1x"></i>
+                        {% if product.rating >= 2 %}
+                            <i class="fas fa-heart fa-stack-1x"></i>
+                        {% endif %}
+                    </span>
+                    <span class="fa-stack fa-lg">
+                        <i class="far fa-heart fa-stack-1x"></i>
+                        {% if product.rating >= 3 %}
+                            <i class="fas fa-heart fa-stack-1x"></i>
+                        {% endif %}
+                    </span>
+                    <span class="fa-stack fa-lg">
+                        <i class="far fa-heart fa-stack-1x"></i>
+                        {% if product.rating >= 4 %}
+                            <i class="fas fa-heart fa-stack-1x"></i>
+                        {% endif %}
+                    </span>
+                    <span class="fa-stack fa-lg me-1">
+                        <i class="far fa-heart fa-stack-1x"></i>
+                        {% if product.rating >= 5 %}
+                            <i class="fas fa-heart fa-stack-1x"></i>
+                        {% endif %}
+                    </span>
+                </div>
+                <!-- End of rating -->
                 {% if product.quantity_remaining > 0 %}
                 {% if user.is_authenticated %}
                 <a href="{% url 'products:add_to_cart' product.id %}" class="btn ls-btn rounded text-uppercase my-3 shadow" data-product-id="{{ product.id }}">

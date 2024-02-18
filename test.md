@@ -82,6 +82,15 @@ Return back to the [README.md](README.md) file.
 | Samsung Galaxy S8      |N/A                | Responsive                 | Yes                 |
 | Desktop 1024px | Responsive                 | N/A                 | Yes                 |
 
+## Bugs and Issues
+
+| # | Bugs, Errors and Issues | Description |
+| :--- | :--- | :--- |
+| 1 | Checkout button works on empty shopping cart | It is possible to go to checkout page with an empty bag. |
+| 2 | Checkout form required field | On the checkout form only the postal code is required, so user can proceed to payment without full address. |
+
+Due to time constraints, we were unable to address all of the bugs found during the testing process.
+
 ## Conclusion
 
 Based on the testing conducted on the website, the following conclusions can be drawn:

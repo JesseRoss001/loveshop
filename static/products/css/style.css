@@ -136,7 +136,7 @@ a:hover {
   }
 
 
-}
+
 
 /* Adjust the size of the carousel to match the card layout */
 @media (min-width: 768px) {
@@ -162,7 +162,11 @@ a:hover {
 .fa-stack {
     margin-right: -20px!important;
 }
-
+.success-message {
+    color: green;
+    margin-top: 10px;
+    font-size: 0.9em;
+}
 .fa-stack-1x {
     line-height: normal!important;
 }

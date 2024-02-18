@@ -307,7 +307,7 @@ HTML, CSS, Javascript, Python
 
 #### Home Page
 
-![Home page](assets/images/home_page.png)
+![Home page](assets/images/home_page1.png)
 
 ### Product Page
 

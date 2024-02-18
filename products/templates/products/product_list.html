@@ -135,9 +135,12 @@
                 <!-- End of rating -->
                 {% if product.quantity_remaining > 0 %}
                 {% if user.is_authenticated %}
-                <a href="javascript:void(0);" class="btn ls-btn rounded text-uppercase my-3 shadow add-to-cart" data-product-id="{{ product.id }}">
-                    <i class="fas fa-cart-plus"></i> Add to Cart
-                </a>
+<div class="product-actions">
+    <a href="javascript:void(0);" class="btn ls-btn rounded text-uppercase my-3 shadow add-to-cart" data-product-id="{{ product.id }}">
+        <i class="fas fa-cart-plus"></i> Add to Cart
+    </a>
+    <div class="add-to-cart-success-message"></div> <!-- Placeholder for the success message -->
+</div>
                 {% endif %}
                 {% else %}
                 <button class="btn btn-secondary" disabled>Sold Out</button>
@@ -153,7 +156,7 @@
     <button id="showMoreBtn" class="btn ls-btn rounded text-uppercase my-3 p-3">Show More</button>
     <div class="additional-products row row-cols-1 row-cols-md-3 g-4" style="display: none;">
         {% for product in valentine_specials|slice:"3:" %}
-        <div class="product col mb-3}">
+        <div class="product col mb-3">
             <div class="card h-100">
             <img src="{{ product.image.url }}" class="card-img-top" alt="{{ product.name }}">
             <div class="card-body">
@@ -194,19 +197,24 @@
                         {% endif %}
                     </span>
                 </div>
+                <button type="button" class="btn btn-border rounded text-uppercase my-3 shadow" data-bs-toggle="modal" data-bs-target="#productInfoModal" data-product-id="{{ product.id }}">
+                    <i class="fas fa-info-circle"></i> Info
+                </button>
                 <!-- End of rating -->
                 {% if product.quantity_remaining > 0 %}
                 {% if user.is_authenticated %}
-                <a href="javascript:void(0);" class="btn ls-btn rounded text-uppercase my-3 shadow add-to-cart" data-product-id="{{ product.id }}">
-                    <i class="fas fa-cart-plus"></i> Add to Cart
-                </a>
+                <div class="product-actions">
+                    <a href="javascript:void(0);" class="btn ls-btn rounded text-uppercase my-3 shadow add-to-cart" data-product-id="{{ product.id }}">
+                        <i class="fas fa-cart-plus"></i> Add to Cart
+                    </a>
+                    <div class="add-to-cart-success-message"></div> <!-- Placeholder for the success message -->
+                </div>
+                
                 {% endif %}
                 {% else %}
                 <button class="btn btn-secondary" disabled>Sold Out</button>
                 {% endif %}
-                <button type="button" class="btn btn-border rounded text-uppercase my-3 shadow" data-bs-toggle="modal" data-bs-target="#productInfoModal" data-product-id="{{ product.id }}">
-                    <i class="fas fa-info-circle"></i> Info
-                </button>
+
             </div>
             </div>
         </div>
@@ -378,26 +386,34 @@
 
 
             var productInfoButtons = document.querySelectorAll('.btn-info');
-            productInfoButtons.forEach(function(button) {
-                button.onclick = showProductInfo;
-            });
+    productInfoButtons.forEach(function(button) {
+        button.addEventListener('click', function(event) {
+            event.preventDefault(); // Prevent the default action
+            var productId = button.dataset.productId; // Get the product ID from the data attribute
 
-            function showProductInfo(event) {
-                var button = event.target;
-                var productId = button.getAttribute('data-product-id');
-                fetch(`{% url 'products:product_detail' 0 %}`.replace('0', productId))
+            // Make an AJAX request to the product_detail view
+            fetch(`/products/product-detail/${productId}/`)
                 .then(response => response.json())
                 .then(data => {
-                    var modalTitle = productInfoModal.querySelector('.modal-title');
-                    var modalBody = productInfoModal.querySelector('.modal-body');
+                    // If the request was successful, populate the modal with the product data
+                    var modalTitle = document.querySelector('#productInfoModal .modal-title');
+                    var modalBody = document.querySelector('#productInfoModal .modal-body');
+
                     modalTitle.textContent = data.name;
                     modalBody.innerHTML = `
                         <p>Price: £${data.price}</p>
                         <p>Description: ${data.description}</p>
                         <p>Rating: ${data.rating}</p>
                     `;
+
+                    // Show the modal
+                    new bootstrap.Modal(document.getElementById('productInfoModal')).show();
+                })
+                .catch(error => {
+                    console.error('Error:', error);
                 });
-            }
+        });
+    });
 
             document.getElementById('showMoreBtn').addEventListener('click', function() {
                 var additionalProducts = document.querySelector('.additional-products');
@@ -412,52 +428,82 @@
         });
     </script>
  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        // Listen for clicks on the container that holds the products
-        document.querySelector('.container').addEventListener('click', function(e) {
-            // Check if the clicked element is an "Add to Cart" button
-            if (e.target && e.target.matches('.add-to-cart')) {
-                e.preventDefault(); // Prevent the default link behavior
-                var productId = e.target.dataset.productId; // Get the product ID from the data attribute
-                addToCart(productId); // Call the addToCart function
-            }
-        });
-    
-        // Function to handle adding a product to the cart
-        function addToCart(productId) {
-            if (productId) {
-                var addToCartUrl = `/products/add-to-cart/${productId}/`; // Construct the add-to-cart URL
-                // Perform the fetch request
-                fetch(addToCartUrl, {
-                    method: 'POST',
-                    headers: {
-                        'X-CSRFToken': document.querySelector('input[name="csrfmiddlewaretoken"]').value, // Include the CSRF token
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({ 'product_id': productId }) // Send the product ID in the request body
-                })
-                .then(response => response.json())
-                .then(data => {
-                    // Update the cart item count display
-                    document.getElementById('cart-icon-count').textContent = data.cartItemsCount;
-                    // Display success message
-                    var successMessage = document.getElementById('success-message');
-                    successMessage.textContent = 'Item added to cart successfully';
-                    successMessage.style.display = 'block';
-                    // Hide success message after 5 seconds
-                    setTimeout(function() {
-                        successMessage.style.display = 'none';
-                    }, 5000);
-                })
-                .catch(error => {
-                    // Log any errors to the console
-                    console.error('Error:', error);
-                });
-            } else {
-                // Log an error if the product ID is not available
-                console.error('Product ID is not available for adding to cart.');
-            }
+ document.addEventListener('DOMContentLoaded', function() {
+    document.querySelector('.container').addEventListener('click', function(e) {
+        if (e.target && e.target.matches('.add-to-cart')) {
+            e.preventDefault();
+            var productId = e.target.dataset.productId;
+            addToCart(productId, e.target);
         }
     });
-    </script>
+
+    function addToCart(productId, button) {
+        if (productId) {
+            var addToCartUrl = `/products/add-to-cart/${productId}/`;
+            fetch(addToCartUrl, {
+                method: 'POST',
+                headers: {
+                    'X-CSRFToken': document.querySelector('input[name="csrfmiddlewaretoken"]').value,
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ 'product_id': productId })
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('cart-icon-count').textContent = data.cartItemsCount;
+                showSuccessMessage(button, 'Item added to cart successfully'); // Show the success message near the clicked button
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        }
+    }
+
+    function showSuccessMessage(button, message) {
+        var messageDiv = button.nextElementSibling; // Assumes the message div is the next sibling of the button
+        messageDiv.textContent = message;
+        messageDiv.classList.add('success-message'); // Add a class for styling the message
+        messageDiv.style.display = 'block'; // Make the message visible
+
+        // Hide the message after 5 seconds
+        setTimeout(function() {
+            messageDiv.style.display = 'none';
+        }, 5000);
+    }
+});
+</script>
+<Script> 
+    document.addEventListener('DOMContentLoaded', function() {
+        // Binding for dynamic product info buttons
+        document.querySelector('.container').addEventListener('click', function(e) {
+            // Check if the clicked element is an info button
+            if (e.target && e.target.matches('button.btn-info')) {
+                var productId = e.target.dataset.productId; // Get the product ID from the data attribute
+    
+                // Make an AJAX request to the product_detail view
+                fetch(`/products/product-detail/${productId}/`)
+                    .then(response => response.json())
+                    .then(data => {
+                        // If the request was successful, populate the modal with the product data
+                        var modalTitle = document.querySelector('#productInfoModal .modal-title');
+                        var modalBody = document.querySelector('#productInfoModal .modal-body');
+    
+                        modalTitle.textContent = data.name;
+                        modalBody.innerHTML = `
+                            <p>Price: £${data.price}</p>
+                            <p>Description: ${data.description}</p>
+                            <p>Rating: ${data.rating}</p>
+                        `;
+    
+                        // Show the modal using Bootstrap's modal method
+                        var productInfoModal = new bootstrap.Modal(document.getElementById('productInfoModal'));
+                        productInfoModal.show();
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                    });
+            }
+        });
+    });
+    </Script>
 {% endblock %}

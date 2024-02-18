@@ -8,11 +8,29 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect, get_object_or_404
 from django.views.decorators.http import require_POST
 from .models import Product, Cart, CartItem
+from django.contrib import messages
+from django.db.models import F, ExpressionWrapper, DecimalField
+
+# Call this function at the beginning of the product_list view or as a scheduled job
+def apply_valentines_discount():
+    # Reset any previous Valentine's discounts to avoid compounding
+    Product.objects.update(is_valentines_special=False, discounted_price=F('price'))
+
+    # Filter all jewelry and teddy bears
+    valentine_products = Product.objects.filter(
+        Q(category='jewellery') | Q(name__icontains='teddy bear'), 
+        quantity_remaining__gt=0
+    )
+
+    # Apply a 50% discount to these products and mark them as Valentine's specials
+    valentine_products.update(
+        discounted_price=ExpressionWrapper(F('price') * 0.5, output_field=DecimalField()),
+        is_valentines_special=True
+    )
 def product_list(request):
     query = request.GET.get('query', '')
     category = request.GET.get('category', '')
     sort = request.GET.get('sort', '')
-    
     products = Product.objects.all()
 
     if query:
@@ -29,8 +47,11 @@ def product_list(request):
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
 
+    # Inside your product_list view
+    valentine_specials = Product.objects.filter(is_valentines_special=True)
     return render(request, 'products/product_list.html', {
         'products': page_obj,
+        'valentine_specials': valentine_specials,
         'CATEGORY_CHOICES': CATEGORY_CHOICES
     })
 
@@ -53,7 +74,20 @@ def add_to_cart(request, product_id):
 @login_required
 def view_cart(request):
     cart, created = Cart.objects.get_or_create(user=request.user)
-    return render(request, 'cart/view_cart.html', {'cart': cart})
+    items_with_prices = [
+        {
+            'name': item.product.name,
+            'quantity': item.quantity,
+            'price': item.product.discounted_price if item.product.is_valentines_special else item.product.price,
+            'total': item.total_price,
+        }
+        for item in cart.items.all()
+    ]
+    total_price = sum(item['total'] for item in items_with_prices)
+    return render(request, 'cart/view_cart.html', {
+        'items_with_prices': items_with_prices,
+        'total_price': total_price,
+    })
 
 # views.py
 @login_required
@@ -117,8 +151,14 @@ def load_view_cart(request):
     cart = Cart.objects.get(user=request.user)
     return render(request, 'products/view_cart_content.html', {'cart': cart})
 
+@login_required
 def checkout(request):
-    # Your checkout logic here
+    cart = Cart.objects.get(user=request.user)
+    for item in cart.items.all():
+        if item.product.quantity_remaining < item.quantity:
+            messages.error(request, f"You must remove {item.product.name} because there is only {item.product.quantity_remaining} left in stock. Please update your cart.")
+            return redirect('view_cart')
+    # Proceed with checkout logic if all items are in stock
     return render(request, 'checkout.html')
 
 def product_detail(request, product_id):

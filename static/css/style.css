@@ -51,7 +51,7 @@ body {
     visibility: hidden;
     position: absolute;
     top: 0;
-    animation: 4s autoplay infinite;
+    animation: 6s autoplay infinite;
 }
 
 
@@ -61,7 +61,7 @@ body {
 
 
 .baner-anim .anim:nth-child(2) {
-    animation-delay: 2s;
+    animation-delay: 3s;
 }
 
 .pink-bg {
@@ -91,3 +91,28 @@ body {
     color: #d51857;
 }
 
+
+/* Login page form */
+
+#id_username {
+    border: 2px solid #000;
+    border-radius: 0.375rem;
+    padding: 0.5rem 0.5rem;
+
+}
+
+#id_username:focus {
+    border: 2px solid #d51857;
+    outline: 0;
+}
+
+#id_password {
+    border: 2px solid #000;
+    border-radius: 0.375rem;
+    padding: 0.5rem 0.5rem;
+}
+
+#id_password:focus {
+    border: 2px solid #d51857;
+    outline: 0;
+}

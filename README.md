@@ -79,6 +79,12 @@ The Project Board facilitated a comprehensive overview of the project, breaking 
 
 ### A live demo to the website can be found [here](https://loveshop-037a9f640521.herokuapp.com/)
 
+## UX
+
+In the initial design phase of Love Shop, we utilized Figma to create a comprehensive wireframe, providing a visual blueprint for the e-commerce platform. Figma's collaborative features facilitated real-time teamwork, ensuring a cohesive visualization of the user interface. The wireframe outlines essential elements, including navigation menus and product displays, guiding a seamless and intuitive user experience.
+
+[Wireframe](https://www.figma.com/file/wKzMN7lJ3J6kuoPx5ZbyCn/Wireframe?type=design&node-id=0-1&mode=design&t=vupIF9MRZJLTBluZ-0)
+
 ## User stories
 
 The integration of user stories derived from our wireframe designs on the Project Board has been instrumental. It provided a clear linkage between design concepts and functional requirements, ensuring that the development team was aligned with the envisioned user experience. This connection between design and implementation has been crucial in delivering a product that not only meets technical specifications but also aligns seamlessly with the intended user journey.

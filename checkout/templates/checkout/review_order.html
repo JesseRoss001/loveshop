@@ -1,16 +1,36 @@
 {% extends "base.html" %}
+{% load static %}
+{% block extra_css %}
+<link href="{% static 'checkout/css/style.css' %}" rel="stylesheet">
+{% endblock extra_css %}
 
 {% block content %}
 <div class="container">
-    <h2>Review Your Order</h2>
-    <ul>
-        {% for item in cart_items %}
-        <li>
-            {{ item.product.name }} - £{{ item.product.price }} x {{ item.quantity }} = £{{ item.total_price }}
-        </li>
-        {% endfor %}
-    </ul>
-    <strong>Total: £{{ cart.total_price }}</strong>
-    <a href="{% url 'checkout:create_checkout_session' %}" class="btn btn-primary">Proceed to Payment</a>
+    <div class="row">
+        <div class="col-12 col-md-6 d-flex flex-column justify-content-evenly">
+            <h1 class="head-font ls-border py-3 my-3 text-center rounded">Review Your Order</h1>
+            <ul>
+                {% for item in cart_items %}
+                <li>
+                    <h4>{{ item.product.name }} - £{{ item.product.price }} x {{ item.quantity }} = £{{ item.total_price }}</h4>
+                </li>
+                {% endfor %}
+            </ul>
+            <div>
+                <h3>Total: £{{ cart.total_price }}</h3>
+                <a href="{% url 'checkout:create_checkout_session' %}" class="btn ls-btn rounded text-uppercase my-3 shadow">Proceed to Payment</a>
+                <a href="{% url 'products:index' %}" class="btn btn-border rounded text-uppercase my-3 shadow">Shop More</a>
+            </div>
+        </div>
+        <div class="col-12 col-md-6">
+            <!-- Container for the animation -->
+            <div id="lottie-container" class="lottie"></div>
+        </div>
+    </div>
 </div>
+{% endblock %}
+
+{% block postloadjs %}
+<!-- Home page animations -->
+<script src="{% static 'js/revieworder.js' %}"></script>
 {% endblock %}

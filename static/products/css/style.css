@@ -311,3 +311,71 @@ a:hover {
     font-style: italic;
     color: #444;
 }
+
+
+
+
+/* Product Info Modal Styles */
+.modal-content {
+    background-color: #fdfdfd; /* Light background for the modal */
+    border: 1px solid #D51857; /* Border color to match the theme */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5); /* Shadow for depth */
+}
+
+.modal-header,
+.modal-footer {
+    border-bottom: 1px solid #D51857; /* Consistent border color */
+    background-color: #f8f8f8; /* Slightly different background for header and footer */
+}
+
+.modal-title {
+    color: #333; /* Darker text for better readability */
+    font-size: 2rem; /* Slightly larger text for titles */
+}
+
+.modal-body {
+    line-height: 1.5; /* More readable line-height */
+    color: #555; /* Dark grey color for readability */
+}
+
+/* Close button specific style */
+.btn-close {
+    filter: invert(35%) sepia(25%) saturate(600%) hue-rotate(340deg) brightness(90%) contrast(88%);
+}
+
+/* Button styles in modal footer */
+.modal-footer .btn {
+    font-weight: bold; /* Make buttons text bold */
+    margin: 0 5px; /* Spacing between buttons */
+}
+
+/* Ensuring visibility of buttons on focus for accessibility */
+.modal-footer .btn:focus {
+    box-shadow: 0 0 0 3px rgba(213, 24, 87, 0.5); /* Glow effect for focus */
+}
+
+/* Info button inside modal */
+.modal-body .btn-info {
+    border-color: #D51857; /* Consistent with theme */
+    color: #D51857; /* Theme color for text */
+}
+
+.modal-body .btn-info:hover {
+    background-color: #D51857; /* Theme color for hover background */
+    color: #fff; /* White text on hover */
+}
+
+/* If you use additional help text inside the modal */
+.modal-body .help-text {
+    padding-top: 0.5rem; /* Spacing above help text */
+    font-size: 1.5rem; /* Smaller font size for secondary text */
+    color: #666; /* Lighter text for help text */
+}
+
+/* Responsive adjustments for modal content */
+@media (max-width: 768px) {
+    .modal-dialog {
+        width: 90%; /* Make modal narrower on smaller screens */
+        margin: 30px auto; /* Center modal with margin */
+    }
+}

@@ -9,21 +9,20 @@
 <div class="container mt-4">
     <h2 class="text-center my-4">Valentine's Day Gifts</h2>
     <div class="d-flex align-items-center mb-1 justify-content-center">
-        <a href="#" class="btn btn-border rounded text-uppercase my-3 p-3" data-bs-toggle="modal" data-bs-target="#cartModal">
+        <a href="#" class="btn btn-border rounded text-uppercase my-3 p-3" data-bs-toggle="modal" data-bs-target="#cartModal" aria-label="View cart">
             <i class="fas fa-shopping-cart"></i> Cart <span class="badge ls-bg rounded-pill center" id="cart-icon-count">0</span>
         </a>
         <div id="success-message" class="alert alert-success" style="display: none;"></div>
     </div>
     <p class="text-center mb-4">Browse our comprehensive list of Valentine's Day gifts and find the perfect present for your loved one.</p>
 
-
-<!-- Product Info Modal -->
-<div class="modal fade" id="productInfoModal" tabindex="-1" aria-labelledby="productInfoModalLabel" aria-hidden="true">
+ <!-- Product Info Modal -->
+ <div class="modal fade" id="productInfoModal" tabindex="-1" aria-labelledby="productInfoModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="productInfoModalLabel">Product Information</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <button type="button" class="btn-close d-none" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
                 <!-- Product info will be loaded here dynamically -->
@@ -43,11 +42,8 @@
                 <!-- The view_cart content will be loaded here -->
             </div>
             <div class="modal-footer">
-
                 <button type="button" class="btn ls-btn rounded text-uppercase my-3 shadow" data-bs-dismiss="modal">Continue Shopping <i class="fa-solid fa-basket-shopping"></i></button>
-                
                 <a href="{% url 'checkout:checkout' %}" class="btn btn-border rounded text-uppercase my-3 shadow">Go to Checkout <i class="fa-regular fa-credit-card"></i></a>
-
             </div>
         </div>
     </div>
@@ -203,46 +199,51 @@
 {% endif %}
 
     <!-- Products Grid -->
-    <div class="">
-        <h3 class="text-center text-danger mt-5"><i class="fas fa-heart"></i> Shop our other products <i class="fas fa-heart"></i></h3>
-        <p class="text-center fst-italic mb-4">Explore our exquisite selection of perfect Valentine's products, curated for your special moments. Indulge in the richness of choices that capture the essence of love and celebration.</p>
-    </div>
-       <!-- Search and Filter Form -->
-       <form method="get" action="" class="mb-4">
-        <div class="row g-3 justify-content-center">
-            <div class="col-md-3">
-                <input type="text" name="query" class="form-control" placeholder="Search products..." value="{{ request.GET.query }}">
-            </div>
-            <div class="col-md-3">
-                <select name="category" class="form-control">
-                    <option value="">All Categories</option>
-                    {% for category, category_display in CATEGORY_CHOICES %}
-                    <option value="{{ category }}" {% if request.GET.category == category %}selected{% endif %}>{{ category_display }}</option>
-                    {% endfor %}
-                </select>
-            </div>
-            <div class="col-md-3">
-                <select name="sort" class="form-control">
-                    <option value="price_asc" {% if request.GET.sort == 'price_asc' %}selected{% endif %}>Price (Low to High)</option>
-                    <option value="price_desc" {% if request.GET.sort == 'price_desc' %}selected{% endif %}>Price (High to Low)</option>
-                </select>
-            </div>
-            <div class="col-md-auto">
-                <button type="submit" class="btn btn-border rounded text-uppercase">Filter</button>
-            </div>
+<!-- Products Grid -->
+<section>
+    <h3 class="text-center text-danger mt-5"><i class="fas fa-heart"></i> Shop our other products <i class="fas fa-heart"></i></h3>
+    <p class="text-center fst-italic mb-4">Explore our exquisite selection of perfect Valentine's products, curated for your special moments. Indulge in the richness of choices that capture the essence of love and celebration.</p>
+</section>
+
+<!-- Search and Filter Form -->
+<form method="get" action="" class="mb-4" aria-label="Product filter">
+    <div class="row g-3 justify-content-center">
+        <div class="col-md-3">
+            <label for="search-query" class="visually-hidden">Search products</label>
+            <input type="text" name="query" class="form-control" id="search-query" placeholder="Search products..." value="{{ request.GET.query }}" aria-describedby="searchHelp">
         </div>
-    </form>
-    <div class="row row-cols-1 row-cols-md-3 g-4"> 
-       
-        {% for product in products %}
-        <div class="col mb-3 {% if forloop.counter > 10 %}d-none d-sm-block{% endif %} {% if forloop.counter > 12 %}d-md-none{% endif %} {% if forloop.counter > 16 %}d-lg-none{% endif %}">
-            <div class="card h-100 {% if product.quantity_remaining <= 0 %}out-of-stock{% endif %}">
-                <img src="{{ product.image.url }}" class="card-img-top w-100 " alt="{{ product.name }}">
-                <div class="card-body">
-                    <h5 class="card-title">{{ product.name }}</h5>
-                    <p class="card-text">£{{ product.price }}</p>
-                    <!-- Product Rating -->
-                    <div class="rating-div text-danger pe-0">
+        <div class="col-md-3">
+            <label for="category-select" class="visually-hidden">Select category</label>
+            <select name="category" class="form-control" id="category-select">
+                <option value="">All Categories</option>
+                {% for category, category_display in CATEGORY_CHOICES %}
+                <option value="{{ category }}" {% if request.GET.category == category %}selected{% endif %}>{{ category_display }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="col-md-3">
+            <label for="sort-select" class="visually-hidden">Sort products</label>
+            <select name="sort" class="form-control" id="sort-select">
+                <option value="price_asc" {% if request.GET.sort == 'price_asc' %}selected{% endif %}>Price (Low to High)</option>
+                <option value="price_desc" {% if request.GET.sort == 'price_desc' %}selected{% endif %}>Price (High to Low)</option>
+            </select>
+        </div>
+        <div class="col-md-auto">
+            <button type="submit" class="btn btn-border rounded text-uppercase">Filter</button>
+        </div>
+    </div>
+</form>
+ <!-- Product Cards Grid -->
+<div class="row row-cols-1 row-cols-md-3 g-4" aria-live="polite">
+    {% for product in products %}
+    <article class="col mb-3 {% if forloop.counter > 10 %}d-none d-sm-block{% endif %} {% if forloop.counter > 12 %}d-md-none{% endif %} {% if forloop.counter > 16 %}d-lg-none{% endif %}">
+        <div class="card h-100 {% if product.quantity_remaining <= 0 %}out-of-stock{% endif %}">
+            <img src="{{ product.image.url }}" class="card-img-top w-100" alt="{{ product.name }}">
+            <div class="card-body">
+                <h5 class="card-title">{{ product.name }}</h5>
+                <p class="card-text">£{{ product.price }}</p>
+                <!-- Product Rating -->
+                <div class="rating-div text-danger pe-0">
                         <span class="fa-stack fa-lg">
                             <i class="far fa-heart fa-stack-1x"></i>
                             {% if product.rating >= 1 %}
@@ -289,7 +290,7 @@
                     </button>
                 </div>
             </div>
-        </div>
+        </article>
         {% endfor %}
     </div>
 

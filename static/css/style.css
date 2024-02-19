@@ -20,6 +20,68 @@ body {
     padding: 30px 38px 35px;
 }
 
+    /* Add your 3D effect CSS here */
+    header {
+        /* Create 3D effect for the header */
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transform: translateY(-4px);
+        transition: transform 0.3s ease-in-out;
+      }
+  
+      header:hover {
+        transform: translateY(0);
+      }
+  
+      .navbar-nav .nav-link.active,
+      .navbar-nav .nav-link:hover {
+        border: 2px solid #f06;
+        color: #000;
+        border-radius: 4px;
+        transition: background-color 0.3s;
+      }
+  
+      /* Ensure the active class has a background color */
+      .navbar .nav-link.active {
+        border: 2px solid #f06;
+        color: #000;
+      }
+  
+      .navbar-nav .nav-link {
+        /* Non-active page styles */
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        /* Adjust gap size as needed */
+      }
+  
+      .navbar {
+        padding: 0.5rem 1rem;
+      }
+  
+      .navbar-brand svg {
+        height: 40px;
+        /* Adjust size as needed */
+        margin-right: 0.5rem;
+      }
+  
+      .navbar-nav .nav-link.active {
+        border: 2px solid #f06;
+        color: #000;
+        border-radius: 4px;
+      }
+  
+      .navbar-nav .nav-link {
+        transition: color 0.3s, background-color 0.3s;
+      }
+  
+      .navbar-nav .nav-link:hover {
+        color: #000;
+        border: 2px solid #f06;
+      }
+  
+  
+  
+      /* Cart icon styles */
 
 /* -------------- Loveshop button */
 .ls-btn {

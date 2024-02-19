@@ -240,3 +240,74 @@ a:hover {
 .fa-stack:first-child {
     margin-left: -10px;
 }
+
+/* Cart and Items Responsiveness */
+.responsive-cart .responsive-item {
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+    border-radius: 5px;
+    background-color: #f9f9f9; /* Light background for each item */
+}
+
+.item-quantity, .item-total {
+    font-weight: bold;
+}
+
+.quantity-modify {
+    margin: 0 5px; /* Spacing around quantity buttons */
+}
+
+/* Accessibility Improvements */
+.quantity-modify:focus, .remove-from-cart:focus {
+    outline: 2px solid #005aab; /* High contrast outline for better focus visibility */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .responsive-cart {
+        padding: 0 1rem; /* Adjust padding for smaller screens */
+    }
+
+    .responsive-item {
+        flex-direction: column; /* Stack items vertically on small screens */
+    }
+}
+
+/* Border around each cart item */
+.cart-item {
+    border: 1px solid #ccc;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    border-radius: 4px; /* Optional: for rounded corners */
+    background-color: #fff; /* White background for contrast */
+}
+
+/* Improving quantity button visibility */
+.update-cart {
+    padding: .375rem .75rem; /* Increase padding for a larger hit area */
+    margin: 0 5px; /* Spacing between quantity buttons and number */
+    font-weight: bold; /* Making the '+' and '-' stand out */
+}
+
+/* Help text styling */
+.help-text {
+    font-size: 0.875rem;
+    margin-top: 0.5rem;
+    color: #666;
+    display: block; /* or inline-block, depending on desired layout */
+}
+
+/* Additional information at the bottom of the cart */
+.cart-additional-info {
+    font-size: 0.875rem;
+    color: #666;
+    margin-top: 1rem; /* Space from the last item */
+    padding-top: 0.5rem;
+    border-top: 1px solid #ccc; /* Visual separation from items */
+}
+
+/* Styling for official details like tax and discounts */
+.official-details {
+    font-style: italic;
+    color: #444;
+}

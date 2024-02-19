@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Parisienne&display=swap');
 body {
     font-family: 'Cormorant Garamond', 'sans-serif';
-    background-color:  #fafafa;
+    background-color: #fafaFA;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
@@ -18,7 +18,7 @@ body {
 /* -------------- Loveshop button */
 .ls-btn {
     background: #D51857;
-    color:  #fafafa;
+    color: #fff;
     letter-spacing: 1px;
 }
 .ls-btn:hover,
@@ -114,7 +114,7 @@ h2 {
 }
 .btn-border:hover {
     background: #D51857;
-    color:  #fafafa;
+    color: #fff;
     letter-spacing: 1px;
 }
 .ls-bg {
@@ -154,7 +154,7 @@ a:hover {
 }
 .pagination .page-link:hover {
     background-color: #D51857;
-    color:  #fafafa;
+    color: #fff;
 }
 .card-img-top {
     width: 100%;
@@ -279,7 +279,7 @@ a:hover {
     margin-bottom: 1rem;
     padding: 1rem;
     border-radius: 4px; /* Optional: for rounded corners */
-    background-color:  #fafafa; /* White background for contrast */
+    background-color: #fff; /* White background for contrast */
 }
 
 /* Improving quantity button visibility */
@@ -362,7 +362,7 @@ a:hover {
 
 .modal-body .btn-info:hover {
     background-color: #D51857; /* Theme color for hover background */
-    color:  #fafafa; /* White text on hover */
+    color: #fff; /* White text on hover */
 }
 
 /* If you use additional help text inside the modal */

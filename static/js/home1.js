@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const heroSection = document.querySelector('.hero');
     if (heroSection) {
       // Reduce the number of hearts and introduce a delay
-      for (let i = 0; i < 2; i++) {
+      for (let i = 0; i < 6; i++) {
         let heart = document.createElement('i');
         let delay = Math.random() * 5; // Delay up to 5 seconds
         heart.classList.add('fas', 'fa-heart', 'falling-heart');

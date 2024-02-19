@@ -5,6 +5,11 @@ body, h2, .card-title, .card-text, .btn {
     font-family: 'Cormorant Garamond', serif;
 }
 
+.lottie {
+    height: 500px;
+}
+
+
 .form-border {
     border: 2px solid #000;
 }

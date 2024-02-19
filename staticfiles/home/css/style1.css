@@ -1,0 +1,57 @@
+/* Base styles */
+body {
+    font-family: 'Cormorant Garamond', sans-serif;
+    background-color: #fafafa;
+}
+
+  /* Custom styles for the testimonials cards */
+  .testimonial-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    border: 1px solid #dee2e6; /* Bootstrap's card border color */
+    border-radius: 0.25rem;
+    overflow: hidden;
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.15); /* Bootstrap's card shadow */
+}
+
+.testimonial-card img {
+    width: 100%; /* Make image fill the card */
+    height: 200px; /* Fixed height for all images */
+    object-fit: cover; /* Ensures the image covers the area, might crop */
+}
+
+.testimonial-card-body {
+    flex-grow: 1; /* Make card body fill the remaining space */
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    padding: 1rem; /* Bootstrap's card padding */
+}
+
+.testimonial-text {
+    margin-bottom: 0.5rem; /* Space between text and author */
+}
+
+.testimonial-author {
+    font-weight: bold;
+    color: #D51857;
+}
+
+
+.falling-heart {
+    position: fixed;
+    top: -2em;
+    color: red;
+    font-size: 2em;
+    animation-name: fall;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+  }
+
+  @keyframes fall {
+    to {
+      transform: translateY(100vh);
+    }
+  }

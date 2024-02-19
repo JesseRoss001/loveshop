@@ -1,31 +1,103 @@
 {% extends "base.html" %}
 {% load static %}
-
+{% block extra_css %}
+<link href="{% static 'home/css/style1.css' %}" rel="stylesheet">
+{% endblock extra_css %}
 {% block content %}
-<div class="container">
-    <div class="row">
-        <div class="col-12 col-md-6 d-flex flex-column justify-content-end p-0 my-3">
-            <h1 class="head-font my-3">Find the perfect Valentine's Day gifts</h1>
-            <h4 class="my-3 fst-italic ls-border">Welcome to "Be Mine Boutique," where love finds its perfect expression! Dive into a world of
-                romance with our curated Valentine's Day collection. From exquisite bouquets to elegant jewelry, find
-                the perfect token of affection for your special someone. Explore personalized options, heartwarming
-                cards, and delightful treats to make every moment memorable. Be Mine Boutique — celebrate love effortlessly! Shop
-                now and let us be your cupid in creating extraordinary moments.
-            </h4>
-            <h4>
-                <a href="{% url 'products:index' %}" class="btn ls-btn rounded text-uppercase my-3 p-3">Shop
-                    Now <i class="fa-solid fa-arrow-right"></i></a>
-            </h4>
-        </div>
-        <div class="col-12 col-md-6 hero">
-            <!-- Container for the animation -->
-            <div id="lottie-container" class="lottie"></div>
+
+<!-- Hero Section -->
+<section class="hero-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-md-6 d-flex flex-column justify-content-end p-0 my-3">
+                <h1 class="head-font my-3">Find the perfect Valentine's Day gifts</h1>
+                <h4 class="my-3 fst-italic ls-border">Welcome to "Be Mine Boutique," where love finds its perfect expression! Dive into a world of
+                    romance with our curated Valentine's Day collection. From exquisite bouquets to elegant jewelry, find
+                    the perfect token of affection for your special someone. Explore personalized options, heartwarming
+                    cards, and delightful treats to make every moment memorable. Be Mine Boutique — celebrate love effortlessly! Shop
+                    now and let us be your cupid in creating extraordinary moments.
+                </h4>
+                <h4>
+                    <a href="{% url 'products:index' %}" class="btn ls-btn rounded text-uppercase my-3 p-3">Shop
+                        Now <i class="fa-solid fa-arrow-right"></i></a>
+                </h4>
+            </div>
+            <div class="col-12 col-md-6 hero">
+                <!-- Container for the animation -->
+                <div id="lottie-container" class="lottie"></div>
+            </div>
         </div>
     </div>
-</div>
+</section>
+
+<!-- About Us Section -->
+<section class="about-section my-5 pt-4">
+    <div class="container ">
+        <div class="row">
+            <div class="col-md-6 d-flex flex-column justify-content-center p-0 my-3 ">
+                <h2 class="head-font my-3 ">About Be Mine Boutique</h2>
+                <p class="fst-italic  ">At Be Mine Boutique, we believe every love story is unique. Our carefully curated collection of Valentine's Day gifts is designed to help you express your love in the most special way.</p>
+                <h4><a href="{% url 'about' %}" class="btn ls-btn rounded text-uppercase  my-3 p-3">Learn More</a>  </h4>
+            </div>
+            <div class="col-md-6 about-image">
+                <img src="{% static 'images/aboutus.png' %}" alt="About Us" class="img-fluid">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Testimonials Section -->
+<section class="testimonials py-5 bg-light">
+    <div class="container">
+        <h2 class="text-center mb-4">What Our Customers Say</h2>
+        <div class="row">
+            <!-- Testimonial 1 -->
+            <div class="col-md-6 col-lg-3 mb-4">
+                <div class="card testimonial-card">
+                    <img src="{% static 'images/review1.png' %}" class="card-img-top" alt="Customer Testimonial">
+                    <div class="card-body testimonial-card-body">
+                        <p class="testimonial-text">"This is the best service I've ever experienced. My Valentine was so touched by the gift!"</p>
+                        <p class="testimonial-author">— Jordan P.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Testimonial 2 -->
+            <div class="col-md-6 col-lg-3 mb-4">
+                <div class="card testimonial-card">
+                    <img src="{% static 'images/review2.png' %}" class="card-img-top" alt="Customer Testimonial">
+                    <div class="card-body testimonial-card-body">
+                        <p class="testimonial-text">"Every year I find something unique and beautiful for my partner. Thank you for the incredible selection!"</p>
+                        <p class="testimonial-author">— Alex T.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Testimonial 3 -->
+            <div class="col-md-6 col-lg-3 mb-4">
+                <div class="card testimonial-card">
+                    <img src="{% static 'images/review3.png' %}" class="card-img-top" alt="Customer Testimonial">
+                    <div class="card-body testimonial-card-body">
+                        <p class="testimonial-text">"The attention to detail in the packaging made the unboxing a special moment in itself."</p>
+                        <p class="testimonial-author">— Samantha R.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Testimonial 4 -->
+            <div class="col-md-6 col-lg-3 mb-4">
+                <div class="card testimonial-card">
+                    <img src="{% static 'images/review4.png' %}" class="card-img-top" alt="Customer Testimonial">
+                    <div class="card-body testimonial-card-body">
+                        <p class="testimonial-text">"I'm amazed by the quality and care put into every product. It's my go-to boutique for Valentine's Day."</p>
+                        <p class="testimonial-author">— Emily C.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 {% endblock %}
 
 {% block postloadjs %}
 <!-- Home page animations -->
 <script src="{% static 'js/home.js' %}"></script>
+<script src="{% static 'js/home1.js' %}"></script>
 {% endblock %}

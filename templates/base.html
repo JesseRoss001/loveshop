@@ -19,13 +19,13 @@
 
 <body>
 
-  <header>
+  <header role="banner">
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" role="navigation">
       <div class="container-fluid justify-content-center">
-        <a class="navbar-brand d-flex d-lg-none align-items-center" href="{% url 'home' %}">
+        <a class="navbar-brand d-flex d-lg-none align-items-center" href="{% url 'home' %}" aria-label="Be Mine Boutique Home" >
           <!-- SVG logo added here -->
-          <img src="{% static 'images/logo2.svg' %}" alt="LoveShop Logo" style="height: 40px; margin-right: 8px;">
+          <img src="{% static 'images/logo2.svg' %}" alt="LoveShop Logo"   alt="Be Mine Boutique Logo" height="40">
 
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
@@ -83,14 +83,16 @@
       </div>
     </nav>
     <!-- Banner -->
+    <section aria-label="Promotions">
       <div class="row text-center baner-anim pink-bg text-white">
         <div class="anim">
           <p class="text-uppercase my-2 ms-0">Order by 4PM for next day delivery</p>
         </div>
         <div class="anim">
-          <p class="text-uppercase my-2">Free UK only delivery</p>
+          <p class="text-uppercase my-2"> UK only delivery</p>
         </div>
       </div>
+    </section>
   </header>
 
   <main class="container mt-4">

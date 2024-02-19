@@ -1,6 +1,8 @@
 {% extends "base.html" %}
 {% load static %}
-
+{% block extra_css %}
+<link href="{% static 'home/css/style1.css' %}" rel="stylesheet">
+{% endblock extra_css %}
 {% block content %}
 <div class="container">
     <div class="row">
@@ -28,4 +30,5 @@
 {% block postloadjs %}
 <!-- Home page animations -->
 <script src="{% static 'js/home.js' %}"></script>
+<script src="{% static 'js/home1.js' %}"></script>
 {% endblock %}

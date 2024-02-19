@@ -1,0 +1,16 @@
+.falling-heart {
+    position: fixed;
+    top: -2em;
+    color: red;
+    font-size: 2em;
+    animation-name: fall;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+  }
+
+  @keyframes fall {
+    to {
+      transform: translateY(100vh);
+    }
+  }
